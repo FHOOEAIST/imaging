@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2021 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+package science.aist.imaging.service.opencv.imageprocessing.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import org.opencv.imgproc.Imgproc;
+import science.aist.imaging.service.opencv.imageprocessing.distance.OpenCVDistanceMap;
+
+/**
+ * <p>Label Type for {@link OpenCVDistanceMap}</p>
+ * <p>OpenCV: Type of the label array to build. If labelType==DIST_LABEL_CCOMP then each connected component of zeros in src
+ * (as well as all the non-zero pixels closest to the connected component) will be assigned the same label. If labelType==DIST_LABEL_PIXEL
+ * then each zero pixel (and all the non-zero pixels closest to it) gets its own label.</p>
+ * <p><a href="https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html">https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html</a></p>
+ *
+ * @author Andreas Pointner
+ * @since 1.0
+ */
+@Getter
+@AllArgsConstructor
+public enum OpenCVDistanceLabel {
+    /**
+     * CV_DIST_LABEL_CCOMP
+     */
+    CCOMP(Imgproc.CV_DIST_LABEL_CCOMP),
+    /**
+     * CV_DIST_LABEL_PIXEL
+     */
+    PIXEL(Imgproc.CV_DIST_LABEL_PIXEL);
+
+    /**
+     * OpenCV label Type
+     */
+    private final int label;
+}
