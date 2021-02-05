@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"science.aist.imaging.service.microsoftcognitiveservices","c":"FaceTest","l":"FaceTest()","url":"%3Cinit%3E()"}]

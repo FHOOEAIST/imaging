@@ -1,0 +1,9 @@
+science.aist.imaging.api.compare
+science.aist.imaging.api.domain
+science.aist.imaging.api.domain.color
+science.aist.imaging.api.domain.threedimensional
+science.aist.imaging.api.domain.twodimensional
+science.aist.imaging.api.domain.wrapper
+science.aist.imaging.api.domain.wrapper.implementation
+science.aist.imaging.api.typecheck
+science.aist.imaging.api.util

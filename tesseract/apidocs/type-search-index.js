@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.service.tesseract.imageprocessing.transformers","l":"ByteArrayJavaImageTransformer"},{"p":"science.aist.imaging.service.tesseract.domain","l":"OCRMode"},{"p":"science.aist.imaging.service.tesseract.imageprocessing.opticalcharacterrecognition.tesseract","l":"TesseractOCR"}]

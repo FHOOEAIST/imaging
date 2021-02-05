@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"science.aist.imaging.service.tesseract.imageprocessing.opticalcharacterrecognition.tesseract","c":"TesseractOCRTest","l":"TesseractOCRTest()","url":"%3Cinit%3E()"}]

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"science.aist.imaging.service.tesseract.domain"},{"l":"science.aist.imaging.service.tesseract.imageprocessing.opticalcharacterrecognition.tesseract"},{"l":"science.aist.imaging.service.tesseract.imageprocessing.transformers"}]
