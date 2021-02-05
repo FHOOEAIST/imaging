@@ -1,0 +1,25 @@
+<!--
+  ~ Copyright (c) 2021 the original author or authors.
+  ~ DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  -->
+
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+>
+    <part id="General">
+        <faq id="How to create a new image">
+            <question>How to create a new image?</question>
+            <answer>
+                <p>
+                    To create a new image you simple use a ImageFactory of the desired type and use one of the factory
+                    method to create the new image.
+                </p>
+            </answer>
+        </faq>
+    </part>
+</faqs>

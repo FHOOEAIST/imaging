@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2021 the original author or authors.
+  ~ DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  -->
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:microsoftcognitiveservices.properties"/>
+
+    <bean id="bufferedImageFactory" class="science.aist.imaging.api.domain.wrapper.implementation.BufferedImageFactory" factory-method="getInstance"/>
+    <bean id="imageFactory" class="science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory" factory-method="getInstance"/>
+
+    <bean id="genericImageWrapperTransformer" class="science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer">
+        <constructor-arg index="0" ref="imageFactory"/>
+        <constructor-arg index="1" ref="bufferedImageFactory"/>
+    </bean>
+
+    <bean id="byteArrayImage2ByteTransformer"
+          class="science.aist.imaging.service.microsoftcognitiveservices.transformers.ByteArrayImage2ByteTransformer">
+        <constructor-arg name="transformer" ref="genericImageWrapperTransformer"/>
+    </bean>
+    <bean id="faceDetection"
+          class="science.aist.imaging.service.microsoftcognitiveservices.MicrosoftCognitiveServiceFaceDetection">
+        <property name="byteArrayImage2ByteTransformer" ref="byteArrayImage2ByteTransformer"/>
+    </bean>
+</beans>

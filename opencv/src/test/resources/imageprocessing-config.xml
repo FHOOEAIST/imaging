@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2021 the original author or authors.
+  ~ DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  -->
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- loads the OpenCV DLL -> MUST BE FIRST BEAN, DO NOT DELETE -->
+    <!-- WARNING: must be called manually if spring config is not used -->
+    <bean id="openCVLoader" class="aist.science.aistcv.AistCVLoader" init-method="loadShared"/>
+
+    <bean id="pointTransformer"
+          class="science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVPoint2WrapperJavaPointTransformer"/>
+    <bean id="lineTransformer"
+          class="science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVLineWrapperJavaLineTransformer"/>
+    <bean id="rectangelTransformer"
+          class="science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVRectangleWrapperJavaRectangleTransformer"/>
+    <bean name="image2ByteTransformer"
+          class="science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVImageWrapperImage2ByteTransformer"/>
+    <bean id="rotatedRectangleTransformer"
+          class="science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVRotatedRectangleWrapperToJavaRectangleRotatedTransformer">
+        <property name="point2WrapperJavaPointTransformer" ref="pointTransformer"/>
+    </bean>
+
+    <bean id="orientationOffsetFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.compare.OpenCVOrientationOffsetFunction">
+        <property name="optimizer" ref="optimizer"/>
+    </bean>
+    <bean id="positionAndRotationOffsetFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.compare.OpenCVPositionalAndRotationalOffsetFunction">
+        <property name="optimizer" ref="optimizer"/>
+    </bean>
+    <bean id="positionOffsetFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.compare.OpenCVPositionalOffsetFunction">
+        <property name="optimizer" ref="optimizer"/>
+    </bean>
+    <bean id="translationFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.transformation.OpenCVTranslateFunction"/>
+    <bean id="pointFeatureExtractor" scope="prototype"
+          class="science.aist.imaging.service.opencv.imageprocessing.featureextraction.OpenCVPointFeatureDetection">
+    </bean>
+    <bean id="edgeFeatureExtractor" scope="prototype"
+          class="science.aist.imaging.service.opencv.imageprocessing.featureextraction.OpenCVEdgeFeatureDetection">
+        <property name="edgeDetector" ref="edgeDetectionCanny"/>
+        <property name="imageTransformer">
+            <bean class="science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVImageWrapperImage2ByteTransformer"/>
+        </property>
+    </bean>
+    <bean id="edgeDetectionSobel" scope="prototype"
+          class="science.aist.imaging.service.opencv.imageprocessing.edgedetection.OpenCVSobelEdgeDetection">
+        <property name="grayscaleFunction" ref="grayscaleFunction"/>
+    </bean>
+    <bean id="edgeDetectionCanny" scope="prototype"
+          class="science.aist.imaging.service.opencv.imageprocessing.edgedetection.OpenCVCannyEdgeDetection"/>
+    <bean id="fitnessFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.fitnessfunction.OpenCVFitnessFunction"/>
+    <bean id="rgbcolorBasedObjectDetection"
+          class="science.aist.imaging.service.opencv.imageprocessing.objectdetection.OpenCVRGBColorbasedObjectDetector">
+        <property name="pointTransformer" ref="pointTransformer"/>
+        <property name="lowerBound">
+            <bean class="science.aist.imaging.api.domain.color.RGBColor">
+                <property name="red" value="0"/>
+                <property name="green" value="0"/>
+                <property name="blue" value="0"/>
+            </bean>
+        </property>
+        <property name="upperBound">
+            <bean class="science.aist.imaging.api.domain.color.RGBColor">
+                <property name="red" value="0"/>
+                <property name="green" value="0"/>
+                <property name="blue" value="0"/>
+            </bean>
+        </property>
+        <property name="contourFinder" ref="biggestContourFinder"/>
+    </bean>
+    <bean id="hsvcolorBasedObjectDetection"
+          class="science.aist.imaging.service.opencv.imageprocessing.objectdetection.OpenCVHSVColorbasedObjectDetector">
+        <property name="pointTransformer" ref="pointTransformer"/>
+        <property name="lowerBound">
+            <bean class="science.aist.imaging.api.domain.color.HSVColor">
+                <property name="hue" value="0"/>
+                <property name="saturation" value="0"/>
+                <property name="value" value="0"/>
+            </bean>
+        </property>
+        <property name="upperBound">
+            <bean class="science.aist.imaging.api.domain.color.HSVColor">
+                <property name="hue" value="0"/>
+                <property name="saturation" value="0"/>
+                <property name="value" value="0"/>
+            </bean>
+        </property>
+        <property name="biggestContourFinder" ref="biggestContourFinder"/>
+        <property name="openCVBGR2HSVFunction" ref="hsvFunction"/>
+    </bean>
+    <bean id="differenceBasedObjectDetection"
+          class="science.aist.imaging.service.opencv.imageprocessing.objectdetection.OpenCVDifferencebasedObjectDetector">
+        <property name="pointTransformer" ref="pointTransformer"/>
+        <property name="contourFinder" ref="biggestContourFinder"/>
+    </bean>
+    <bean id="featureBasedObjectDetection"
+          class="science.aist.imaging.service.opencv.imageprocessing.objectdetection.OpenCVFeaturebasedObjectDetector">
+        <property name="pointTransformer" ref="pointTransformer"/>
+        <property name="grayscaleFunction" ref="grayscaleFunction"/>
+    </bean>
+    <bean id="optimizer"
+          class="science.aist.imaging.service.opencv.imageprocessing.optimization.OpenCVOptimizer">
+        <property name="extractor" ref="edgeFeatureExtractor"/>
+        <property name="edgeDetector" ref="edgeDetectionCanny"/>
+        <property name="grayscaleFunction" ref="grayscaleFunction"/>
+        <property name="distanceMapfunction" ref="distanceMapFunction"/>
+        <property name="paddingFunction" ref="paddingFunction"/>
+        <property name="thresholdFunction" ref="thresholdFunction"/>
+    </bean>
+
+    <bean id="factory2Byte"
+          class="science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory"
+          factory-method="getInstance">
+    </bean>
+
+    <bean id="factoryMat"
+          class="science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory"
+          factory-method="getInstance">
+    </bean>
+
+    <bean id="sizebasedPositionEvaluator" scope="prototype"
+          class="science.aist.imaging.service.opencv.imageprocessing.positioning.OpenCVSizebasedPositionEvaluator">
+        <property name="objectDetector" ref="rgbcolorBasedObjectDetection"/>
+        <property name="image2ByteTransformer" ref="image2ByteTransformer"/>
+        <property name="threshold">
+            <bean class="science.aist.imaging.service.core.imageprocessing.transformation.ThresholdFunction">
+                <constructor-arg ref="factory2Byte"/>
+                <property name="lowerThresh" value="250"/>
+            </bean>
+        </property>
+        <property name="toGreyscale">
+            <bean class="science.aist.imaging.service.core.imageprocessing.conversion.ColoredToGreyscaleFunction">
+                <constructor-arg ref="factory2Byte"/>
+                <property name="colorToGreyScale">
+                    <bean class="science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleLuminosityConverter"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="gridbasedPositionEvaluator" scope="prototype"
+          class="science.aist.imaging.service.opencv.imageprocessing.positioning.OpenCVGridbasedPositionEvaluator">
+        <property name="pointTransformer" ref="pointTransformer"/>
+        <property name="objectDetector" ref="differenceBasedObjectDetection"/>
+    </bean>
+
+    <bean id="positionalRegistration"
+          class="science.aist.imaging.service.opencv.imageprocessing.registration.OpenCVRegistrationPositional">
+        <property name="translateFunction" ref="translationFunction"/>
+        <property name="PFunction" ref="positionOffsetFunction"/>
+    </bean>
+    <bean id="bilinearInterpolation"
+          class="science.aist.imaging.service.core.imageprocessing.interpolation.BilinearInterpolationFunction">
+
+        <constructor-arg value="0.0"/>
+    </bean>
+    <bean id="positionalAndRotationalRegistration"
+          class="science.aist.imaging.service.opencv.imageprocessing.registration.OpenCVRegistrationPositionalRotational">
+        <property name="prFunction" ref="positionAndRotationOffsetFunction"/>
+        <property name="transform">
+            <bean class="science.aist.imaging.service.core.imageprocessing.transformation.TransformFunction">
+                <constructor-arg ref="bilinearInterpolation"/>
+                <constructor-arg name="provider" ref="factory2Byte"/>
+            </bean>
+        </property>
+        <property name="image2ByteTransformer">
+            <bean class="science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVImageWrapperImage2ByteTransformer"/>
+        </property>
+    </bean>
+    <bean id="contourDetector"
+          class="science.aist.imaging.service.opencv.imageprocessing.contour.OpenCVContourDetector"/>
+    <bean id="biggestContourFinder"
+          class="science.aist.imaging.service.opencv.imageprocessing.contour.OpenCVBiggestContourFinder"/>
+    <bean id="grayscaleFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.conversion.OpenCVBGR2GrayscaleFunction"/>
+    <bean id="paddingFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.transformation.OpenCVPaddingFunction"/>
+    <bean id="distanceMapFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.distance.OpenCVDistanceMap"/>
+    <bean id="hsvFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.conversion.OpenCVBGR2HSVFunction"/>
+    <bean id="resizeFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.transformation.OpenCVResizeFunction"/>
+    <bean id="thresholdFunction"
+          class="science.aist.imaging.service.opencv.imageprocessing.threshold.OpenCVThresholdFunction"/>
+    <bean id="opencvImageLoader"
+          class="science.aist.imaging.service.opencv.imageprocessing.storage.OpenCVLoader"/>
+    <bean id="opencvImageSaver"
+          class="science.aist.imaging.service.opencv.imageprocessing.storage.OpenCVSaver"/>
+</beans>

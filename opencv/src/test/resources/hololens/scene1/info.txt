@@ -1,0 +1,55 @@
+1.jpg - EulerAngles:
+x: 2.2�
+y: 7.8�
+z: 0�
+
+2.jpg - EulerAngles:
+x: 2.2�
+y: 16.0�
+z: 0�
+
+3.jpg - EulerAngles:
+x: 2.2�
+y: 27.7�
+z: 0�
+
+4.jpg - EulerAngles:
+x: 2.2�
+y: 35.3�
+z: 0�
+
+5.jpg - EulerAngles:
+x: 2.2�in
+y: 39.2�
+z: 0�
+
+6.jpg - EulerAngles:
+x: 2.2�
+y: 48.2�
+z: 0�
+
+7.jpg - EulerAngles:
+x: 2.2�
+y: 52.5�
+z: 0�
+
+8.jpg - EulerAngles:
+x: 2.2�
+y: 57.8�
+z: 0�
+
+9.jpg - EulerAngles:
+x: 2.2�
+y: 64.5�
+z: 0�
+
+10.jpg - EulerAngles:
+x: 2.2�
+y: 71.9�
+z: 0�
+
+11.jpg - EulerAngles:
+x: 2.2�
+y: 80.6�
+z: 0�
+

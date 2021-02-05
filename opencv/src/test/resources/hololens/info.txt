@@ -1,0 +1,41 @@
+The following image pairs were made with the HoloLens at the following rotational-positions (from gyroscope).
+
+
+--------------------------------------------------------------------------------
+
+original.jpg - EulerAngles:
+x: 1.0 °
+y: 353.7 °
+z: 359.2 °
+
+translated.jpg - EulerAngles:
+x: 1.0 °
+y: 355.4 °
+z: 359.2 °
+
+--------------------------------------------------------------------------------
+
+originalTranslationTest.jpg - EulerAngles (probably irrelevant):
+x: 354.2 °
+y: 355.6 °
+z: 359.3 °
+
+
+translatedTranslationTest.jpg - EulerAngles (probably irrelevant):
+x: 354.2 °
+y: 355.7 °
+z: 359.3 °
+
+--------------------------------------------------------------------------------
+
+originalRotationTest.jpg - EulerAngles:
+x: 353.1°
+y: 0.0 °
+z: 359.4 °
+
+rotatedRotationTest.jpg - EulerAngles:
+x: 353.1°
+y: 9.0 °
+z: 359.5 °
+
+--------------------------------------------------------------------------------
