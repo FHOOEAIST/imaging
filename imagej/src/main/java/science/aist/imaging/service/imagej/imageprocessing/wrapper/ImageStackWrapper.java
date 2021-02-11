@@ -28,20 +28,16 @@ public class ImageStackWrapper extends AbstractImageWrapper<ImageStack> {
 
     @Override
     public int getChannels() {
-        if(channelType != ChannelType.UNKNOWN){
-            return channelType.getNumberOfChannels();
-        } else {
-            return image.getSize();
-        }
+        return image.getSize();
     }
 
     @Override
     public double getValue(int x, int y, int channel) {
-        return image.getVoxel(x,y,channel);
+        return image.getVoxel(x, y, channel);
     }
 
     @Override
     public void setValue(int x, int y, int channel, double val) {
-        image.setVoxel(x,y,channel,val);
+        image.setVoxel(x, y, channel, val);
     }
 }
