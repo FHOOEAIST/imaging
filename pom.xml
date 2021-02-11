@@ -329,6 +329,7 @@
         <module>tesseract</module>
         <module>microsoftcognitiveservices</module>
         <module>pdfbox</module>
+        <module>imagej</module>
     </modules>
 
     <profiles>

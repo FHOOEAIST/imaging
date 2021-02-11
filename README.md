@@ -1,3 +1,5 @@
+![imaging](./src/site/resources/images/bannerRight.png)
+
 # Imaging
 
 [![DOI](https://zenodo.org/badge/335652633.svg)](https://zenodo.org/badge/latestdoi/335652633)
@@ -24,6 +26,21 @@ To use the code of either of one of these modules, you simply need to include on
     <artifactId>api</artifactId> <!-- alternatives core, opencv, pdfbox, tesseract, microsoft-cognitive-services -->
     <version>${imaging.version}</version> <!-- e.g. 1.0.0 -->
 </dependency>
+```
+
+### Example
+
+A simple example for using the API module creates an image using the `ImageFactory` and draws a circle at a given 
+position. For this the `DrawCircle` class is used that draws a circle at the position of the given `JavaPoint2D`.
+
+```java
+// Create a new image
+ImageWrapper<short[][][]> image = Image2ByteFactory.getInstance().getImage(100, 100, ChannelType.Greyscale);
+
+// Draw on the image
+DrawCircle<short[][][]> draw = new DrawCircle<>();
+draw.setColor(new double[]{1});
+draw.accept(image, new JavaPoint2D(5, 5));
 ```
 
 ## FAQ
