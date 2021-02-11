@@ -19,7 +19,7 @@
     <!-- variables -->
     <properties>
         <!-- aist utility frameworks -->
-        <seshat.version>1.0.1</seshat.version>
+        <seshat.version>1.1.0</seshat.version>
         <jack.version>2.3.1</jack.version>
         <!-- other frameworks -->
         <surefire.plugin.version>2.18.1</surefire.plugin.version>
