@@ -29,8 +29,8 @@ public class ImageStackFactory implements ImageFactory<ImageStack> {
     @Override
     public ImageWrapper<ImageStack> getImage(int height, int width, ChannelType channel) {
         ImageStack imageStack = new ImageStack(width, height, channel.getNumberOfChannels());
-        for(int c = 0; c < channel.getNumberOfChannels(); c++){
-            imageStack.addSlice(new ColorProcessor(width, height));
+        for (int c = 1; c < channel.getNumberOfChannels() + 1; c++) {
+            imageStack.setProcessor(new ColorProcessor(width, height), c);
         }
 
         return getImage(height, width, channel, imageStack);
@@ -46,7 +46,7 @@ public class ImageStackFactory implements ImageFactory<ImageStack> {
             throw new IllegalArgumentException("Width does not match the given image processor");
         }
 
-        if(channel.getNumberOfChannels() != image.getSize()){
+        if (channel.getNumberOfChannels() != image.getSize()) {
             throw new IllegalArgumentException("Channeltype does not match stack size");
         }
 
@@ -57,11 +57,11 @@ public class ImageStackFactory implements ImageFactory<ImageStack> {
     public ImageWrapper<ImageStack> getImage(ImageStack image) {
         int size = image.getSize();
         ChannelType c;
-        if(size == 3){
+        if (size == 3) {
             c = ChannelType.UNKNOWN_4_CHANNEL;
-        } else if (size == 2){
+        } else if (size == 2) {
             c = ChannelType.UNKNOWN_3_CHANNEL;
-        } else if (size == 1){
+        } else if (size == 1) {
             c = ChannelType.UNKNOWN_2_CHANNEL;
         } else {
             c = ChannelType.UNKNOWN;
