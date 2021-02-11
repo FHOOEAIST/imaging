@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2021 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.imaging.service.imagej.imageprocessing.wrapper;
 
 import ij.process.ColorProcessor;
@@ -5,6 +14,7 @@ import ij.process.ImageProcessor;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Implementation of a {@link science.aist.imaging.api.domain.wrapper.ImageFactory} for ImageJ's {@link ImageProcessor}</p>
@@ -15,16 +25,13 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
  */
 public class ImageProcessorFactory implements ImageFactory<ImageProcessor> {
 
-    private static final ImageProcessorFactory instance = new ImageProcessorFactory();
-
-    private ImageProcessorFactory() {
-    }
-
     /**
-     * @return a instance of {@link ImageStackFactory}
+     * Do not instantiate this class directly. This constructor is only need, to work with {@link java.util.ServiceLoader}.
+     * Get yourself an instance using {@link TypeBasedImageFactoryFactory#getImageFactory(Class)} method.
+     * Using {@code class = ImageProcessor.class} for this specific factory.
      */
-    public static ImageFactory<ImageProcessor> getInstance() {
-        return instance;
+    public ImageProcessorFactory() {
+        // Note: This is needed for usage with ServiceLoader.
     }
 
     @Override
@@ -52,5 +59,10 @@ public class ImageProcessorFactory implements ImageFactory<ImageProcessor> {
     @Override
     public ImageWrapper<ImageProcessor> getImage(ImageProcessor image) {
         return getImage(image.getHeight(), image.getWidth(), ChannelType.RGB, image);
+    }
+
+    @Override
+    public Class<ImageProcessor> getSupportedType() {
+        return ImageProcessor.class;
     }
 }

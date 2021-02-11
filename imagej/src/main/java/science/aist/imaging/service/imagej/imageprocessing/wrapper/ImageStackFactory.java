@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2021 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.imaging.service.imagej.imageprocessing.wrapper;
 
 import ij.ImageStack;
@@ -5,6 +14,7 @@ import ij.process.ColorProcessor;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Implementation of a {@link science.aist.imaging.api.domain.wrapper.ImageFactory} for ImageJ's {@link ImageStack}</p>
@@ -13,16 +23,13 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
  * @since 1.1
  */
 public class ImageStackFactory implements ImageFactory<ImageStack> {
-    private static final ImageStackFactory instance = new ImageStackFactory();
-
-    private ImageStackFactory() {
-    }
-
     /**
-     * @return a instance of {@link ImageStackFactory}
+     * Do not instantiate this class directly. This constructor is only need, to work with {@link java.util.ServiceLoader}.
+     * Get yourself an instance using {@link TypeBasedImageFactoryFactory#getImageFactory(Class)} method.
+     * Using {@code class = ImageStack.class} for this specific factory.
      */
-    public static ImageFactory<ImageStack> getInstance() {
-        return instance;
+    public ImageStackFactory() {
+        // Note: This is needed for usage with ServiceLoader.
     }
 
     @Override
@@ -68,5 +75,10 @@ public class ImageStackFactory implements ImageFactory<ImageStack> {
             c = ChannelType.UNKNOWN;
         }
         return getImage(image.getHeight(), image.getWidth(), c, image);
+    }
+
+    @Override
+    public Class<ImageStack> getSupportedType() {
+        return ImageStack.class;
     }
 }
