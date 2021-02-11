@@ -1,6 +1,5 @@
 package science.aist.imaging.service.imagej.imageprocessing.wrapper;
 
-import ij.ImageStack;
 import ij.process.ColorProcessor;
 import ij.process.ImageProcessor;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
@@ -9,7 +8,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 /**
  * <p>Implementation of a {@link science.aist.imaging.api.domain.wrapper.ImageFactory} for ImageJ's {@link ImageProcessor}</p>
- * <p>Note that ImageJ saves bytewise as integer. Use {@link science.aist.imaging.service.imagej.imageprocessing.converter.ColorConverter}</p>
+ * <p>Note that ImageJ saves pixels as integers using bit shifting. So if you need more than 3 channels take {@link ImageStackFactory}.</p>
  *
  * @author Christoph Praschl
  * @since 1.1
