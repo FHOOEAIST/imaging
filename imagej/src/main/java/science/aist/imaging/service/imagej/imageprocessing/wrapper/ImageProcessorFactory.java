@@ -42,6 +42,10 @@ public class ImageProcessorFactory implements ImageFactory<ImageProcessor> {
             throw new IllegalArgumentException("Width does not match the given image processor");
         }
 
+        if(image.getNChannels() != channel.getNumberOfChannels()){
+            throw new IllegalArgumentException("Channeltype does not match the given image processor");
+        }
+
         return new ImageProcessorWrapper(image, channel);
     }
 
