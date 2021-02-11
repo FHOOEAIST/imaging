@@ -30,12 +30,12 @@ To use the code of either of one of these modules, you simply need to include on
 
 ### Example
 
-A simple example for using the API module creates an image using the `ImageFactory` and draws a circle at a given 
+A simple example for using the API module creates an image using the `TypeBasedImageFactoryFactory` and draws a circle at a given 
 position. For this the `DrawCircle` class is used that draws a circle at the position of the given `JavaPoint2D`.
 
 ```java
 // Create a new image
-ImageWrapper<short[][][]> image = Image2ByteFactory.getInstance().getImage(100, 100, ChannelType.Greyscale);
+ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(100, 100, ChannelType.Greyscale);
 
 // Draw on the image
 DrawCircle<short[][][]> draw = new DrawCircle<>();
