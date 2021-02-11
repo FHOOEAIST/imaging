@@ -8,7 +8,6 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 /**
  * <p>Implementation of a {@link science.aist.imaging.api.domain.wrapper.ImageFactory} for ImageJ's {@link ImageStack}</p>
- * <p>Note that ImageJ saves bytewise as integer. Use {@link science.aist.imaging.service.imagej.imageprocessing.converter.ColorConverter}</p>
  *
  * @author Christoph Praschl
  * @since 1.1
