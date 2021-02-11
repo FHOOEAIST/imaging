@@ -1,5 +1,11 @@
 # Imaging
 
+[![DOI](https://zenodo.org/badge/335652633.svg)](https://zenodo.org/badge/latestdoi/335652633)
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+[![GitHub release](https://img.shields.io/github/v/release/fhooeaist/imaging.svg)](https://github.com/fhooeaist/imaging/releases)
+[![javadoc](https://javadoc.io/badge2/science.aist.imaging/imaging/javadoc.svg)](https://javadoc.io/doc/science.aist.imaging/imaging)
+[![Maven Central](https://img.shields.io/maven-central/v/science.aist.imaging/imaging.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:"science.aist.imaging")
+
 The imaging framework provides different functionality in the context of image processing and computer vision. For more
 details please visit our [maven site](https://fhooeaist.github.io/imaging/index.html).
 
@@ -50,4 +56,4 @@ The following code is under different licence and copyright:
 If you are going to use this project as part of a research paper, we would ask you to reference this project by citing
 it.
 
-TODO zenodo.
+[![DOI](https://zenodo.org/badge/335652633.svg)](https://zenodo.org/badge/latestdoi/335652633)
