@@ -56,12 +56,14 @@ public class ImageStackFactory implements ImageFactory<ImageStack> {
     public ImageWrapper<ImageStack> getImage(ImageStack image) {
         int size = image.getSize();
         ChannelType c;
-        if (size == 3) {
+        if (size == 4) {
             c = ChannelType.UNKNOWN_4_CHANNEL;
-        } else if (size == 2) {
+        } else if (size == 3) {
             c = ChannelType.UNKNOWN_3_CHANNEL;
-        } else if (size == 1) {
+        } else if (size == 2) {
             c = ChannelType.UNKNOWN_2_CHANNEL;
+        } else if (size == 1) {
+            c = ChannelType.GREYSCALE;
         } else {
             c = ChannelType.UNKNOWN;
         }
