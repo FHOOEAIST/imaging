@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2021 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.imaging.service.imagej.imageprocessing.wrapper;
 
 import ij.process.ColorProcessor;
@@ -6,6 +15,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 import java.util.Random;
 
@@ -20,7 +30,7 @@ public class ImageProcessorFactoryTest {
     @Test
     public void testGetImage() {
         // given
-        ImageFactory<ImageProcessor> imageProcessorFactory = ImageProcessorFactory.getInstance();
+        ImageFactory<ImageProcessor> imageProcessorFactory = TypeBasedImageFactoryFactory.getImageFactory(ImageProcessor.class);
         int width = 10;
         int height = 15;
         ImageProcessor img = new ColorProcessor(width, height);
