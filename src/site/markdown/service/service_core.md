@@ -9,7 +9,7 @@ The imaging project highly sticks to a functional-like programming style. For th
 The core implementations are highly generic so any `ImageWrapper` implementation can be used with most of them. For this reason many function classes require an injected `ImageFactory` to create the result image. The input type can be wildcards most of the time. So if you want to use a `GaussFilter` which takes any input image and results in a `BufferedImage` wrapper use it like this:
 
 ```java
-GaussFilterFunction<?, BufferedImage> gaussFilterFunction = new GaussFilterFunction<>(TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class));
+GaussFilterFunction<?, BufferedImage> gaussFilterFunction = new GaussFilterFunction<>(ImageFactoryFactory.getImageFactory(BufferedImage.class));
 ImageWrapper<BufferedImage> result = gaussFilterFunction.apply(input);
 ```
 

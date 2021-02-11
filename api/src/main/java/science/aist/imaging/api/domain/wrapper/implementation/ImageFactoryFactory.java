@@ -24,11 +24,11 @@ import java.util.stream.StreamSupport;
  * @author Andreas Pointner
  * @since 1.1
  */
-public class TypeBasedImageFactoryFactory {
+public class ImageFactoryFactory {
 
     private static Map<Class<?>, ImageFactory<?>> cache;
 
-    private TypeBasedImageFactoryFactory() {
+    private ImageFactoryFactory() {
     }
 
     /**

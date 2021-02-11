@@ -13,8 +13,7 @@ import science.aist.imaging.api.domain.Direction;
 import science.aist.imaging.api.domain.offset.TranslationOffset;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import lombok.Setter;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
@@ -61,7 +60,7 @@ public class OpenCVTranslateFunction implements ImageFunction<Mat, Mat> {
                 break;
         }
 
-        return TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(outImg);
+        return ImageFactoryFactory.getImageFactory(Mat.class).getImage(outImg);
     }
 
     /**
@@ -75,7 +74,7 @@ public class OpenCVTranslateFunction implements ImageFunction<Mat, Mat> {
     @Override
     public ImageWrapper<Mat> apply(ImageWrapper<Mat> img) {
         // prepare result
-        ImageWrapper<Mat> res = TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(img.getImage());
+        ImageWrapper<Mat> res = ImageFactoryFactory.getImageFactory(Mat.class).getImage(img.getImage());
         // get offset on x - axis
 
         int innerXOffset = (int) (xOffset > 0 ? xOffset + .5 : xOffset - .5);

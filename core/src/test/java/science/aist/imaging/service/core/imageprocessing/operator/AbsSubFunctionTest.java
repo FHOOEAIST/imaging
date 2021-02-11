@@ -9,13 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.operator;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 
 /**
@@ -28,7 +27,7 @@ public class AbsSubFunctionTest {
     @Test
     public void testApply() {
         // given
-        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
+        ImageFactory<short[][][]> provider = ImageFactoryFactory.getImageFactory(short[][][].class);
         ImageWrapper<short[][][]> provide = provider.getImage(10, 10, ChannelType.BGR, 5);
         ImageWrapper<short[][][]> provide2 = provider.getImage(10, 10, ChannelType.BGR, 10);
 

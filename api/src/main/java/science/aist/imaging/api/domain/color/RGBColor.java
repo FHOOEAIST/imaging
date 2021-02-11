@@ -9,8 +9,8 @@
 
 package science.aist.imaging.api.domain.color;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
 import lombok.ToString;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
 
 /**
  * <p>Class the represents an RGB color</p>

@@ -9,12 +9,11 @@
 
 package science.aist.imaging.service.core.imageprocessing.filter;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 import java.util.Arrays;
 
@@ -26,13 +25,13 @@ import java.util.Arrays;
 
 public class ConvolveFunctionTest {
 
-    private final ConvolveFunction<double[][][], double[][][]> convolve8Byte = new ConvolveFunction<>(TypeBasedImageFactoryFactory.getImageFactory(double[][][].class));
+    private final ConvolveFunction<double[][][], double[][][]> convolve8Byte = new ConvolveFunction<>(ImageFactoryFactory.getImageFactory(double[][][].class));
 
     @Test
     public void testApply() {
         // given
         convolve8Byte.setNormalize(false);
-        ImageWrapper<double[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(4, 3, ChannelType.GREYSCALE, new double[][][]{
+        ImageWrapper<double[][][]> imageWrapper = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(4, 3, ChannelType.GREYSCALE, new double[][][]{
                 new double[][]{
                         new double[]{12},
                         new double[]{11},

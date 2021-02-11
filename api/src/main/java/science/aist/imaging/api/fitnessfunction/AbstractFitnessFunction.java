@@ -9,13 +9,13 @@
 
 package science.aist.imaging.api.fitnessfunction;
 
-import science.aist.imaging.api.domain.twodimensional.JavaRectangle2D;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import lombok.AccessLevel;
 import lombok.CustomLog;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import science.aist.imaging.api.domain.twodimensional.JavaRectangle2D;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 import java.util.function.ToDoubleBiFunction;
 

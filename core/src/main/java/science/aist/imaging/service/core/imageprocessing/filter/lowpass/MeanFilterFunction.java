@@ -9,9 +9,9 @@
 
 package science.aist.imaging.service.core.imageprocessing.filter.lowpass;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.ImageFunction;
 import lombok.Setter;
+import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 import java.util.Arrays;
 import java.util.function.BiFunction;

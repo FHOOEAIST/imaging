@@ -9,11 +9,11 @@
 
 package science.aist.imaging.service.core.imageprocessing.draw.line;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import science.aist.imaging.api.domain.twodimensional.JavaLine2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.function.BiConsumer;

@@ -12,9 +12,8 @@ package science.aist.imaging.service.opencv.imageprocessing.draw.polygon;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPolygon2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.OpenCVTest;
-import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVImageWrapper;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -32,7 +31,7 @@ public class OpenCVDrawFilledPolygonTest extends OpenCVTest {
         // given
         OpenCVImageWrapper compare = loadImageFromClassPath("/filledPolygonCompare.tif", true);
         OpenCVDrawFilledPolygon drawFilledPolygon = new OpenCVDrawFilledPolygon();
-        ImageWrapper<Mat> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(Mat.zeros(205, 105, CvType.CV_8UC3));
+        ImageWrapper<Mat> imageWrapper = ImageFactoryFactory.getImageFactory(Mat.class).getImage(Mat.zeros(205, 105, CvType.CV_8UC3));
         JavaPolygon2D jp = new JavaPolygon2D(
                 new JavaPoint2D(50, 1),
                 new JavaPoint2D(100, 100),

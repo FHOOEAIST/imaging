@@ -12,7 +12,7 @@ package science.aist.imaging.service.opencv.imageprocessing.wrapper;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.OpenCVTest;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -54,7 +54,7 @@ public class OpenCVImageWrapperTest extends OpenCVTest {
     @Test
     void testSetValue() {
         // given
-        ImageFactory<Mat> matProvider = TypeBasedImageFactoryFactory.getImageFactory(Mat.class);
+        ImageFactory<Mat> matProvider = ImageFactoryFactory.getImageFactory(Mat.class);
         ImageWrapper<Mat> image = matProvider.getImage(10, 10, ChannelType.RGB);
 
         // when
@@ -67,7 +67,7 @@ public class OpenCVImageWrapperTest extends OpenCVTest {
     @Test
     void testGetValue() {
         // given
-        ImageWrapper<Mat> image = ((OpenCVFactory)TypeBasedImageFactoryFactory.getImageFactory(Mat.class)).getImage(10, 10, CvType.CV_8UC(3), ChannelType.RGB);
+        ImageWrapper<Mat> image = ((OpenCVFactory) ImageFactoryFactory.getImageFactory(Mat.class)).getImage(10, 10, CvType.CV_8UC(3), ChannelType.RGB);
         image.getImage().put(7, 3, 0, 42.0, 0);
 
         // when

@@ -9,11 +9,11 @@
 
 package science.aist.imaging.api.compare;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.util.ToBooleanBiFunction;
 import lombok.CustomLog;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.util.ToBooleanBiFunction;
 
 /**
  * <p>Generic image compare function, to compare any image wrappers, and check if they are equals. Allows to set a epsilon to

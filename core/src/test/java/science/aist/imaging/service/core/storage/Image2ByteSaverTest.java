@@ -9,14 +9,13 @@
 
 package science.aist.imaging.service.core.storage;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.imageprocessing.transformers.Image2ByteToImage8ByteTransformer;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.imageprocessing.transformers.Image2ByteToImage8ByteTransformer;
 import science.aist.seshat.Logger;
 
 import java.io.File;
@@ -41,7 +40,7 @@ public class Image2ByteSaverTest {
         Image2ByteSaver saver = new Image2ByteSaver();
         saver.setTransformer8ByteTo2Byte(new Image2ByteToImage8ByteTransformer());
 
-        ImageWrapper<short[][][]> img = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.RGB, new short[][][]{
+        ImageWrapper<short[][][]> img = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.RGB, new short[][][]{
                 new short[][]{
                         new short[]{255, 0, 0},
                         new short[]{0, 255, 0},
@@ -59,7 +58,7 @@ public class Image2ByteSaverTest {
     @Test
     void testBGR() {
         // given
-        ImageWrapper<short[][][]> img = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.BGR, new short[][][]{
+        ImageWrapper<short[][][]> img = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.BGR, new short[][][]{
                 new short[][]{
                         new short[]{0, 0, 255},
                         new short[]{0, 255, 0},
@@ -81,7 +80,7 @@ public class Image2ByteSaverTest {
     @Test
     void testRGBA() {
         // given
-        ImageWrapper<short[][][]> img = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.RGBA, new short[][][]{
+        ImageWrapper<short[][][]> img = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.RGBA, new short[][][]{
                 new short[][]{
                         new short[]{255, 0, 0, 127},
                         new short[]{0, 255, 0, 127},

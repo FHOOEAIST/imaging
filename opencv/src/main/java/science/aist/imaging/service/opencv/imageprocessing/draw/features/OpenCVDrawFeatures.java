@@ -9,15 +9,15 @@
 
 package science.aist.imaging.service.opencv.imageprocessing.draw.features;
 
+import lombok.Cleanup;
+import lombok.Setter;
+import org.opencv.core.*;
+import org.opencv.features2d.Features2d;
 import science.aist.imaging.api.domain.color.RGBColor;
 import science.aist.imaging.api.domain.wrapper.FeatureWrapper;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVFeatures2d;
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVScalarRGBColorTransformer;
-import lombok.Cleanup;
-import lombok.Setter;
-import org.opencv.core.*;
-import org.opencv.features2d.Features2d;
 
 import java.util.function.BiConsumer;
 

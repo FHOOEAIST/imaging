@@ -9,11 +9,11 @@
 
 package science.aist.imaging.api.objectdetection;
 
+import lombok.Setter;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.Point2Wrapper;
 import science.aist.imaging.api.domain.wrapper.RectangleWrapper;
-import lombok.Setter;
 import science.aist.jack.general.transformer.Transformer;
 
 /**

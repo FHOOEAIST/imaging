@@ -9,16 +9,16 @@
 
 package science.aist.imaging.service.core.imageprocessing.conversion;
 
+import lombok.NonNull;
+import lombok.Setter;
+import science.aist.imaging.api.ImageFunction;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.typecheck.TypeChecker;
 import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
 import science.aist.imaging.service.core.imageprocessing.transformers.RGB2BGRTransformer;
 import science.aist.imaging.service.core.imageprocessing.transformers.RGB2RGBATransformer;
-import science.aist.imaging.api.typecheck.TypeChecker;
-import lombok.NonNull;
-import lombok.Setter;
 
 import java.util.stream.IntStream;
 

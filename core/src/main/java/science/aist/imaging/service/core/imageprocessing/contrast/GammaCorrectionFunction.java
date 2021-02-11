@@ -9,12 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.contrast;
 
-import science.aist.imaging.api.domain.wrapper.ImageFactory;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.service.core.imageprocessing.transformation.ValueTransformationFunction;
 import lombok.NonNull;
 import lombok.Setter;
+import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.ImageFactory;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.service.core.imageprocessing.transformation.ValueTransformationFunction;
 
 import java.util.function.BiFunction;
 import java.util.stream.IntStream;

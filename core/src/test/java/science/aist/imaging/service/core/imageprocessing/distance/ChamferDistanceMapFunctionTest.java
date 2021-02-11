@@ -9,13 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.distance;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.imageprocessing.BaseTestUtil;
-import science.aist.imaging.api.compare.GenericImageCompareFunction;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.compare.GenericImageCompareFunction;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.imageprocessing.BaseTestUtil;
 
 /**
  * <p>Test class for {@link ChamferDistanceMapFunction}</p>
@@ -39,7 +38,7 @@ public class ChamferDistanceMapFunctionTest {
                 0.0, 0.0, 0.0, 1.0, 2.0, 3.0,
                 1.0, 1.0, 1.0, 2.0, 3.0, 4.0});
 
-        ChamferDistanceMapFunction<double[][][]> distanceMapFunction = new ChamferDistanceMapFunction<>(0, new ManhattanDistanceMetric(), TypeBasedImageFactoryFactory.getImageFactory(double[][][].class));
+        ChamferDistanceMapFunction<double[][][]> distanceMapFunction = new ChamferDistanceMapFunction<>(0, new ManhattanDistanceMetric(), ImageFactoryFactory.getImageFactory(double[][][].class));
 
 
         // when
@@ -65,7 +64,7 @@ public class ChamferDistanceMapFunctionTest {
                 0.0, 0.0, 0.0, 1.0, 2.0, 2.414213562373095,
                 1.0, 1.0, 1.0, 1.4142135623730951, 2.414213562373095, 3.414213562373095});
 
-        ChamferDistanceMapFunction<double[][][]> distanceMapFunction = new ChamferDistanceMapFunction<>(0, new EuclidianDistanceMetric(), TypeBasedImageFactoryFactory.getImageFactory(double[][][].class));
+        ChamferDistanceMapFunction<double[][][]> distanceMapFunction = new ChamferDistanceMapFunction<>(0, new EuclidianDistanceMetric(), ImageFactoryFactory.getImageFactory(double[][][].class));
 
 
         // when
@@ -91,7 +90,7 @@ public class ChamferDistanceMapFunctionTest {
                 0.0, 0.0, 0.0, 1.0, 2.0, 2.0,
                 1.0, 1.0, 1.0, 1.0, 2.0, 3.0});
 
-        ChamferDistanceMapFunction<double[][][]> distanceMapFunction = new ChamferDistanceMapFunction<>(0, new ChessboardDistanceMetric(), TypeBasedImageFactoryFactory.getImageFactory(double[][][].class));
+        ChamferDistanceMapFunction<double[][][]> distanceMapFunction = new ChamferDistanceMapFunction<>(0, new ChessboardDistanceMetric(), ImageFactoryFactory.getImageFactory(double[][][].class));
 
 
         // when

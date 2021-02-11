@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.imageprocessing.filter;
 
-import science.aist.imaging.api.domain.wrapper.ImageFactory;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import science.aist.imaging.api.domain.wrapper.ImageFactory;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -9,8 +9,8 @@
 
 package science.aist.imaging.api.objectdetection;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import lombok.*;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 /**
  * <p>Abstract class for detecting object based on a features</p>

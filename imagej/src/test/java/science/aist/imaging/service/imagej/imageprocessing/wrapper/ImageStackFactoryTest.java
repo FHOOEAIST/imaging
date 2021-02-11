@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 import java.util.Random;
 
@@ -33,7 +33,7 @@ public class ImageStackFactoryTest {
     @Test
     public void testGetImage() {
         // given
-        ImageFactory<ImageStack> instance = TypeBasedImageFactoryFactory.getImageFactory(ImageStack.class);
+        ImageFactory<ImageStack> instance = ImageFactoryFactory.getImageFactory(ImageStack.class);
 
         int width = 10;
         int height = 15;

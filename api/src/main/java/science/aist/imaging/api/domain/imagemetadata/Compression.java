@@ -9,11 +9,11 @@
 
 package science.aist.imaging.api.domain.imagemetadata;
 
+import lombok.Getter;
+import lombok.ToString;
 import science.aist.imaging.api.domain.imagemetadata.valuecontainer.BooleanValueContainer;
 import science.aist.imaging.api.domain.imagemetadata.valuecontainer.IntegerValueContainer;
 import science.aist.imaging.api.domain.imagemetadata.valuecontainer.StringValueContainer;
-import lombok.Getter;
-import lombok.ToString;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

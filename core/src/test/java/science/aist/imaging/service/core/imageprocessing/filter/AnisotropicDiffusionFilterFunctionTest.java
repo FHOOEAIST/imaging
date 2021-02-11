@@ -9,14 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.filter;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.compare.GenericImageCompareFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import science.aist.imaging.service.core.storage.Image2ByteSaver;
+import science.aist.imaging.api.compare.GenericImageCompareFunction;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 
 /**
  * <p>Test class for {@link AnisotropicDiffusionFilterFunction}</p>
@@ -28,7 +26,7 @@ public class AnisotropicDiffusionFilterFunctionTest {
 
     private final Image2ByteInputStreamLoader loader = new Image2ByteInputStreamLoader();
     private final GenericImageCompareFunction imageCompare = new GenericImageCompareFunction();
-    private final AnisotropicDiffusionFilterFunction<short[][][], short[][][]> anisotropicDiffusionFilterFunction = new AnisotropicDiffusionFilterFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+    private final AnisotropicDiffusionFilterFunction<short[][][], short[][][]> anisotropicDiffusionFilterFunction = new AnisotropicDiffusionFilterFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
 
     @Test
     public void testApplyType1() {

@@ -9,11 +9,11 @@
 
 package science.aist.imaging.api.domain;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 /**
  * <p>Neighborhood definitions</p>
@@ -35,7 +35,7 @@ public enum NeighborType {
      * @return Image binary representation of the neighbor type
      */
     public ImageWrapper<short[][][]> getImageMask() {
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(height, width, ChannelType.BINARY);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(height, width, ChannelType.BINARY);
         image.applyFunction((image1, x, y, c) -> image.setValue(x, y, c, getMask()[x][y] ? 255 : 0));
 
         return image;

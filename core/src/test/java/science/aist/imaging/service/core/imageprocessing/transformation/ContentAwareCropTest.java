@@ -9,12 +9,11 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformation;
 
+import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.SubImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 import java.util.Arrays;
 
@@ -31,7 +30,7 @@ public class ContentAwareCropTest {
     @Test
     public void testApply() {
         // given
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
         double[] c1 = new double[]{255, 0, 0};
         double[] c2 = new double[]{255, 255, 0};
         double[] c3 = new double[]{255, 0, 255};
@@ -59,7 +58,7 @@ public class ContentAwareCropTest {
     @Test
     public void testApply2() {
         // given
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
         double[] c1 = new double[]{255, 0, 0};
         double[] c2 = new double[]{255, 255, 0};
         double[] c3 = new double[]{255, 0, 255};
@@ -84,7 +83,7 @@ public class ContentAwareCropTest {
     @Test
     public void testApply3() {
         // given
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
         double[] c1 = new double[]{255, 0, 0};
         double[] c2 = new double[]{255, 255, 0};
         double[] c3 = new double[]{255, 0, 255};
@@ -109,7 +108,7 @@ public class ContentAwareCropTest {
     @Test
     public void testApply4() {
         // given
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
         double[] c1 = new double[]{255, 0, 0};
         double[] c2 = new double[]{255, 255, 0};
         double[] c3 = new double[]{255, 0, 255};

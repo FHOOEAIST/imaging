@@ -9,11 +9,11 @@
 
 package science.aist.imaging.api.facedetection;
 
-import science.aist.imaging.api.domain.twodimensional.JavaRectangle2D;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import science.aist.imaging.api.domain.twodimensional.JavaRectangle2D;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 /**
  * @author Andreas Pointner

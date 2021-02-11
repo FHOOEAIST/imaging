@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.storage;
 
-import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
 
 import java.awt.image.BufferedImage;
 import java.io.InputStream;

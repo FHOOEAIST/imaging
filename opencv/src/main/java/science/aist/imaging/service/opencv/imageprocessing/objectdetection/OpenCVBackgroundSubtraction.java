@@ -12,10 +12,9 @@ package science.aist.imaging.service.opencv.imageprocessing.objectdetection;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.threshold.OpenCVThresholdFunction;
 import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVThresholdType;
-import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Setter;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
@@ -135,7 +134,7 @@ public class OpenCVBackgroundSubtraction implements ImageFunction<Mat, Mat> {
         luv.release();
         bgr.release();
 
-        return thresholdFunction.apply(TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(sum));
+        return thresholdFunction.apply(ImageFactoryFactory.getImageFactory(Mat.class).getImage(sum));
     }
 
 }

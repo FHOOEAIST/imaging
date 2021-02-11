@@ -9,11 +9,11 @@
 
 package science.aist.imaging.service.core.imageprocessing.fitnessfunction;
 
+import lombok.CustomLog;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.fitnessfunction.AbstractFitnessFunction;
 import science.aist.imaging.api.typecheck.TypeChecker;
-import lombok.CustomLog;
 
 /**
  * <p>Mutual information implementation of a fitness function for a greyscale image</p>

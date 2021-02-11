@@ -9,11 +9,11 @@
 
 package science.aist.imaging.api.domain.wrapper.implementation;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
 /**
  * <p>Tests {@link Image8Byte}</p>
@@ -24,7 +24,7 @@ public class Image8ByteTest {
     @Test
     void testGetValue() {
         // given
-        ImageFactory<double[][][]> byteProvider = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class);
+        ImageFactory<double[][][]> byteProvider = ImageFactoryFactory.getImageFactory(double[][][].class);
         ImageWrapper<double[][][]> imageWrapper = byteProvider.getImage(10, 10, ChannelType.RGB);
         imageWrapper.getImage()[5][6][2] = 42;
 
@@ -38,7 +38,7 @@ public class Image8ByteTest {
     @Test
     void testSetValue() {
         // given
-        ImageWrapper<double[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(10, 10, ChannelType.RGB);
+        ImageWrapper<double[][][]> imageWrapper = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(10, 10, ChannelType.RGB);
 
         // when
         imageWrapper.setValue(6, 5, 2, 42);

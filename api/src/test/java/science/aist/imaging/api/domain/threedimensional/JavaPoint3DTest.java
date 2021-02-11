@@ -9,10 +9,10 @@
 
 package science.aist.imaging.api.domain.threedimensional;
 
-import science.aist.imaging.api.domain.AbstractJavaPoint;
-import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.AbstractJavaPoint;
+import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 
 /**
  * @author Christoph Praschl

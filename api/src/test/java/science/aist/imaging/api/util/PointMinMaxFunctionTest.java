@@ -9,9 +9,9 @@
 
 package science.aist.imaging.api.util;
 
-import science.aist.imaging.api.domain.threedimensional.JavaPoint3D;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.threedimensional.JavaPoint3D;
 import science.aist.jack.data.Pair;
 
 import java.util.Arrays;

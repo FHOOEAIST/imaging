@@ -9,9 +9,9 @@
 
 package science.aist.imaging.api.domain.wrapper.implementation;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
 
 import java.awt.image.BufferedImage;
 

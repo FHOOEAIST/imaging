@@ -9,13 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.helper;
 
-import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 /**
  * <p>Test {@link NormalizeFunction}</p>
@@ -32,8 +31,8 @@ public class NormalizeFunctionTest {
     @Test
     void testApply() {
         // given
-        NormalizeFunction<short[][][], short[][][]> normalize = new NormalizeFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(2, 2);
+        NormalizeFunction<short[][][], short[][][]> normalize = new NormalizeFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(2, 2);
         short[][][] img = image.getImage();
         img[0][0][0] = 300;
         img[0][1][0] = 510;

@@ -23,7 +23,7 @@ public class Image8ByteFactory implements ImageFactory<double[][][]> {
 
     /**
      * Do not instantiate this class directly. This constructor is only need, to work with {@link java.util.ServiceLoader}.
-     * Get yourself an instance using {@link TypeBasedImageFactoryFactory#getImageFactory(Class)} method.
+     * Get yourself an instance using {@link ImageFactoryFactory#getImageFactory(Class)} method.
      * Using {@code class = double[][][].class} for this specific factory.
      */
     public Image8ByteFactory() {

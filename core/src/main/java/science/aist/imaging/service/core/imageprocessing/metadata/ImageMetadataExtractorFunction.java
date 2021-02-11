@@ -9,8 +9,8 @@
 
 package science.aist.imaging.service.core.imageprocessing.metadata;
 
-import science.aist.imaging.api.domain.imagemetadata.ImageMetaData;
 import lombok.CustomLog;
+import science.aist.imaging.api.domain.imagemetadata.ImageMetaData;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;

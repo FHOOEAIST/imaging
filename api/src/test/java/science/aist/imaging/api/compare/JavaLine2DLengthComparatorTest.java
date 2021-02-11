@@ -9,9 +9,9 @@
 
 package science.aist.imaging.api.compare;
 
-import science.aist.imaging.api.domain.twodimensional.JavaLine2D;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.twodimensional.JavaLine2D;
 
 /**
  * @author Christoph Praschl

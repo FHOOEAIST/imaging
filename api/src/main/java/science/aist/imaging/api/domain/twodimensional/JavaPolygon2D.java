@@ -9,8 +9,8 @@
 
 package science.aist.imaging.api.domain.twodimensional;
 
-import science.aist.imaging.api.domain.AbstractJavaPolygon;
 import lombok.Getter;
+import science.aist.imaging.api.domain.AbstractJavaPolygon;
 
 import java.io.Serializable;
 import java.util.*;

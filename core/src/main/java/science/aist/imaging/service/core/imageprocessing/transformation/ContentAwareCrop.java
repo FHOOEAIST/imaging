@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformation;
 
+import lombok.Setter;
 import science.aist.imaging.api.domain.color.Color;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.SubImageWrapper;
-import lombok.Setter;
 import science.aist.jack.math.MathUtils;
 
 import java.util.function.Function;

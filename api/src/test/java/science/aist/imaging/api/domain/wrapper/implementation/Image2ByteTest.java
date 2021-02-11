@@ -9,10 +9,10 @@
 
 package science.aist.imaging.api.domain.wrapper.implementation;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 /**
  * <p>Tests {@link Image2Byte}</p>
@@ -23,7 +23,7 @@ public class Image2ByteTest {
     @Test
     void testGetValue() {
         // given
-        ImageWrapper<short[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
+        ImageWrapper<short[][][]> imageWrapper = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
         imageWrapper.getImage()[5][6][2] = 42;
 
         // when
@@ -36,7 +36,7 @@ public class Image2ByteTest {
     @Test
     void testSetValue() {
         // given
-        ImageWrapper<short[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
+        ImageWrapper<short[][][]> imageWrapper = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
 
         // when
         imageWrapper.setValue(6, 5, 2, 42);
@@ -48,7 +48,7 @@ public class Image2ByteTest {
     @Test
     void testApplyFunctionWithStride1() {
         // given
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.GREYSCALE, 1);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.GREYSCALE, 1);
 
         // when
         image.applyFunction((image1, x, y, c) -> {
@@ -72,7 +72,7 @@ public class Image2ByteTest {
     @Test
     void testApplyFunctionWithStride() {
         // given
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(12, 12, ChannelType.GREYSCALE, 1);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(12, 12, ChannelType.GREYSCALE, 1);
 
         // when
         image.applyFunction((image1, x, y, c) -> {

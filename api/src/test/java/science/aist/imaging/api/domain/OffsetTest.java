@@ -9,9 +9,9 @@
 
 package science.aist.imaging.api.domain;
 
-import science.aist.imaging.api.domain.offset.OrientationOffset;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.offset.OrientationOffset;
 
 /**
  * @author Christoph Praschl

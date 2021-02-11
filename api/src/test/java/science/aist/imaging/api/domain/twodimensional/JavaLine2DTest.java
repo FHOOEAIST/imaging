@@ -9,10 +9,10 @@
 
 package science.aist.imaging.api.domain.twodimensional;
 
-import science.aist.imaging.api.domain.threedimensional.JavaLine3D;
-import science.aist.imaging.api.domain.threedimensional.JavaPoint3D;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.threedimensional.JavaLine3D;
+import science.aist.imaging.api.domain.threedimensional.JavaPoint3D;
 import science.aist.jack.data.Pair;
 import science.aist.jack.math.MathUtils;
 

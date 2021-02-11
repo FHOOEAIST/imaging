@@ -9,9 +9,9 @@
 
 package science.aist.imaging.service.core.imageprocessing.filter.highpass;
 
+import science.aist.imaging.api.ImageFunction;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.ImageFunction;
 
 import java.util.Arrays;
 

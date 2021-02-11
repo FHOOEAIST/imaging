@@ -14,7 +14,7 @@ import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 /**
  * <p>Implements the {@link ImageFactory} interface for {@link Mat}</p>
@@ -26,7 +26,7 @@ public class OpenCVFactory implements ImageFactory<Mat> {
 
     /**
      * Do not instantiate this class directly. This constructor is only need, to work with {@link java.util.ServiceLoader}.
-     * Get yourself an instance using {@link TypeBasedImageFactoryFactory#getImageFactory(Class)} method.
+     * Get yourself an instance using {@link ImageFactoryFactory#getImageFactory(Class)} method.
      * Using {@code class = Mat.class} for this specific factory.
      */
     public OpenCVFactory() {

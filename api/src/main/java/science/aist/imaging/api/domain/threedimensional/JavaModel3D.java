@@ -9,11 +9,11 @@
 
 package science.aist.imaging.api.domain.threedimensional;
 
-import science.aist.imaging.api.domain.AbstractJavaPointCloud;
-import science.aist.imaging.api.util.PointMinMaxFunction;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import science.aist.imaging.api.domain.AbstractJavaPointCloud;
+import science.aist.imaging.api.util.PointMinMaxFunction;
 import science.aist.jack.data.Pair;
 
 import java.util.List;

@@ -9,9 +9,9 @@
 
 package science.aist.imaging.service.core.imageprocessing.conversion.greyscale;
 
-import science.aist.imaging.service.core.imageprocessing.conversion.ColorToGreyScaleConverter;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.service.core.imageprocessing.conversion.ColorToGreyScaleConverter;
 
 /**
  * <p>Tests {@link GreyscaleAverageConverter}</p>

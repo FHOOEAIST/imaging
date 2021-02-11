@@ -16,19 +16,19 @@ import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import java.awt.image.BufferedImage;
 
 /**
- * <p>Test class for {@link TypeBasedImageFactoryFactory}</p>
+ * <p>Test class for {@link ImageFactoryFactory}</p>
  *
  * @author Andreas Pointner
  */
 
-public class TypeBasedImageFactoryFactoryTest {
+public class ImageFactoryFactoryTest {
 
     @Test
     public void testGetImageFactoryShort() {
         // given
 
         // when
-        ImageFactory<short[][][]> imageFactory = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
+        ImageFactory<short[][][]> imageFactory = ImageFactoryFactory.getImageFactory(short[][][].class);
 
         // then
         Assert.assertEquals(imageFactory.getClass(), Image2ByteFactory.class);
@@ -39,7 +39,7 @@ public class TypeBasedImageFactoryFactoryTest {
         // given
 
         // when
-        ImageFactory<double[][][]> imageFactory = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class);
+        ImageFactory<double[][][]> imageFactory = ImageFactoryFactory.getImageFactory(double[][][].class);
 
         // then
         Assert.assertEquals(imageFactory.getClass(), Image8ByteFactory.class);
@@ -50,7 +50,7 @@ public class TypeBasedImageFactoryFactoryTest {
         // given
 
         // when
-        ImageFactory<BufferedImage> imageFactory = TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class);
+        ImageFactory<BufferedImage> imageFactory = ImageFactoryFactory.getImageFactory(BufferedImage.class);
 
         // then
         Assert.assertEquals(imageFactory.getClass(), BufferedImageFactory.class);

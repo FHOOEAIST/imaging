@@ -10,8 +10,8 @@
 package science.aist.imaging.api.domain.twodimensional;
 
 
-import science.aist.imaging.api.domain.AbstractJavaPoint;
 import lombok.NoArgsConstructor;
+import science.aist.imaging.api.domain.AbstractJavaPoint;
 
 /**
  * <p>Java Representation of a point. There is a Point in java.awt.Point available, but this is a int representation

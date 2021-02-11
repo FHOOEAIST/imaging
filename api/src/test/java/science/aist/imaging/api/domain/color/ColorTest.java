@@ -9,9 +9,9 @@
 
 package science.aist.imaging.api.domain.color;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
 
 /**
  * <p>Test class for {@link Color}</p>

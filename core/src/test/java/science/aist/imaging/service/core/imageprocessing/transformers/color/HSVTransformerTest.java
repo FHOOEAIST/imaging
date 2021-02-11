@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformers.color;
 
-import science.aist.imaging.api.domain.color.HSVColor;
-import science.aist.imaging.api.domain.color.RGBColor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.color.HSVColor;
+import science.aist.imaging.api.domain.color.RGBColor;
 import science.aist.jack.general.transformer.Transformer;
 
 /**

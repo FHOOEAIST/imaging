@@ -9,12 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.houghspace;
 
+import lombok.Getter;
+import lombok.NonNull;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import lombok.Getter;
-import lombok.NonNull;
 
 import java.util.HashMap;
 import java.util.Map;

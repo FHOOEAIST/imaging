@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.storage;
 
-import science.aist.imaging.api.domain.threedimensional.JavaPoint3D;
 import org.springframework.core.io.ClassPathResource;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.threedimensional.JavaPoint3D;
 
 import java.io.IOException;
 import java.nio.file.Files;

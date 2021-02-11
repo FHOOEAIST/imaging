@@ -12,11 +12,10 @@ package science.aist.imaging.service.opencv.imageprocessing.objectdetection;
 import science.aist.imaging.api.domain.color.HSVColor;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.RectangleWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.api.objectdetection.AbstractColorbasedObjectDetector;
 import science.aist.imaging.service.opencv.imageprocessing.contour.OpenCVBiggestContourFinder;
 import science.aist.imaging.service.opencv.imageprocessing.conversion.OpenCVBGR2HSVFunction;
-import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Cleanup;
 import lombok.Setter;
 import org.opencv.core.*;
@@ -53,6 +52,6 @@ public class OpenCVHSVColorbasedObjectDetector extends AbstractColorbasedObjectD
         // segment given color range
         Core.inRange(hsvImage.getImage(), lowerb, upperb, dst);
 
-        return biggestContourFinder.apply(TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(dst));
+        return biggestContourFinder.apply(ImageFactoryFactory.getImageFactory(Mat.class).getImage(dst));
     }
 }

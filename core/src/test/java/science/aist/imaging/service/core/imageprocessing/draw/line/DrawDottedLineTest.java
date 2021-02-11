@@ -9,13 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.draw.line;
 
+import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.twodimensional.JavaLine2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.draw.circle.DrawCircle;
-import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
@@ -29,7 +28,7 @@ public class DrawDottedLineTest {
     @Test
     public void testAccept() {
         // given
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(11, 1);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(11, 1);
         DrawCircle<short[][][]> drawCircle = new DrawCircle<>();
         drawCircle.setColor(new double[]{1});
 

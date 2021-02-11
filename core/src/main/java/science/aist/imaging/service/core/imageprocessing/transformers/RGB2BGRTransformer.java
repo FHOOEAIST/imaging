@@ -9,12 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformers;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.typecheck.TypeChecker;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import science.aist.jack.general.transformer.Transformer;
 
 /**

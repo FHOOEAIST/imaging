@@ -13,7 +13,7 @@ import org.opencv.core.Mat;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 /**
  * <p>Helper class for creating special java beans</p>
@@ -24,11 +24,11 @@ import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFact
 public class SpecialSpringConfiguration {
     @Bean
     public ImageFactory<Mat> factoryMat() {
-        return TypeBasedImageFactoryFactory.getImageFactory(Mat.class);
+        return ImageFactoryFactory.getImageFactory(Mat.class);
     }
 
     @Bean
     public ImageFactory<short[][][]> factory2Byte() {
-        return TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
+        return ImageFactoryFactory.getImageFactory(short[][][].class);
     }
 }

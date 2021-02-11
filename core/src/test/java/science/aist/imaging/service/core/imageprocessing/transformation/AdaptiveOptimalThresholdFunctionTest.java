@@ -9,14 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformation;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.compare.GenericImageCompareFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import science.aist.imaging.service.core.storage.Image2ByteSaver;
+import science.aist.imaging.api.compare.GenericImageCompareFunction;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 
 /**
  * <p>Test class for {@link AdaptiveOptimalThresholdFunction}</p>
@@ -26,7 +24,7 @@ import science.aist.imaging.service.core.storage.Image2ByteSaver;
 
 public class AdaptiveOptimalThresholdFunctionTest {
     private final Image2ByteInputStreamLoader loader = new Image2ByteInputStreamLoader();
-    private final AdaptiveOptimalThresholdFunction<short[][][], short[][][]> threshold = new AdaptiveOptimalThresholdFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+    private final AdaptiveOptimalThresholdFunction<short[][][], short[][][]> threshold = new AdaptiveOptimalThresholdFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
     private final GenericImageCompareFunction imageCompare = new GenericImageCompareFunction();
 
     @Test

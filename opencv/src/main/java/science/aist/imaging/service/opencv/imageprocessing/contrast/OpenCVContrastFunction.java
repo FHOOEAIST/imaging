@@ -11,7 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.contrast;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Setter;
 import org.opencv.core.Mat;
@@ -36,6 +36,6 @@ public class OpenCVContrastFunction implements ImageFunction<Mat, Mat> {
         Mat m = image.getImage();
         Mat newM = new Mat();
         m.convertTo(newM, -1, factor);
-        return ((OpenCVFactory)TypeBasedImageFactoryFactory.getImageFactory(Mat.class)).getImage(newM, image.getChannelType());
+        return ((OpenCVFactory) ImageFactoryFactory.getImageFactory(Mat.class)).getImage(newM, image.getChannelType());
     }
 }

@@ -12,7 +12,7 @@ package science.aist.imaging.service.opencv.imageprocessing.transformation;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Setter;
 import org.opencv.core.Mat;
@@ -58,6 +58,6 @@ public class OpenCVCropFunction implements ImageFunction<Mat, Mat> {
         if (width < 0) throw new IllegalArgumentException("width cannot be negative");
         if (height < 0) throw new IllegalArgumentException("height cannot be negative");
         Mat res = new Mat(img.getImage(), new Rect((int) from.getX(), (int) from.getY(), width, height));
-        return ((OpenCVFactory)TypeBasedImageFactoryFactory.getImageFactory(Mat.class)).getImage(res, img.getChannelType());
+        return ((OpenCVFactory) ImageFactoryFactory.getImageFactory(Mat.class)).getImage(res, img.getChannelType());
     }
 }

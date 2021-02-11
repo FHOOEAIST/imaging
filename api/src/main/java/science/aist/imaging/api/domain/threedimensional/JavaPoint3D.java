@@ -9,9 +9,9 @@
 
 package science.aist.imaging.api.domain.threedimensional;
 
-import science.aist.imaging.api.domain.AbstractJavaPoint;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import science.aist.imaging.api.domain.AbstractJavaPoint;
 
 /**
  * <p>Java Representation of a 3D - point.</p>

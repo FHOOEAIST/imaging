@@ -25,7 +25,7 @@ public class BufferedImageFactory implements ImageFactory<BufferedImage> {
 
     /**
      * Do not instantiate this class directly. This constructor is only need, to work with {@link java.util.ServiceLoader}.
-     * Get yourself an instance using {@link TypeBasedImageFactoryFactory#getImageFactory(Class)} method.
+     * Get yourself an instance using {@link ImageFactoryFactory#getImageFactory(Class)} method.
      * Using {@code class = BufferedImage.class} for this specific factory.
      */
     public BufferedImageFactory() {

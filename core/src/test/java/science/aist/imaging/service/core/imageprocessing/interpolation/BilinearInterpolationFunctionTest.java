@@ -9,20 +9,18 @@
 
 package science.aist.imaging.service.core.imageprocessing.interpolation;
 
-import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
-import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.imageprocessing.conversion.ColoredToGreyscaleFunction;
-import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
-import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
-import science.aist.imaging.api.domain.wrapper.implementation.BufferedImageFactory;
-import science.aist.imaging.service.core.storage.BufferedImageInputStreamLoader;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
+import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.imageprocessing.conversion.ColoredToGreyscaleFunction;
+import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
+import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
+import science.aist.imaging.service.core.storage.BufferedImageInputStreamLoader;
 
 import java.awt.image.BufferedImage;
 
@@ -33,7 +31,7 @@ import java.awt.image.BufferedImage;
  */
 public class BilinearInterpolationFunctionTest {
     private BufferedImageInputStreamLoader loader = new BufferedImageInputStreamLoader();
-    private ColoredToGreyscaleFunction<short[][][], short[][][]> coloredToGreyscale = new ColoredToGreyscaleFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+    private ColoredToGreyscaleFunction<short[][][], short[][][]> coloredToGreyscale = new ColoredToGreyscaleFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
 
     @BeforeTest
     void setUp() {
@@ -48,8 +46,8 @@ public class BilinearInterpolationFunctionTest {
     @Test
     public void testApply() {
         // given
-        ImageWrapper<BufferedImage> apply1 = TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(loader.apply(getClass().getResourceAsStream("/logo/original.JPG")));
-        GenericImageWrapperTransformer<BufferedImage, short[][][]> genericImageWrapperTransformer = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class), TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+        ImageWrapper<BufferedImage> apply1 = ImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(loader.apply(getClass().getResourceAsStream("/logo/original.JPG")));
+        GenericImageWrapperTransformer<BufferedImage, short[][][]> genericImageWrapperTransformer = new GenericImageWrapperTransformer<>(ImageFactoryFactory.getImageFactory(BufferedImage.class), ImageFactoryFactory.getImageFactory(short[][][].class));
 
         ImageWrapper<short[][][]> input = coloredToGreyscale.apply(genericImageWrapperTransformer.transformFrom(apply1));
 

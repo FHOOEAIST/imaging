@@ -9,13 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformation;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.compare.GenericImageCompareFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.compare.GenericImageCompareFunction;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 
 import java.io.InputStream;
 import java.util.function.Function;
@@ -27,7 +26,7 @@ import java.util.function.Function;
  */
 public class TwoByteScaleFunctionTest {
     private final Function<InputStream, ImageWrapper<short[][][]>> imageLoader = new Image2ByteInputStreamLoader();
-    private final TwoByteScaleFunction<short[][][], short[][][]> twoByteScaleFunction = new TwoByteScaleFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+    private final TwoByteScaleFunction<short[][][], short[][][]> twoByteScaleFunction = new TwoByteScaleFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
     private final GenericImageCompareFunction imageCompare = new GenericImageCompareFunction();
 
     /**
