@@ -22,18 +22,14 @@ public class ImageProcessorWrapper extends AbstractImageWrapper<ImageProcessor> 
         super(image);
         this.channelType = type;
 
-        if (channelType.getNumberOfChannels() > 3){
+        if (channelType.getNumberOfChannels() > 3) {
             throw new IllegalArgumentException("ImageJ Imageprocessor does not support images with > 3 channels. Use an ImageStack for this case");
         }
     }
 
     @Override
     public int getChannels() {
-        if(channelType == ChannelType.UNKNOWN){
-            return image.getNChannels();
-        } else {
-            return channelType.getNumberOfChannels();
-        }
+        return image.getNChannels();
     }
 
     @Override
