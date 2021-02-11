@@ -11,6 +11,7 @@ package science.aist.imaging.service.core.imageprocessing.fitnessfunction;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.BaseTestUtil;
 import science.aist.imaging.service.core.imageprocessing.distance.ChamferDistanceMapFunction;
 import science.aist.imaging.service.core.imageprocessing.distance.ManhattanDistanceMetric;
@@ -54,6 +55,6 @@ public class DistanceMapFitnessFunctionTest {
     }
 
     protected AbstractFitnessFunction getFitnessFunction() {
-        return new DistanceMapFitnessFunction(new ChamferDistanceMapFunction<>(0.0, new ManhattanDistanceMetric(), Image2ByteFactory.getInstance()));
+        return new DistanceMapFitnessFunction(new ChamferDistanceMapFunction<>(0.0, new ManhattanDistanceMetric(), TypeBasedImageFactoryFactory.getImageFactory(short[][][].class)));
     }
 }

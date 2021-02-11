@@ -16,6 +16,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 import java.util.function.Function;
 
@@ -29,7 +30,7 @@ public class ColorTransformFunctionTest {
     @Test
     public void testApply() {
         // given
-        ImageFactory<short[][][]> provider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
         Function<Color, Color> colorFunction = color -> {
             if ((int) color.getChannel(0) == 0) {
                 return new Color(1);

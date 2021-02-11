@@ -15,6 +15,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Test class for {@link DrawPolygonFilled}</p>
@@ -26,7 +27,7 @@ public class DrawPolygonFilledTest {
     @Test
     public void testAccept() {
         // given
-        ImageWrapper<short[][][]> image = Image2ByteFactory.getInstance().getImage(11, 11);
+        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(11, 11);
         DrawPolygonFilled<short[][][]> draw = new DrawPolygonFilled<>();
         draw.setColor(new double[]{1});
 

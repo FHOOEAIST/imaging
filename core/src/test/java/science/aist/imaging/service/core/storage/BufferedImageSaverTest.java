@@ -13,6 +13,7 @@ import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
 import science.aist.imaging.api.domain.wrapper.implementation.BufferedImageFactory;
 import org.testng.annotations.AfterMethod;
@@ -32,7 +33,7 @@ public class BufferedImageSaverTest {
 
     protected static final transient Logger log = Logger.getInstance();
     private static final String IMAGE_NAME = "tmp.png";
-    private GenericImageWrapperTransformer<double[][][], BufferedImage> image8ByteToBufferedImageTransformer = new GenericImageWrapperTransformer<>(Image8ByteFactory.getInstance(), BufferedImageFactory.getInstance());
+    private GenericImageWrapperTransformer<double[][][], BufferedImage> image8ByteToBufferedImageTransformer = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(double[][][].class), TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class));
 
     @AfterTest
     void cleanup() {
@@ -49,7 +50,7 @@ public class BufferedImageSaverTest {
     @Test
     void testGreyscale() {
         // given
-        ImageWrapper<double[][][]> img = Image8ByteFactory.getInstance().getImage(1, 3, ChannelType.GREYSCALE, new double[][][]{
+        ImageWrapper<double[][][]> img = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(1, 3, ChannelType.GREYSCALE, new double[][][]{
                 new double[][]{
                         new double[]{0},
                         new double[]{127},
@@ -69,7 +70,7 @@ public class BufferedImageSaverTest {
     @Test
     void testRGB() {
         // given
-        ImageWrapper<double[][][]> img = Image8ByteFactory.getInstance().getImage(1, 3, ChannelType.RGB, new double[][][]{
+        ImageWrapper<double[][][]> img = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(1, 3, ChannelType.RGB, new double[][][]{
                 new double[][]{
                         new double[]{255, 0, 0},
                         new double[]{0, 255, 0},
@@ -89,7 +90,7 @@ public class BufferedImageSaverTest {
     @Test
     void testBGR() {
         // given
-        ImageWrapper<double[][][]> img = Image8ByteFactory.getInstance().getImage(1, 3, ChannelType.BGR, new double[][][]{
+        ImageWrapper<double[][][]> img = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(1, 3, ChannelType.BGR, new double[][][]{
                 new double[][]{
                         new double[]{0, 0, 255},
                         new double[]{0, 255, 0},
@@ -109,7 +110,7 @@ public class BufferedImageSaverTest {
     @Test
     void testRGBA() {
         // given
-        ImageWrapper<double[][][]> img = Image8ByteFactory.getInstance().getImage(1, 3, ChannelType.RGBA, new double[][][]{
+        ImageWrapper<double[][][]> img = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(1, 3, ChannelType.RGBA, new double[][][]{
                 new double[][]{
                         new double[]{255, 0, 0, 127},
                         new double[]{0, 255, 0, 127},

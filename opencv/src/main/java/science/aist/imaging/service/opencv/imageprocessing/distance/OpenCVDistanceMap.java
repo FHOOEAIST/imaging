@@ -11,6 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.distance;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVDistanceLabel;
 import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVDistanceMask;
 import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVDistanceType;
@@ -51,7 +52,7 @@ public class OpenCVDistanceMap implements ImageFunction<Mat, Mat> {
 
     @Override
     public ImageWrapper<Mat> apply(ImageWrapper<Mat> input) {
-        ImageWrapper<Mat> result = OpenCVFactory.getInstance().getImage(new Mat());
+        ImageWrapper<Mat> result = TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(new Mat());
         Imgproc.distanceTransform(input.getImage(), result.getImage(), type.getType(), mask.getMaskSize(), labelType.getLabel());
         return result;
     }

@@ -13,6 +13,7 @@ import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.jack.general.transformer.Transformer;
 
 /**
@@ -35,7 +36,7 @@ public class Image2ByteToImage8ByteTransformer implements Transformer<ImageWrapp
         int width = image8Byte.getWidth();
         ChannelType channel = image8Byte.getChannelType();
 
-        ImageWrapper<short[][][]> res = Image2ByteFactory.getInstance().getImage(height, width, channel);
+        ImageWrapper<short[][][]> res = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(height, width, channel);
 
         double[][][] inImage = image8Byte.getImage();
 
@@ -50,7 +51,7 @@ public class Image2ByteToImage8ByteTransformer implements Transformer<ImageWrapp
         int width = image1Byte.getWidth();
         ChannelType channel = image1Byte.getChannelType();
 
-        ImageWrapper<double[][][]> res = Image8ByteFactory.getInstance().getImage(height, width, channel);
+        ImageWrapper<double[][][]> res = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width, channel);
 
         short[][][] inImage = image1Byte.getImage();
 

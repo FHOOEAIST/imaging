@@ -11,6 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.filter;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Cleanup;
 import lombok.Getter;
@@ -40,7 +41,7 @@ public class BrightnessFilter implements ImageFunction<Mat, Mat> {
 
     @Override
     public ImageWrapper<Mat> apply(ImageWrapper<Mat> matImageWrapper) {
-        ImageWrapper<Mat> wrapper = OpenCVFactory.getInstance().getImage(matImageWrapper.getHeight(), matImageWrapper.getWidth(), matImageWrapper.getImage().type());
+        ImageWrapper<Mat> wrapper = ((OpenCVFactory)TypeBasedImageFactoryFactory.getImageFactory(Mat.class)).getImage(matImageWrapper.getHeight(), matImageWrapper.getWidth(), matImageWrapper.getImage().type());
 
         @Cleanup("release") Mat m = new Mat(matImageWrapper.getHeight(), matImageWrapper.getWidth(), matImageWrapper.getImage().type(), new Scalar(0, 0, 0));
         double beta = (1.0 - alpha);

@@ -14,6 +14,7 @@ import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Implements the {@link ImageFactory} interface for {@link Mat}</p>
@@ -22,16 +23,14 @@ import org.opencv.core.Mat;
  * @since 1.0
  */
 public class OpenCVFactory implements ImageFactory<Mat> {
-    private static final OpenCVFactory instance = new OpenCVFactory();
-
-    private OpenCVFactory() {
-    }
 
     /**
-     * @return a instance of {@link OpenCVFactory}
+     * Do not instantiate this class directly. This constructor is only need, to work with {@link java.util.ServiceLoader}.
+     * Get yourself an instance using {@link TypeBasedImageFactoryFactory#getImageFactory(Class)} method.
+     * Using {@code class = Mat.class} for this specific factory.
      */
-    public static OpenCVFactory getInstance() {
-        return instance;
+    public OpenCVFactory() {
+        // Note: This is needed for usage with ServiceLoader.
     }
 
     @Override
@@ -98,6 +97,11 @@ public class OpenCVFactory implements ImageFactory<Mat> {
     @Override
     public ImageWrapper<Mat> getImage(Mat image) {
         return getImage(image, ChannelType.makeChannelType(image.type()));
+    }
+
+    @Override
+    public Class<Mat> getSupportedType() {
+        return Mat.class;
     }
 
     /**

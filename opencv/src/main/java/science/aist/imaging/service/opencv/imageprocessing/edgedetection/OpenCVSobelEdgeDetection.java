@@ -11,6 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.edgedetection;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.conversion.OpenCVBGR2GrayscaleFunction;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.AccessLevel;
@@ -70,7 +71,7 @@ public class OpenCVSobelEdgeDetection implements ImageFunction<Mat, Mat> {
         Mat res = new Mat();
         Core.addWeighted(absGradX, 0.5, absGradY, 0.5, 0, res);
 
-        return OpenCVFactory.getInstance().getImage(res);
+        return TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(res);
     }
 
 }

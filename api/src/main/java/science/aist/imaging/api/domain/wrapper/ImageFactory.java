@@ -50,6 +50,11 @@ public interface ImageFactory<X> {
      */
     ImageWrapper<X> getImage(X image);
 
+    /**
+     * @return the supported image type.
+     */
+    Class<X> getSupportedType();
+
 
     /**
      * Creates a greyscale image with the given height and width

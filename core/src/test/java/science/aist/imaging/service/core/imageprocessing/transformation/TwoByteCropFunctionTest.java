@@ -11,6 +11,7 @@ package science.aist.imaging.service.core.imageprocessing.transformation;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -30,7 +31,7 @@ public class TwoByteCropFunctionTest {
         loader.setGreyscale(false);
     }
 
-    private final TwoByteCropFunction<short[][][], short[][][]> twoByteCropFunction = new TwoByteCropFunction<>(Image2ByteFactory.getInstance());
+    private final TwoByteCropFunction<short[][][], short[][][]> twoByteCropFunction = new TwoByteCropFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
 
     @Test
     void testSuccess() {

@@ -23,16 +23,13 @@ import java.awt.image.BufferedImage;
  */
 public class BufferedImageFactory implements ImageFactory<BufferedImage> {
 
-    private static final BufferedImageFactory instance = new BufferedImageFactory();
-
-    private BufferedImageFactory() {
-    }
-
     /**
-     * @return the instance of this {@link ImageFactory} implementation
+     * Do not instantiate this class directly. This constructor is only need, to work with {@link java.util.ServiceLoader}.
+     * Get yourself an instance using {@link TypeBasedImageFactoryFactory#getImageFactory(Class)} method.
+     * Using {@code class = BufferedImage.class} for this specific factory.
      */
-    public static ImageFactory<BufferedImage> getInstance() {
-        return instance;
+    public BufferedImageFactory() {
+        // Note: This is needed for usage with ServiceLoader.
     }
 
     /**
@@ -76,5 +73,10 @@ public class BufferedImageFactory implements ImageFactory<BufferedImage> {
     @Override
     public ImageWrapper<BufferedImage> getImage(BufferedImage image) {
         return new BufferedImageWrapper(image);
+    }
+
+    @Override
+    public Class<BufferedImage> getSupportedType() {
+        return BufferedImage.class;
     }
 }

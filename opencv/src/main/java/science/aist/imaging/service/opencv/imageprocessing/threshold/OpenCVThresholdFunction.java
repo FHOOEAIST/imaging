@@ -12,6 +12,7 @@ package science.aist.imaging.service.opencv.imageprocessing.threshold;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVThresholdType;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Setter;
@@ -42,7 +43,7 @@ public class OpenCVThresholdFunction implements ImageFunction<Mat, Mat> {
     @Override
     public ImageWrapper<Mat> apply(ImageWrapper<Mat> matImageWrapper) {
         // Creating empty matrix to store the temp results
-        ImageWrapper<Mat> wrapper = OpenCVFactory.getInstance().getImage(new Mat(), ChannelType.BINARY);
+        ImageWrapper<Mat> wrapper = ((OpenCVFactory)TypeBasedImageFactoryFactory.getImageFactory(Mat.class)).getImage(new Mat(), ChannelType.BINARY);
         // Converting the gray scale image to binary image
         Imgproc.threshold(matImageWrapper.getImage(), wrapper.getImage(), thresh, maxval, type.getType());
 

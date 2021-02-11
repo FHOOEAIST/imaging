@@ -16,6 +16,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Tests {@link ToRGBFunction}</p>
@@ -26,11 +27,11 @@ public class ToRGBFunctionTest {
     @Test
     void testRgb() {
         // given
-        ImageWrapper<short[][][]> rgb = Image2ByteFactory.getInstance().getImage(2, 2, ChannelType.RGB);
+        ImageWrapper<short[][][]> rgb = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(2, 2, ChannelType.RGB);
 
         // when
-        ImageFactory<short[][][]> byteProvider = Image2ByteFactory.getInstance();
-        ImageFactory<short[][][]> byte2Provider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> byteProvider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
+        ImageFactory<short[][][]> byte2Provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
         ImageWrapper<short[][][]> result = new ToRGBFunction<>(byteProvider, byte2Provider).apply(rgb);
 
         // then
@@ -40,10 +41,10 @@ public class ToRGBFunctionTest {
     @Test
     void testRgba() {
         // given
-        ImageWrapper<short[][][]> rgba = Image2ByteFactory.getInstance().getImage(2, 2, ChannelType.RGBA);
+        ImageWrapper<short[][][]> rgba = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(2, 2, ChannelType.RGBA);
 
         // when
-        ImageWrapper<short[][][]> result = new ToRGBFunction<>(Image2ByteFactory.getInstance(), Image2ByteFactory.getInstance()).apply(rgba);
+        ImageWrapper<short[][][]> result = new ToRGBFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(short[][][].class)).apply(rgba);
 
         // then
         Assert.assertEquals(result.getChannelType(), ChannelType.RGB);
@@ -52,10 +53,10 @@ public class ToRGBFunctionTest {
     @Test
     void testGreyscale() {
         // given
-        ImageWrapper<short[][][]> rgba = Image2ByteFactory.getInstance().getImage(2, 2, ChannelType.GREYSCALE);
+        ImageWrapper<short[][][]> rgba = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(2, 2, ChannelType.GREYSCALE);
 
         // when
-        ImageWrapper<short[][][]> result = new ToRGBFunction<>(Image2ByteFactory.getInstance(), Image2ByteFactory.getInstance()).apply(rgba);
+        ImageWrapper<short[][][]> result = new ToRGBFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(short[][][].class)).apply(rgba);
 
         // then
         Assert.assertEquals(result.getChannelType(), ChannelType.RGB);
@@ -64,10 +65,10 @@ public class ToRGBFunctionTest {
     @Test
     void testBinary() {
         // given
-        ImageWrapper<short[][][]> rgba = Image2ByteFactory.getInstance().getImage(2, 2, ChannelType.BINARY);
+        ImageWrapper<short[][][]> rgba = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(2, 2, ChannelType.BINARY);
 
         // when
-        ImageWrapper<short[][][]> result = new ToRGBFunction<>(Image2ByteFactory.getInstance(), Image2ByteFactory.getInstance()).apply(rgba);
+        ImageWrapper<short[][][]> result = new ToRGBFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(short[][][].class)).apply(rgba);
 
         // then
         Assert.assertEquals(result.getChannelType(), ChannelType.RGB);

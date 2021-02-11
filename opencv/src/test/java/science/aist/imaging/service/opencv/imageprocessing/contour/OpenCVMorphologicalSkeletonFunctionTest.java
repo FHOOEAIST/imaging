@@ -11,6 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.contour;
 
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.OpenCVTest;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import org.opencv.core.Mat;
@@ -27,7 +28,7 @@ public class OpenCVMorphologicalSkeletonFunctionTest extends OpenCVTest {
     @Test
     void testSkeleton() {
         // given
-        ImageWrapper<Mat> wrapper = OpenCVFactory.getInstance().getImage(loadImageFromClassPath("/passport/r_segmented.bmp", false).getImage(), ChannelType.BINARY);
+        ImageWrapper<Mat> wrapper = ((OpenCVFactory)TypeBasedImageFactoryFactory.getImageFactory(Mat.class)).getImage(loadImageFromClassPath("/passport/r_segmented.bmp", false).getImage(), ChannelType.BINARY);
         ImageWrapper<Mat> skeleton = loadImageFromClassPath("/passport/r_skeleton.bmp", false);
 
         // when

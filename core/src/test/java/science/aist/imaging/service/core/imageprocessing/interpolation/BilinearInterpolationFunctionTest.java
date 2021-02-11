@@ -13,6 +13,7 @@ import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.conversion.ColoredToGreyscaleFunction;
 import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
 import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
@@ -32,7 +33,7 @@ import java.awt.image.BufferedImage;
  */
 public class BilinearInterpolationFunctionTest {
     private BufferedImageInputStreamLoader loader = new BufferedImageInputStreamLoader();
-    private ColoredToGreyscaleFunction<short[][][], short[][][]> coloredToGreyscale = new ColoredToGreyscaleFunction<>(Image2ByteFactory.getInstance());
+    private ColoredToGreyscaleFunction<short[][][], short[][][]> coloredToGreyscale = new ColoredToGreyscaleFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
 
     @BeforeTest
     void setUp() {
@@ -47,8 +48,8 @@ public class BilinearInterpolationFunctionTest {
     @Test
     public void testApply() {
         // given
-        ImageWrapper<BufferedImage> apply1 = BufferedImageFactory.getInstance().getImage(loader.apply(getClass().getResourceAsStream("/logo/original.JPG")));
-        GenericImageWrapperTransformer<BufferedImage, short[][][]> genericImageWrapperTransformer = new GenericImageWrapperTransformer<>(BufferedImageFactory.getInstance(), Image2ByteFactory.getInstance());
+        ImageWrapper<BufferedImage> apply1 = TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(loader.apply(getClass().getResourceAsStream("/logo/original.JPG")));
+        GenericImageWrapperTransformer<BufferedImage, short[][][]> genericImageWrapperTransformer = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class), TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
 
         ImageWrapper<short[][][]> input = coloredToGreyscale.apply(genericImageWrapperTransformer.transformFrom(apply1));
 

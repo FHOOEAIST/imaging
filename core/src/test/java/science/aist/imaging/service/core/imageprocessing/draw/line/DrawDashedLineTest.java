@@ -14,6 +14,7 @@ import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 import static org.testng.Assert.assertEquals;
 
@@ -27,7 +28,7 @@ public class DrawDashedLineTest {
     @Test
     public void testAccept() {
         // given
-        ImageWrapper<short[][][]> image = Image2ByteFactory.getInstance().getImage(11, 1);
+        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(11, 1);
         DrawLine<short[][][]> lineDrawer = new DrawLine<>();
         lineDrawer.setColor(new double[]{1});
 

@@ -14,6 +14,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Test class for {@link HistogramFunction}</p>
@@ -27,7 +28,7 @@ public class HistogramFunctionTest {
     @Test
     public void testApply() {
         // given
-        ImageWrapper<short[][][]> imageWrapper = Image2ByteFactory.getInstance().getImage(2, 3, ChannelType.GREYSCALE, new short[][][]{
+        ImageWrapper<short[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(2, 3, ChannelType.GREYSCALE, new short[][][]{
                 new short[][]{
                         new short[]{1},
                         new short[]{2},

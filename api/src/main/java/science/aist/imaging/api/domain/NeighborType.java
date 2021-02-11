@@ -11,9 +11,9 @@ package science.aist.imaging.api.domain;
 
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Neighborhood definitions</p>
@@ -35,7 +35,7 @@ public enum NeighborType {
      * @return Image binary representation of the neighbor type
      */
     public ImageWrapper<short[][][]> getImageMask() {
-        ImageWrapper<short[][][]> image = Image2ByteFactory.getInstance().getImage(height, width, ChannelType.BINARY);
+        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(height, width, ChannelType.BINARY);
         image.applyFunction((image1, x, y, c) -> image.setValue(x, y, c, getMask()[x][y] ? 255 : 0));
 
         return image;

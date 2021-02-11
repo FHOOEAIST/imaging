@@ -11,8 +11,8 @@ package science.aist.imaging.api.typecheck;
 
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +26,7 @@ public class TypeCheckerTest {
     @Test
     public void testSuccess() {
         // given
-        ImageWrapper<short[][][]> greyScaleImg = Image2ByteFactory.getInstance().getImage(0, 0);
+        ImageWrapper<short[][][]> greyScaleImg = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(0, 0);
         List<ChannelType> allowedTypes = Arrays.asList(ChannelType.GREYSCALE, ChannelType.BINARY);
         TypeChecker typeChecker = new TypeChecker(allowedTypes);
 
@@ -40,7 +40,7 @@ public class TypeCheckerTest {
     @Test(expectedExceptions = TypeException.class)
     public void testFail() {
         // given
-        ImageWrapper<short[][][]> greyScaleImg = Image2ByteFactory.getInstance().getImage(0, 0);
+        ImageWrapper<short[][][]> greyScaleImg = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(0, 0);
         List<ChannelType> allowedTypes = Arrays.asList(ChannelType.RGBA, ChannelType.RGB);
         TypeChecker typeChecker = new TypeChecker(allowedTypes);
 

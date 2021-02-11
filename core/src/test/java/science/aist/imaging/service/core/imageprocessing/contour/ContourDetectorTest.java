@@ -12,6 +12,7 @@ package science.aist.imaging.service.core.imageprocessing.contour;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import science.aist.imaging.api.compare.GenericImageCompareFunction;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.transformation.ThresholdFunction;
 import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 import org.testng.Assert;
@@ -41,7 +42,7 @@ public class ContourDetectorTest {
 
     private void test(boolean innerBoundary, String compareImage) {
         // given
-        ThresholdFunction<short[][][], short[][][]> t = new ThresholdFunction<>(Image2ByteFactory.getInstance());
+        ThresholdFunction<short[][][], short[][][]> t = new ThresholdFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
         t.setBackground(0);
         t.setForeground(255);
         t.setLowerThresh(80);
@@ -49,7 +50,7 @@ public class ContourDetectorTest {
         ImageWrapper<short[][][]> img1 = t.apply(imageLoader.apply(getClass().getResourceAsStream("/logo/logoBinary.bmp")));
         ImageWrapper<short[][][]> compareValue = t.apply(imageLoader.apply(getClass().getResourceAsStream(compareImage)));
 
-        ContourDetector<short[][][]> contourDetector = new ContourDetector<>(Image2ByteFactory.getInstance());
+        ContourDetector<short[][][]> contourDetector = new ContourDetector<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
         contourDetector.setInnerContour(innerBoundary);
 
         // when

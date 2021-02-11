@@ -31,7 +31,7 @@ public class BufferedImageWrapperTest {
     public void testGetValue() throws IOException {
         // given
         BufferedImage read = ImageIO.read(new ClassPathResource("./imageWithMetaData.jpg").getInputStream());
-        ImageWrapper<BufferedImage> bufferedImage = BufferedImageFactory.getInstance().getImage(read);
+        ImageWrapper<BufferedImage> bufferedImage = TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(read);
 
         for (int c = 0; c < 3; c++) {
             // when
@@ -46,7 +46,7 @@ public class BufferedImageWrapperTest {
     public void testGetValue2() throws IOException {
         // given
         BufferedImage read = ImageIO.read(new ClassPathResource("./imageWithMetaData.jpg").getInputStream());
-        ImageWrapper<BufferedImage> bufferedImage = BufferedImageFactory.getInstance().getImage(read);
+        ImageWrapper<BufferedImage> bufferedImage = TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(read);
 
         // when
         double b = bufferedImage.getValue(177, 452, 0);
@@ -63,7 +63,7 @@ public class BufferedImageWrapperTest {
     @Test
     public void testSetValue() {
         // given
-        ImageFactory<BufferedImage> bufferedImageProvider = BufferedImageFactory.getInstance();
+        ImageFactory<BufferedImage> bufferedImageProvider = TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class);
         ImageWrapper<BufferedImage> bufferedImage = bufferedImageProvider.getImage(100, 100, ChannelType.GREYSCALE);
         double value = 127;
 
@@ -78,7 +78,7 @@ public class BufferedImageWrapperTest {
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testSetValue2() {
         // given
-        ImageWrapper<BufferedImage> bufferedImage = BufferedImageFactory.getInstance().getImage(100, 100, ChannelType.GREYSCALE);
+        ImageWrapper<BufferedImage> bufferedImage = TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(100, 100, ChannelType.GREYSCALE);
         double value = 127;
 
         // when

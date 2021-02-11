@@ -12,6 +12,7 @@ package science.aist.imaging.service.core.imageprocessing.filter.lowpass;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import science.aist.imaging.api.compare.GenericImageCompareFunction;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.filter.ConvolveFunction;
 import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 import org.testng.Assert;
@@ -26,7 +27,7 @@ import org.testng.annotations.Test;
 public class MeanFilterFunctionTest {
     private final Image2ByteInputStreamLoader loader = new Image2ByteInputStreamLoader();
     private final GenericImageCompareFunction imageCompare = new GenericImageCompareFunction();
-    private final MeanFilterFunction<short[][][], short[][][]> meanFilterFunction = new MeanFilterFunction<>(new ConvolveFunction<>(Image2ByteFactory.getInstance()));
+    private final MeanFilterFunction<short[][][], short[][][]> meanFilterFunction = new MeanFilterFunction<>(new ConvolveFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class)));
 
     @Test
     public void testApply() {

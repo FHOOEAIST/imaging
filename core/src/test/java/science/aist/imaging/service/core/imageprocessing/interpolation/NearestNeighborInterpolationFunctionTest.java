@@ -14,6 +14,7 @@ import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.conversion.ColoredToGreyscaleFunction;
 import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
 import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
@@ -35,9 +36,9 @@ import java.awt.image.BufferedImage;
 public class NearestNeighborInterpolationFunctionTest {
 
     private BufferedImageInputStreamLoader loader = new BufferedImageInputStreamLoader();
-    private GenericImageWrapperTransformer<double[][][], BufferedImage> transformerBIto8Byte = new GenericImageWrapperTransformer<>(Image8ByteFactory.getInstance(), BufferedImageFactory.getInstance());
+    private GenericImageWrapperTransformer<double[][][], BufferedImage> transformerBIto8Byte = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(double[][][].class), TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class));
     private Image2ByteToImage8ByteTransformer transformer8ByteTo2Byte = new Image2ByteToImage8ByteTransformer();
-    private ColoredToGreyscaleFunction<short[][][], short[][][]> coloredToGreyscale = new ColoredToGreyscaleFunction<>(Image2ByteFactory.getInstance());
+    private ColoredToGreyscaleFunction<short[][][], short[][][]> coloredToGreyscale = new ColoredToGreyscaleFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
 
     @BeforeTest
     void setUp() {
@@ -53,7 +54,7 @@ public class NearestNeighborInterpolationFunctionTest {
     public void testApply() {
         // given
         ImageWrapper<short[][][]> input = loader
-                .andThen(bufferedImage -> BufferedImageFactory.getInstance().getImage(bufferedImage))
+                .andThen(bufferedImage -> TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
                 .andThen(transformerBIto8Byte::transformTo)
                 .andThen(transformer8ByteTo2Byte::transformTo)
                 .andThen(coloredToGreyscale)

@@ -9,9 +9,9 @@
 
 package science.aist.imaging.api.domain.wrapper;
 
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 import java.util.Random;
 
@@ -25,7 +25,7 @@ public class ImageWrapperProviderTest {
     @Test
     public void testProvide() {
         // given
-        ImageFactory<short[][][]> provider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
 
         double value = 255;
 
@@ -45,7 +45,7 @@ public class ImageWrapperProviderTest {
     @Test
     public void testProvideRandom() {
         // given
-        ImageFactory<short[][][]> provider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
 
         Random rand = new Random(768457);
 
@@ -66,7 +66,7 @@ public class ImageWrapperProviderTest {
     @Test
     public void testProvideRandom2() {
         // given
-        ImageFactory<short[][][]> provider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
 
         Random rand = new Random(768457);
 

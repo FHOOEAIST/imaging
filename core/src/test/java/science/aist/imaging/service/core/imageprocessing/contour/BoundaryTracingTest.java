@@ -12,6 +12,7 @@ package science.aist.imaging.service.core.imageprocessing.contour;
 import science.aist.imaging.api.domain.twodimensional.JavaPolygon2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.transformation.ThresholdFunction;
 import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 import org.testng.Assert;
@@ -31,7 +32,7 @@ public class BoundaryTracingTest {
 
     @Test
     public void testApply() {
-        ThresholdFunction<short[][][], short[][][]> t = new ThresholdFunction<>(Image2ByteFactory.getInstance());
+        ThresholdFunction<short[][][], short[][][]> t = new ThresholdFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
         t.setBackground(0);
         t.setForeground(255);
         t.setLowerThresh(80);
