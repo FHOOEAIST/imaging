@@ -15,6 +15,7 @@ import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Test {@link NormalizeFunction}</p>
@@ -31,8 +32,8 @@ public class NormalizeFunctionTest {
     @Test
     void testApply() {
         // given
-        NormalizeFunction<short[][][], short[][][]> normalize = new NormalizeFunction<>(Image2ByteFactory.getInstance());
-        ImageWrapper<short[][][]> image = Image2ByteFactory.getInstance().getImage(2, 2);
+        NormalizeFunction<short[][][], short[][][]> normalize = new NormalizeFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(2, 2);
         short[][][] img = image.getImage();
         img[0][0][0] = 300;
         img[0][1][0] = 510;

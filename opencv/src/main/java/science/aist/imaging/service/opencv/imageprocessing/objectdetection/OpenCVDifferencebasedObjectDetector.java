@@ -15,6 +15,7 @@ import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.RectangleWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.api.objectdetection.AbstractDifferencebasedObjectDetector;
 import science.aist.imaging.service.opencv.imageprocessing.contour.OpenCVBiggestContourFinder;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
@@ -64,6 +65,6 @@ public class OpenCVDifferencebasedObjectDetector extends AbstractDifferencebased
         Mat dst = new Mat();
         Core.inRange(img, new Scalar(240, 240, 240), new Scalar(255, 255, 255), dst);
 
-        return contourFinder.apply(OpenCVFactory.getInstance().getImage(dst));
+        return contourFinder.apply(TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(dst));
     }
 }

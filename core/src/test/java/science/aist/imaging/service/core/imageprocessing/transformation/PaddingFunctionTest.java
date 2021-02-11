@@ -15,6 +15,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Test class for {@link PaddingFunction}</p>
@@ -26,7 +27,7 @@ public class PaddingFunctionTest {
     @Test
     public void testApply() {
         // given
-        ImageFactory<short[][][]> provider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
         ImageWrapper<short[][][]> image = provider.getImage(10, 10, ChannelType.GREYSCALE, 1);
 
         PaddingFunction<short[][][], short[][][]> paddingFunction = new PaddingFunction<>(provider, new double[]{0});
@@ -54,7 +55,7 @@ public class PaddingFunctionTest {
     @Test
     public void testApply2() {
         // given
-        ImageFactory<short[][][]> provider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
         ImageWrapper<short[][][]> image = provider.getImage(10, 10, ChannelType.GREYSCALE, 1);
 
         PaddingFunction<short[][][], short[][][]> paddingFunction = new PaddingFunction<>(provider, new double[]{0});

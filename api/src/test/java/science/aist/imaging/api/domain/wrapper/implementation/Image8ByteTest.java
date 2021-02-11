@@ -24,7 +24,7 @@ public class Image8ByteTest {
     @Test
     void testGetValue() {
         // given
-        ImageFactory<double[][][]> byteProvider = Image8ByteFactory.getInstance();
+        ImageFactory<double[][][]> byteProvider = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class);
         ImageWrapper<double[][][]> imageWrapper = byteProvider.getImage(10, 10, ChannelType.RGB);
         imageWrapper.getImage()[5][6][2] = 42;
 
@@ -38,7 +38,7 @@ public class Image8ByteTest {
     @Test
     void testSetValue() {
         // given
-        ImageWrapper<double[][][]> imageWrapper = Image8ByteFactory.getInstance().getImage(10, 10, ChannelType.RGB);
+        ImageWrapper<double[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(10, 10, ChannelType.RGB);
 
         // when
         imageWrapper.setValue(6, 5, 2, 42);

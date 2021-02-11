@@ -13,6 +13,8 @@ import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
+import java.awt.image.BufferedImage;
+
 /**
  * <p>Implements the {@link ImageFactory} interface for 2 byte images</p>
  *
@@ -20,16 +22,14 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
  * @since 1.0
  */
 public class Image2ByteFactory implements ImageFactory<short[][][]> {
-    private static final Image2ByteFactory instance = new Image2ByteFactory();
-
-    private Image2ByteFactory() {
-    }
 
     /**
-     * @return the instance of this {@link ImageFactory} implementation
+     * Do not instantiate this class directly. This constructor is only need, to work with {@link java.util.ServiceLoader}.
+     * Get yourself an instance using {@link TypeBasedImageFactoryFactory#getImageFactory(Class)} method.
+     * Using {@code class = short[][][].class} for this specific factory.
      */
-    public static ImageFactory<short[][][]> getInstance() {
-        return instance;
+    public Image2ByteFactory() {
+        // Note: This is needed for usage with ServiceLoader.
     }
 
     @Override
@@ -63,5 +63,10 @@ public class Image2ByteFactory implements ImageFactory<short[][][]> {
         }
 
         return new Image2Byte(width, height, ChannelType.makeChannelType(channels), image);
+    }
+
+    @Override
+    public Class<short[][][]> getSupportedType() {
+        return short[][][].class;
     }
 }

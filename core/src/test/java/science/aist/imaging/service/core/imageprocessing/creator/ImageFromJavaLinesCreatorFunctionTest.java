@@ -18,6 +18,7 @@ import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -38,7 +39,7 @@ public class ImageFromJavaLinesCreatorFunctionTest {
     void testCreateLineGreyscaleNoColorCreator() {
         // given
         Collection<JavaLine2D> cl = Arrays.asList(new JavaLine2D(0, 0, 2, 0), new JavaLine2D(1, 1, 1, 3));
-        ImageFromJavaLinesCreatorFunction<short[][][]> jifjlc = new ImageFromJavaLinesCreatorFunction<>(Image2ByteFactory.getInstance());
+        ImageFromJavaLinesCreatorFunction<short[][][]> jifjlc = new ImageFromJavaLinesCreatorFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
         jifjlc.setColored(false);
         jifjlc.setPaddingX(0);
         jifjlc.setPaddingY(0);
@@ -62,7 +63,7 @@ public class ImageFromJavaLinesCreatorFunctionTest {
     void testCreateLineColoredNoColorCreator() {
         // given
         Collection<JavaLine2D> cl = Arrays.asList(new JavaLine2D(0, 0, 2, 0), new JavaLine2D(1, 1, 1, 3));
-        ImageFromJavaLinesCreatorFunction<short[][][]> jifjlc = new ImageFromJavaLinesCreatorFunction<>(Image2ByteFactory.getInstance());
+        ImageFromJavaLinesCreatorFunction<short[][][]> jifjlc = new ImageFromJavaLinesCreatorFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
         jifjlc.setColored(true);
         jifjlc.setPaddingX(0);
         jifjlc.setPaddingY(0);
@@ -87,7 +88,7 @@ public class ImageFromJavaLinesCreatorFunctionTest {
         JavaLine2D jl1 = new JavaLine2D(0, 0, 2, 0);
         JavaLine2D jl2 = new JavaLine2D(1, 1, 1, 3);
         Collection<JavaLine2D> cl = Arrays.asList(jl1, jl2);
-        ImageFromJavaLinesCreatorFunction<short[][][]> jifjlc = new ImageFromJavaLinesCreatorFunction<>(Image2ByteFactory.getInstance());
+        ImageFromJavaLinesCreatorFunction<short[][][]> jifjlc = new ImageFromJavaLinesCreatorFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
         jifjlc.setColored(true);
         jifjlc.setPaddingX(0);
         jifjlc.setPaddingY(0);

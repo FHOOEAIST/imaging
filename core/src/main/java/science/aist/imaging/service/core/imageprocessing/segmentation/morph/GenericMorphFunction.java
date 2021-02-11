@@ -19,6 +19,7 @@ import science.aist.imaging.api.ImageFunction;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.jack.math.MathUtils;
 
 import java.util.Arrays;
@@ -54,7 +55,7 @@ public class GenericMorphFunction<T, P> implements ImageFunction<T, P> {
      */
     public GenericMorphFunction(@NonNull ImageFactory<P> tProvider, int neighborMask) {
         this.tProvider = tProvider;
-        ImageWrapper<short[][][]> image = Image2ByteFactory.getInstance().getImage(neighborMask, neighborMask, ChannelType.BINARY);
+        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(neighborMask, neighborMask, ChannelType.BINARY);
         image.applyFunction((i, x, y, c) -> i.setValue(x, y, c, 255));
         setNeighborMask(image);
     }

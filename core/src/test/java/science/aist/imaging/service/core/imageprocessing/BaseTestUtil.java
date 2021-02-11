@@ -13,6 +13,7 @@ import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
 import lombok.experimental.UtilityClass;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Base test class for some basic methods</p>
@@ -30,7 +31,7 @@ public class BaseTestUtil {
             throw new IllegalArgumentException("Non matching values for width and height");
         }
 
-        ImageWrapper<double[][][]> imageWrapper = Image8ByteFactory.getInstance().getImage(height, width, isGreyScaleOrBinary ? ChannelType.GREYSCALE : ChannelType.BINARY);
+        ImageWrapper<double[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width, isGreyScaleOrBinary ? ChannelType.GREYSCALE : ChannelType.BINARY);
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {

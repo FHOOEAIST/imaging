@@ -15,6 +15,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 import java.util.Arrays;
 
@@ -28,7 +29,7 @@ public class ChannelMergerTest {
     @Test
     public void testApply() {
         // given
-        ImageFactory<short[][][]> provider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
         ImageWrapper<short[][][]> r = provider.getImage(10, 10, ChannelType.GREYSCALE, 0);
         ImageWrapper<short[][][]> g = provider.getImage(10, 10, ChannelType.GREYSCALE, 1);
         ImageWrapper<short[][][]> b = provider.getImage(10, 10, ChannelType.GREYSCALE, 2);

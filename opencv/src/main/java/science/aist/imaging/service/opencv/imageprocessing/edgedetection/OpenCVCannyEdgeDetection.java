@@ -11,6 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.edgedetection;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -54,6 +55,6 @@ public class OpenCVCannyEdgeDetection implements ImageFunction<Mat, Mat> {
     public ImageWrapper<Mat> apply(ImageWrapper<Mat> img) {
         Mat res = new Mat();
         Imgproc.Canny(img.getImage(), res, getThresholdLow(), getThresholdHigh(), getApertureSize(), isL2Gradient());
-        return OpenCVFactory.getInstance().getImage(res);
+        return TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(res);
     }
 }

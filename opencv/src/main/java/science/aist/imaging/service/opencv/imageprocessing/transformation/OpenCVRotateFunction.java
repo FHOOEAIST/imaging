@@ -11,6 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.transformation;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Cleanup;
 import lombok.Setter;
@@ -49,6 +50,6 @@ public class OpenCVRotateFunction implements ImageFunction<Mat, Mat> {
         // rotate image
         Imgproc.warpAffine(src, res, rotateMatrix, src.size());
 
-        return OpenCVFactory.getInstance().getImage(res);
+        return TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(res);
     }
 }

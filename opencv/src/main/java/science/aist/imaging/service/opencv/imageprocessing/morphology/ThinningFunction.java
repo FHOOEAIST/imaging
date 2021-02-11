@@ -11,6 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.morphology;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.domain.ThinningType;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Setter;
@@ -29,7 +30,7 @@ public class ThinningFunction implements ImageFunction<Mat, Mat> {
 
     @Override
     public ImageWrapper<Mat> apply(ImageWrapper<Mat> matImageWrapper) {
-        ImageWrapper<Mat> result = OpenCVFactory.getInstance().getImage(matImageWrapper.getWidth(), matImageWrapper.getHeight(), matImageWrapper.getChannelType());
+        ImageWrapper<Mat> result = TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(matImageWrapper.getWidth(), matImageWrapper.getHeight(), matImageWrapper.getChannelType());
         Ximgproc.thinning(matImageWrapper.getImage(), result.getImage(), thinningType.getId());
         return result;
     }

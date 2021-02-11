@@ -14,9 +14,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder location="classpath:microsoftcognitiveservices.properties"/>
-
-    <bean id="bufferedImageFactory" class="science.aist.imaging.api.domain.wrapper.implementation.BufferedImageFactory" factory-method="getInstance"/>
-    <bean id="imageFactory" class="science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory" factory-method="getInstance"/>
+    <context:annotation-config />
+    <bean class="science.aist.imaging.service.microsoftcognitiveservices.SpecialSpringConfiguration"/>
 
     <bean id="genericImageWrapperTransformer" class="science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer">
         <constructor-arg index="0" ref="imageFactory"/>

@@ -16,6 +16,7 @@ import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Tests {@link FindMaxFunction}</p>
@@ -33,7 +34,7 @@ public class FindMaxFunctionTest {
     public void testApply() {
         // given
         FindMaxFunction maxFinder = new FindMaxFunction();
-        ImageWrapper<short[][][]> imageWrapper = Image2ByteFactory.getInstance().getImage(1, 3, ChannelType.GREYSCALE, new short[][][]{
+        ImageWrapper<short[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.GREYSCALE, new short[][][]{
                 new short[][]{
                         new short[]{59},
                         new short[]{17},

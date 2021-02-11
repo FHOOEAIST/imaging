@@ -12,6 +12,7 @@ package science.aist.imaging.service.opencv.imageprocessing.transformers;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -32,7 +33,7 @@ public class OpenCVImageWrapperImage8ByteTransformer implements Transformer<Imag
 
         double[][][] image = imageWrapper.getImage();
 
-        ImageWrapper<Mat> res = OpenCVFactory.getInstance().getImage(height, width, CvType.CV_64FC(channels));
+        ImageWrapper<Mat> res = ((OpenCVFactory)TypeBasedImageFactoryFactory.getImageFactory(Mat.class)).getImage(height, width, CvType.CV_64FC(channels));
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -56,7 +57,7 @@ public class OpenCVImageWrapperImage8ByteTransformer implements Transformer<Imag
             toUse = channels == 1 ? ChannelType.GREYSCALE : channels == 3 ? ChannelType.UNKNOWN_3_CHANNEL : channels == 4 ? ChannelType.UNKNOWN_4_CHANNEL : ChannelType.UNKNOWN;
         }
 
-        ImageWrapper<double[][][]> res = Image8ByteFactory.getInstance().getImage(height, width, toUse);
+        ImageWrapper<double[][][]> res = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width, toUse);
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {

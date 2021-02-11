@@ -15,6 +15,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 import java.util.Arrays;
 
@@ -28,13 +29,13 @@ public class GenericMorphFunctionTest {
     @Test
     public void testApply() {
         // given
-        ImageWrapper<short[][][]> image = Image2ByteFactory.getInstance().getImage(10, 10, ChannelType.RGB);
+        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.RGB);
         image.setValues(0, 0, new double[]{1, 0, 0});
         image.setValues(9, 9, new double[]{0, 1, 0});
         image.setValues(9, 0, new double[]{0, 1, 0});
         image.setValues(0, 9, new double[]{1, 1, 1});
 
-        GenericMorphFunction<short[][][], short[][][]> morphfunction = new GenericMorphFunction<>(Image2ByteFactory.getInstance());
+        GenericMorphFunction<short[][][], short[][][]> morphfunction = new GenericMorphFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
         morphfunction.setIsBackgroundFunction(doubles -> (int) doubles.getChannel(0) == 0 && (int) doubles.getChannel(1) == 0 && (int) doubles.getChannel(2) == 0);
         morphfunction.setNeighborMask(NeighborType.N4.getImageMask());
 
@@ -69,13 +70,13 @@ public class GenericMorphFunctionTest {
     @Test
     public void testApply2() {
         // given
-        ImageWrapper<short[][][]> image = Image2ByteFactory.getInstance().getImage(9, 9, ChannelType.RGB);
+        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(9, 9, ChannelType.RGB);
         image.setValues(0, 0, new double[]{1, 0, 0});
         image.setValues(8, 8, new double[]{0, 1, 0});
         image.setValues(8, 0, new double[]{0, 1, 0});
         image.setValues(0, 8, new double[]{1, 1, 1});
 
-        GenericMorphFunction<short[][][], short[][][]> morphfunction = new GenericMorphFunction<>(Image2ByteFactory.getInstance(), 7);
+        GenericMorphFunction<short[][][], short[][][]> morphfunction = new GenericMorphFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), 7);
         morphfunction.setIsBackgroundFunction(doubles -> (int) doubles.getChannel(0) == 0 && (int) doubles.getChannel(1) == 0 && (int) doubles.getChannel(2) == 0);
 
         // when

@@ -14,6 +14,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
 import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.conversion.ColoredToGreyscaleFunction;
 import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
 import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
@@ -40,7 +41,7 @@ public class Image2ByteInputStreamLoader implements Function<InputStream, ImageW
     /**
      * Convert a Buffered Image into a 8 Byte image
      */
-    private GenericImageWrapperTransformer<double[][][], BufferedImage> transformerBIto8Byte = new GenericImageWrapperTransformer<>(Image8ByteFactory.getInstance(), BufferedImageFactory.getInstance());
+    private GenericImageWrapperTransformer<double[][][], BufferedImage> transformerBIto8Byte = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(double[][][].class), TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class));
     /**
      * Convert the 8 Byte image into a 2 Byte image
      */
@@ -49,7 +50,7 @@ public class Image2ByteInputStreamLoader implements Function<InputStream, ImageW
      * Convert the image into a greyscale
      */
     @Setter
-    private ColoredToGreyscaleFunction<short[][][], short[][][]> greyscaleFunction = new ColoredToGreyscaleFunction<>(Image2ByteFactory.getInstance());
+    private ColoredToGreyscaleFunction<short[][][], short[][][]> greyscaleFunction = new ColoredToGreyscaleFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
 
     /**
      * If the image should be loaded as greyscale image, default is true
@@ -64,7 +65,7 @@ public class Image2ByteInputStreamLoader implements Function<InputStream, ImageW
     @Override
     public ImageWrapper<short[][][]> apply(InputStream inputStream) {
         Function<InputStream, ImageWrapper<short[][][]>> func = loader
-                .andThen(bufferedImage -> BufferedImageFactory.getInstance().getImage(bufferedImage))
+                .andThen(bufferedImage -> TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
                 .andThen(transformerBIto8Byte::transformTo)
                 .andThen(ImageFunction.closeAfterApply(transformer8ByteTo2Byte::transformTo));
 

@@ -14,6 +14,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 import java.util.Arrays;
 
@@ -25,13 +26,13 @@ import java.util.Arrays;
 
 public class ConvolveFunctionTest {
 
-    private final ConvolveFunction<double[][][], double[][][]> convolve8Byte = new ConvolveFunction<>(Image8ByteFactory.getInstance());
+    private final ConvolveFunction<double[][][], double[][][]> convolve8Byte = new ConvolveFunction<>(TypeBasedImageFactoryFactory.getImageFactory(double[][][].class));
 
     @Test
     public void testApply() {
         // given
         convolve8Byte.setNormalize(false);
-        ImageWrapper<double[][][]> imageWrapper = Image8ByteFactory.getInstance().getImage(4, 3, ChannelType.GREYSCALE, new double[][][]{
+        ImageWrapper<double[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(4, 3, ChannelType.GREYSCALE, new double[][][]{
                 new double[][]{
                         new double[]{12},
                         new double[]{11},

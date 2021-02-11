@@ -20,16 +20,14 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
  * @since 1.0
  */
 public class Image8ByteFactory implements ImageFactory<double[][][]> {
-    private static final Image8ByteFactory instance = new Image8ByteFactory();
-
-    private Image8ByteFactory() {
-    }
 
     /**
-     * @return the instance of this {@link ImageFactory} implementation
+     * Do not instantiate this class directly. This constructor is only need, to work with {@link java.util.ServiceLoader}.
+     * Get yourself an instance using {@link TypeBasedImageFactoryFactory#getImageFactory(Class)} method.
+     * Using {@code class = double[][][].class} for this specific factory.
      */
-    public static ImageFactory<double[][][]> getInstance() {
-        return instance;
+    public Image8ByteFactory() {
+        // Note: This is needed for usage with ServiceLoader.
     }
 
     @Override
@@ -63,5 +61,10 @@ public class Image8ByteFactory implements ImageFactory<double[][][]> {
         }
 
         return new Image8Byte(width, height, ChannelType.makeChannelType(channels), image);
+    }
+
+    @Override
+    public Class<double[][][]> getSupportedType() {
+        return double[][][].class;
     }
 }

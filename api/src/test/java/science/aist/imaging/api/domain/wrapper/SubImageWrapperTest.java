@@ -9,9 +9,9 @@
 
 package science.aist.imaging.api.domain.wrapper;
 
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.jack.math.MathUtils;
 
 /**
@@ -21,7 +21,7 @@ import science.aist.jack.math.MathUtils;
  */
 public class SubImageWrapperTest {
     private ImageWrapper<short[][][]> getSampleImage() {
-        ImageWrapper<short[][][]> image = Image2ByteFactory.getInstance().getImage(255, 255);
+        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(255, 255);
         for (int x = 0; x < 255; x++) {
             for (int y = 0; y < 255; y++) {
                 image.setValue(x, y, 0, x);

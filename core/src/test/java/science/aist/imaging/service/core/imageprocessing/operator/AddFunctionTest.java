@@ -16,6 +16,7 @@ import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 
 /**
  * <p>Test class for {@link AddFunction}</p>
@@ -27,7 +28,7 @@ public class AddFunctionTest {
     @Test
     public void testApply() {
         // given
-        ImageFactory<short[][][]> provider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
         ImageWrapper<short[][][]> provide = provider.getImage(10, 10, ChannelType.BGR, 5);
         ImageWrapper<short[][][]> provide2 = provider.getImage(10, 10, ChannelType.BGR, 10);
 
@@ -49,7 +50,7 @@ public class AddFunctionTest {
     @Test
     public void testApply2() {
         // given
-        ImageFactory<short[][][]> provider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
         ImageWrapper<short[][][]> provide = provider.getImage(10, 10, ChannelType.BGR, 5);
         ImageWrapper<short[][][]> provide2 = provider.getImage(10, 10, ChannelType.BGR, 10);
         ImageWrapper<short[][][]> mask = provider.getImage(10, 10, ChannelType.BINARY);
@@ -77,7 +78,7 @@ public class AddFunctionTest {
     @Test
     public void testApply3() {
         // given
-        ImageFactory<double[][][]> provider = Image8ByteFactory.getInstance();
+        ImageFactory<double[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class);
         ImageWrapper<double[][][]> provide = provider.getImage(10, 10, ChannelType.BGR, 5);
         ImageWrapper<double[][][]> provide2 = provider.getImage(10, 10, ChannelType.BGR, 10);
 

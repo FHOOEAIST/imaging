@@ -9,11 +9,14 @@
   -->
 
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- loads the OpenCV DLL -> MUST BE FIRST BEAN, DO NOT DELETE -->
     <!-- WARNING: must be called manually if spring config is not used -->
     <bean id="openCVLoader" class="aist.science.aistcv.AistCVLoader" init-method="loadShared"/>
+
+    <context:annotation-config />
+    <bean class="science.aist.imaging.service.opencv.imageprocessing.SpecialSpringConfiguration"/>
 
     <bean id="pointTransformer"
           class="science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVPoint2WrapperJavaPointTransformer"/>
@@ -117,16 +120,6 @@
         <property name="distanceMapfunction" ref="distanceMapFunction"/>
         <property name="paddingFunction" ref="paddingFunction"/>
         <property name="thresholdFunction" ref="thresholdFunction"/>
-    </bean>
-
-    <bean id="factory2Byte"
-          class="science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory"
-          factory-method="getInstance">
-    </bean>
-
-    <bean id="factoryMat"
-          class="science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory"
-          factory-method="getInstance">
     </bean>
 
     <bean id="sizebasedPositionEvaluator" scope="prototype"

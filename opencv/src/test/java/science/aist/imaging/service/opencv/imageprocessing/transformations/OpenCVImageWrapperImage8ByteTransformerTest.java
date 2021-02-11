@@ -12,6 +12,7 @@ package science.aist.imaging.service.opencv.imageprocessing.transformations;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.OpenCVTest;
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVImageWrapperImage8ByteTransformer;
 import org.opencv.core.Mat;
@@ -57,7 +58,7 @@ public class OpenCVImageWrapperImage8ByteTransformerTest extends OpenCVTest {
         final int height = 500;
         final int width = 500;
         double[][][] inputImage = getSample8ByteImageData(height, width, channelType.getNumberOfChannels());
-        ImageWrapper<double[][][]> i = Image8ByteFactory.getInstance().getImage(height, width, channelType, inputImage);
+        ImageWrapper<double[][][]> i = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width, channelType, inputImage);
 
         OpenCVImageWrapperImage8ByteTransformer transformer = new OpenCVImageWrapperImage8ByteTransformer();
 

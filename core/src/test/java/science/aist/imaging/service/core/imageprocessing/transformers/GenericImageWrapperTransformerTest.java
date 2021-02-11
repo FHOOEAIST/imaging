@@ -15,6 +15,7 @@ import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
 import science.aist.imaging.api.compare.GenericImageCompareFunction;
 import science.aist.imaging.api.domain.wrapper.implementation.BufferedImageFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 import org.springframework.core.io.ClassPathResource;
 import org.testng.Assert;
@@ -46,8 +47,8 @@ public class GenericImageWrapperTransformerTest {
                 },
         };
 
-        ImageWrapper<double[][][]> multiChannel8ByteImage = Image8ByteFactory.getInstance().getImage(3, 1, ChannelType.BGR, data);
-        GenericImageWrapperTransformer<short[][][], double[][][]> genericImageWrapperTransformer = new GenericImageWrapperTransformer<>(Image2ByteFactory.getInstance(), Image8ByteFactory.getInstance());
+        ImageWrapper<double[][][]> multiChannel8ByteImage = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(3, 1, ChannelType.BGR, data);
+        GenericImageWrapperTransformer<short[][][], double[][][]> genericImageWrapperTransformer = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(double[][][].class));
 
         // when
         ImageWrapper<short[][][]> imageWrapper = genericImageWrapperTransformer.transformTo(multiChannel8ByteImage);
@@ -72,8 +73,8 @@ public class GenericImageWrapperTransformerTest {
                 },
         };
 
-        ImageWrapper<short[][][]> multiChannel8ByteImage = Image2ByteFactory.getInstance().getImage(3, 1, ChannelType.BGR, data);
-        GenericImageWrapperTransformer<short[][][], double[][][]> genericImageWrapperTransformer = new GenericImageWrapperTransformer<>(Image2ByteFactory.getInstance(), Image8ByteFactory.getInstance());
+        ImageWrapper<short[][][]> multiChannel8ByteImage = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 1, ChannelType.BGR, data);
+        GenericImageWrapperTransformer<short[][][], double[][][]> genericImageWrapperTransformer = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(double[][][].class));
 
         // when
         ImageWrapper<double[][][]> imageWrapper = genericImageWrapperTransformer.transformFrom(multiChannel8ByteImage);
@@ -88,12 +89,12 @@ public class GenericImageWrapperTransformerTest {
     public void testTransformTo2() throws IOException {
         // given
         ClassPathResource resource = new ClassPathResource("./imageWithMetaData.jpg");
-        ImageWrapper<BufferedImage> bufferedImage = BufferedImageFactory.getInstance().getImage(ImageIO.read(resource.getInputStream()));
+        ImageWrapper<BufferedImage> bufferedImage = TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(ImageIO.read(resource.getInputStream()));
         Image2ByteInputStreamLoader inputStreamLoader = new Image2ByteInputStreamLoader();
         inputStreamLoader.setGreyscale(false);
         ImageWrapper<short[][][]> compare = inputStreamLoader.apply(resource.getInputStream());
 
-        GenericImageWrapperTransformer<short[][][], BufferedImage> transformer = new GenericImageWrapperTransformer<>(Image2ByteFactory.getInstance(), BufferedImageFactory.getInstance());
+        GenericImageWrapperTransformer<short[][][], BufferedImage> transformer = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class));
 
         // when
         ImageWrapper<short[][][]> imageWrapper = transformer.transformTo(bufferedImage);
@@ -107,11 +108,11 @@ public class GenericImageWrapperTransformerTest {
     public void testTransformFrom2() throws IOException {
         // given
         ClassPathResource resource = new ClassPathResource("./imageWithMetaData.jpg");
-        ImageWrapper<BufferedImage> compare = BufferedImageFactory.getInstance().getImage(ImageIO.read(resource.getInputStream()));
+        ImageWrapper<BufferedImage> compare = TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(ImageIO.read(resource.getInputStream()));
         Image2ByteInputStreamLoader inputStreamLoader = new Image2ByteInputStreamLoader();
         inputStreamLoader.setGreyscale(false);
         ImageWrapper<short[][][]> input = inputStreamLoader.apply(resource.getInputStream());
-        GenericImageWrapperTransformer<short[][][], BufferedImage> transformer = new GenericImageWrapperTransformer<>(Image2ByteFactory.getInstance(), BufferedImageFactory.getInstance());
+        GenericImageWrapperTransformer<short[][][], BufferedImage> transformer = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class));
 
         // when
         ImageWrapper<BufferedImage> bufferedImageImageWrapper = transformer.transformFrom(input);

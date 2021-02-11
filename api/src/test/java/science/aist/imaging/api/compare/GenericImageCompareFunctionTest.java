@@ -12,8 +12,7 @@ package science.aist.imaging.api.compare;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.api.util.ToBooleanBiFunction;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -38,7 +37,7 @@ public class GenericImageCompareFunctionTest {
     @Test
     void testSuccess1WithSameType() {
         // given
-        ImageWrapper<short[][][]> i1 = Image2ByteFactory.getInstance().getImage(3, 2, ChannelType.RGB, new short[][][]{
+        ImageWrapper<short[][][]> i1 = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.RGB, new short[][][]{
                 new short[][]{
                         new short[]{1, 2, 3},
                         new short[]{4, 5, 6}
@@ -52,7 +51,7 @@ public class GenericImageCompareFunctionTest {
                         new short[]{16, 17, 18}
                 }
         });
-        ImageWrapper<short[][][]> i2 = Image2ByteFactory.getInstance().getImage(3, 2, ChannelType.RGB, new short[][][]{
+        ImageWrapper<short[][][]> i2 = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.RGB, new short[][][]{
                 new short[][]{
                         new short[]{1, 2, 3},
                         new short[]{4, 5, 6}
@@ -77,7 +76,7 @@ public class GenericImageCompareFunctionTest {
     @Test
     void testSuccessWithDifferentType() {
         // given
-        ImageWrapper<short[][][]> i1 = Image2ByteFactory.getInstance().getImage(3, 2, ChannelType.RGB, new short[][][]{
+        ImageWrapper<short[][][]> i1 = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.RGB, new short[][][]{
                 new short[][]{
                         new short[]{1, 2, 3},
                         new short[]{4, 5, 6}
@@ -91,7 +90,7 @@ public class GenericImageCompareFunctionTest {
                         new short[]{16, 17, 18}
                 }
         });
-        ImageWrapper<double[][][]> i2 = Image8ByteFactory.getInstance().getImage(3, 2, ChannelType.RGB, new double[][][]{
+        ImageWrapper<double[][][]> i2 = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(3, 2, ChannelType.RGB, new double[][][]{
                 new double[][]{
                         new double[]{1, 2, 3},
                         new double[]{4, 5, 6}
@@ -116,9 +115,9 @@ public class GenericImageCompareFunctionTest {
     @Test
     void testFailureDifferentHeight() {
         // given
-        ImageFactory<short[][][]> byteProvider = Image2ByteFactory.getInstance();
+        ImageFactory<short[][][]> byteProvider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
         ImageWrapper<short[][][]> i1 = byteProvider.getImage(3, 2, ChannelType.RGB);
-        ImageWrapper<double[][][]> i2 = Image8ByteFactory.getInstance().getImage(4, 2, ChannelType.RGB);
+        ImageWrapper<double[][][]> i2 = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(4, 2, ChannelType.RGB);
 
         // when
         boolean result = compare.applyAsBoolean(i1, i2);
@@ -130,8 +129,8 @@ public class GenericImageCompareFunctionTest {
     @Test
     void testFailureDifferentWidth() {
         // given
-        ImageWrapper<short[][][]> i1 = Image2ByteFactory.getInstance().getImage(3, 2, ChannelType.RGB);
-        ImageWrapper<double[][][]> i2 = Image8ByteFactory.getInstance().getImage(3, 3, ChannelType.RGB);
+        ImageWrapper<short[][][]> i1 = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.RGB);
+        ImageWrapper<double[][][]> i2 = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(3, 3, ChannelType.RGB);
 
         // when
         boolean result = compare.applyAsBoolean(i1, i2);
@@ -143,8 +142,8 @@ public class GenericImageCompareFunctionTest {
     @Test
     void testFailureDifferentChannelType() {
         // given
-        ImageWrapper<short[][][]> i1 = Image2ByteFactory.getInstance().getImage(3, 2, ChannelType.RGB);
-        ImageWrapper<double[][][]> i2 = Image8ByteFactory.getInstance().getImage(3, 2, ChannelType.BGR);
+        ImageWrapper<short[][][]> i1 = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.RGB);
+        ImageWrapper<double[][][]> i2 = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(3, 2, ChannelType.BGR);
 
         // when
         boolean result = compare.applyAsBoolean(i1, i2);

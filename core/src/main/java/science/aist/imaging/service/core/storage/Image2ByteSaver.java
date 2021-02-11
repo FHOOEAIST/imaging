@@ -11,6 +11,7 @@ package science.aist.imaging.service.core.storage;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
 import science.aist.imaging.service.core.imageprocessing.transformers.Image2ByteToImage8ByteTransformer;
 import science.aist.imaging.api.domain.wrapper.implementation.BufferedImageFactory;
@@ -29,7 +30,7 @@ import java.util.function.BiConsumer;
 @Setter
 public class Image2ByteSaver implements BiConsumer<ImageWrapper<short[][][]>, String> {
     private Transformer<ImageWrapper<short[][][]>, ImageWrapper<double[][][]>> transformer8ByteTo2Byte = new Image2ByteToImage8ByteTransformer();
-    private GenericImageWrapperTransformer<double[][][], BufferedImage> image8ByteToBufferedImageTransformer = new GenericImageWrapperTransformer<>(Image8ByteFactory.getInstance(), BufferedImageFactory.getInstance());
+    private GenericImageWrapperTransformer<double[][][], BufferedImage> image8ByteToBufferedImageTransformer = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(double[][][].class), TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class));
 
     @Override
     public void accept(ImageWrapper<short[][][]> image, String fileName) {

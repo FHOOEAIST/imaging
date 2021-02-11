@@ -11,6 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.averaging;
 
 import science.aist.imaging.api.domain.AverageType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -50,6 +51,6 @@ public class MedianFilter extends AbstractAveragingFilter {
 
         background.convertTo(background, firstMat.getImage().type());
 
-        return OpenCVFactory.getInstance().getImage(background);
+        return TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(background);
     }
 }
