@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.objectprocessing.compare.impl;
 
-import science.aist.imaging.api.domain.RecognizedObject;
-import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.RecognizedObject;
+import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 
 import java.util.ArrayList;
 import java.util.List;

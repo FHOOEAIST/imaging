@@ -9,12 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.metadata;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.imagemetadata.Chroma;
 import science.aist.imaging.api.domain.imagemetadata.Compression;
 import science.aist.imaging.api.domain.imagemetadata.Dimension;
 import science.aist.imaging.api.domain.imagemetadata.ImageMetaData;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;

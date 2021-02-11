@@ -9,14 +9,13 @@
 
 package science.aist.imaging.service.core.imageprocessing.segmentation.morph;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.compare.GenericImageCompareFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.imageprocessing.transformation.ThresholdFunction;
-import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.compare.GenericImageCompareFunction;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.imageprocessing.transformation.ThresholdFunction;
+import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 
 /**
  * <p>Test class for {@link DilateFunction}</p>
@@ -28,8 +27,8 @@ public class DilateFunctionTest {
 
     private final Image2ByteInputStreamLoader loader = new Image2ByteInputStreamLoader();
     private final GenericImageCompareFunction imageCompare = new GenericImageCompareFunction();
-    private final ThresholdFunction<short[][][], short[][][]> threshold = new ThresholdFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
-    private final DilateFunction<short[][][], short[][][]> dilate = new DilateFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+    private final ThresholdFunction<short[][][], short[][][]> threshold = new ThresholdFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
+    private final DilateFunction<short[][][], short[][][]> dilate = new DilateFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
 
     @Test
     public void testApply() {

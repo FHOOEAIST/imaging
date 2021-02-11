@@ -13,12 +13,11 @@ import science.aist.imaging.api.domain.color.RGBColor;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVBorderMode;
 import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVInterpolationType;
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVPoint2WrapperJavaPointTransformer;
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVScalarRGBColorTransformer;
-import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.CustomLog;
 import lombok.Setter;
 import org.opencv.core.Mat;
@@ -100,7 +99,7 @@ public class OpenCVPerspectiveTransformation implements ImageFunction<Mat, Mat> 
             Imgproc.warpPerspective(img, res, lambda, res.size(), interpolationType.getInterpolationType(), borderMode.getBorderType(), colorTransformer.transformTo(borderValue));
 
             // return the result
-            return TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(res);
+            return ImageFactoryFactory.getImageFactory(Mat.class).getImage(res);
         } finally {
             inputQuad.release();
             outputQuad.release();

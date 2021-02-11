@@ -9,9 +9,9 @@
 
 package science.aist.imaging.api.domain;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 /**
  * <p>Test class for {@link NeighborType}</p>

@@ -9,11 +9,11 @@
 
 package science.aist.imaging.service.core.imageprocessing.registration;
 
+import lombok.AllArgsConstructor;
 import science.aist.imaging.api.domain.offset.RotationOffset;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.fitnessfunction.AbstractFitnessFunction;
 import science.aist.imaging.service.core.imageprocessing.transformation.TransformFunction;
-import lombok.AllArgsConstructor;
 import science.aist.jack.math.MathUtils;
 
 import java.util.concurrent.atomic.AtomicLong;

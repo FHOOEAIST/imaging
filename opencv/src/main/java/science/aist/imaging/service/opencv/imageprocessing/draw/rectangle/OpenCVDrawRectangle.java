@@ -9,17 +9,17 @@
 
 package science.aist.imaging.service.opencv.imageprocessing.draw.rectangle;
 
+import lombok.Setter;
+import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
 import science.aist.imaging.api.domain.color.RGBColor;
 import science.aist.imaging.api.domain.twodimensional.JavaRectangle2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVLineType;
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVPoint2WrapperJavaPointTransformer;
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVScalarRGBColorTransformer;
-import lombok.Setter;
-import org.opencv.core.Mat;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
-import org.opencv.imgproc.Imgproc;
 
 import java.util.function.BiConsumer;
 

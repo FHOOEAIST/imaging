@@ -9,13 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.filter.highpass;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.compare.GenericImageCompareFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.compare.GenericImageCompareFunction;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
 
 /**
  * <p>Test class for {@link SobelEdgeDetectionFilterFunction}</p>
@@ -26,7 +25,7 @@ import org.testng.annotations.Test;
 public class SobelEdgeDetectionFilterFunctionTest {
     private final Image2ByteInputStreamLoader loader = new Image2ByteInputStreamLoader();
     private final GenericImageCompareFunction imageCompare = new GenericImageCompareFunction();
-    private final SobelEdgeDetectionFilterFunction<short[][][], short[][][]> sobelEdgeDetectionFilterFunction = new SobelEdgeDetectionFilterFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+    private final SobelEdgeDetectionFilterFunction<short[][][], short[][][]> sobelEdgeDetectionFilterFunction = new SobelEdgeDetectionFilterFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
 
     @Test
     public void testApply() {

@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.objectprocessing.merge.impl;
 
+import lombok.CustomLog;
 import science.aist.imaging.api.domain.RecognizedObject;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.service.core.objectprocessing.merge.ObjectMerge;
-import lombok.CustomLog;
 
 import java.util.ArrayList;
 import java.util.HashSet;

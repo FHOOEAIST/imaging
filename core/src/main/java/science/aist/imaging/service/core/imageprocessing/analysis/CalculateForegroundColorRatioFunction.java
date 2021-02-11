@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.imageprocessing.analysis;
 
+import lombok.Setter;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.typecheck.TypeChecker;
-import lombok.Setter;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;

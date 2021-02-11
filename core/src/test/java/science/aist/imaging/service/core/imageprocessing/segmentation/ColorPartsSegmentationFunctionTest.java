@@ -9,22 +9,19 @@
 
 package science.aist.imaging.service.core.imageprocessing.segmentation;
 
-import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.imageprocessing.conversion.ColoredToGreyscaleFunction;
-import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
-import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
-import science.aist.imaging.service.core.imageprocessing.transformers.Image2ByteToImage8ByteTransformer;
-import science.aist.imaging.api.domain.wrapper.implementation.BufferedImageFactory;
-import science.aist.imaging.service.core.storage.BufferedImageInputStreamLoader;
-import science.aist.imaging.service.core.storage.BufferedImageSaver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.imageprocessing.conversion.ColoredToGreyscaleFunction;
+import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
+import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
+import science.aist.imaging.service.core.imageprocessing.transformers.Image2ByteToImage8ByteTransformer;
+import science.aist.imaging.service.core.storage.BufferedImageInputStreamLoader;
+import science.aist.imaging.service.core.storage.BufferedImageSaver;
 
 import java.awt.image.BufferedImage;
 import java.util.function.Function;
@@ -37,9 +34,9 @@ import java.util.function.Function;
 public class ColorPartsSegmentationFunctionTest {
 
     private final BufferedImageInputStreamLoader loader = new BufferedImageInputStreamLoader();
-    private final GenericImageWrapperTransformer<double[][][], BufferedImage> transformerBIto8Byte = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(double[][][].class), TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class));
+    private final GenericImageWrapperTransformer<double[][][], BufferedImage> transformerBIto8Byte = new GenericImageWrapperTransformer<>(ImageFactoryFactory.getImageFactory(double[][][].class), ImageFactoryFactory.getImageFactory(BufferedImage.class));
     private final Image2ByteToImage8ByteTransformer transformer8ByteTo2Byte = new Image2ByteToImage8ByteTransformer();
-    private final ColoredToGreyscaleFunction<short[][][], short[][][]> coloredToGreyscale = new ColoredToGreyscaleFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+    private final ColoredToGreyscaleFunction<short[][][], short[][][]> coloredToGreyscale = new ColoredToGreyscaleFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
 
     @BeforeTest
     void setUp() {
@@ -55,16 +52,16 @@ public class ColorPartsSegmentationFunctionTest {
     void testSegmentColorParts() {
         // given
         ImageWrapper<short[][][]> input = loader
-                .andThen(bufferedImage -> TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
+                .andThen(bufferedImage -> ImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
                 .andThen(transformerBIto8Byte::transformTo)
                 .andThen(transformer8ByteTo2Byte::transformTo)
                 .apply(getClass().getResourceAsStream("/passport/base_p_03_cropped.png"));
         ImageWrapper<short[][][]> comp = loader
-                .andThen(bufferedImage -> TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
+                .andThen(bufferedImage -> ImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
                 .andThen(transformerBIto8Byte::transformTo)
                 .andThen(transformer8ByteTo2Byte::transformTo)
                 .apply(getClass().getResourceAsStream("/passport/base_p_03_cropped_segmented.bmp"));
-        ColorPartsSegmentationFunction<short[][][], short[][][]> cps = new ColorPartsSegmentationFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+        ColorPartsSegmentationFunction<short[][][], short[][][]> cps = new ColorPartsSegmentationFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
         cps.setBackground((short) 255);
         cps.setForeground((short) 0);
         cps.setMinDiff((short) 40);

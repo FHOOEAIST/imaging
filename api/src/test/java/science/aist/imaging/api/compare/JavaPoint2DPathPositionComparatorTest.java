@@ -9,10 +9,10 @@
 
 package science.aist.imaging.api.compare;
 
-import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
-import science.aist.imaging.api.domain.twodimensional.JavaPolygon2D;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
+import science.aist.imaging.api.domain.twodimensional.JavaPolygon2D;
 
 /**
  * @author Christoph Praschl

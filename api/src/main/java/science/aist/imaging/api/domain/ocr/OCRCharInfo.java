@@ -9,8 +9,8 @@
 
 package science.aist.imaging.api.domain.ocr;
 
-import science.aist.imaging.api.domain.twodimensional.JavaRectangle2D;
 import lombok.*;
+import science.aist.imaging.api.domain.twodimensional.JavaRectangle2D;
 
 /**
  * <p>This class is used to provide information about a single character after recognizing it with ocr.</p>

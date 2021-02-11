@@ -12,7 +12,7 @@ package science.aist.imaging.service.opencv.imageprocessing.contour;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Cleanup;
 import org.opencv.core.*;
@@ -45,6 +45,6 @@ public class OpenCVMorphologicalSkeletonFunction implements ImageFunction<Mat, M
         } while (Core.countNonZero(img) != 0);
 
 
-        return ((OpenCVFactory)TypeBasedImageFactoryFactory.getImageFactory(Mat.class)).getImage(skeleton, ChannelType.BINARY);
+        return ((OpenCVFactory) ImageFactoryFactory.getImageFactory(Mat.class)).getImage(skeleton, ChannelType.BINARY);
     }
 }

@@ -9,13 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.draw.polygon;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPolygon2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 /**
  * <p>Test class for {@link DrawPolygon}</p>
@@ -27,7 +26,7 @@ public class DrawPolygonTest {
     @Test
     public void testAccept() {
         // given
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(11, 11);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(11, 11);
         DrawPolygon<short[][][]> draw = new DrawPolygon<>();
         draw.setColor(new double[]{1});
 
@@ -49,7 +48,7 @@ public class DrawPolygonTest {
     @Test
     public void testAccept2() {
         // given
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(11, 11);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(11, 11);
         DrawPolygon<short[][][]> draw = new DrawPolygon<>();
         draw.setThickness(1);
         draw.setColor(new double[]{1});

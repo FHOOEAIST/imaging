@@ -9,9 +9,9 @@
 
 package science.aist.imaging.service.core.imageprocessing.draw;
 
+import lombok.Setter;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import lombok.Setter;
 
 import java.util.Collection;
 import java.util.HashSet;

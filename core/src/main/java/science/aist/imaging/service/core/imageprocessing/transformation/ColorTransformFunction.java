@@ -9,14 +9,14 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformation;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import science.aist.imaging.api.ImageFunction;
 import science.aist.imaging.api.domain.color.Color;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.ImageFunction;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 import java.util.function.Function;
 

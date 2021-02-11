@@ -9,16 +9,15 @@
 
 package science.aist.imaging.service.core.imageprocessing.filter;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageFactory;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
-import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.api.typecheck.TypeChecker;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageFactory;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.api.typecheck.TypeChecker;
 import science.aist.jack.data.Pair;
 
 import java.util.Map;
@@ -57,7 +56,7 @@ public class AnisotropicDiffusionFilterFunction<T, R> implements ImageFunction<T
 
     public AnisotropicDiffusionFilterFunction(ImageFactory<R> provider) {
         this.provider = provider;
-        ConvolveFunction<double[][][], double[][][]> convolve8Byte = new ConvolveFunction<>(TypeBasedImageFactoryFactory.getImageFactory(double[][][].class));
+        ConvolveFunction<double[][][], double[][][]> convolve8Byte = new ConvolveFunction<>(ImageFactoryFactory.getImageFactory(double[][][].class));
         convolve8Byte.setNormalize(false);
         convolutionFunction = convolve8Byte;
     }
@@ -72,7 +71,7 @@ public class AnisotropicDiffusionFilterFunction<T, R> implements ImageFunction<T
         int width = imageWrapper.getWidth();
         int height = imageWrapper.getHeight();
 
-        ImageWrapper<double[][][]> inputImageWrapperDouble = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width);
+        ImageWrapper<double[][][]> inputImageWrapperDouble = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width);
 
         imageWrapper.copyTo(inputImageWrapperDouble);
         double[][][] inputImage = inputImageWrapperDouble.getImage();
@@ -87,14 +86,14 @@ public class AnisotropicDiffusionFilterFunction<T, R> implements ImageFunction<T
             double[][][] nablaSW = convolutionFunction.apply(inputImageWrapperDouble, H_SW).getImage();
             double[][][] nablaNW = convolutionFunction.apply(inputImageWrapperDouble, H_NW).getImage();
 
-            double[][][] cN = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
-            double[][][] cS = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
-            double[][][] cW = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
-            double[][][] cE = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
-            double[][][] cNE = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
-            double[][][] cSE = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
-            double[][][] cSW = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
-            double[][][] cNW = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
+            double[][][] cN = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
+            double[][][] cS = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
+            double[][][] cW = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
+            double[][][] cE = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
+            double[][][] cNE = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
+            double[][][] cSE = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
+            double[][][] cSW = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
+            double[][][] cNW = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width).getImage();
 
             Map<double[][][], double[][][]> map = Stream.of(
                     Pair.of(cN, nablaN),

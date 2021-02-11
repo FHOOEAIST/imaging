@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformers.color;
 
-import science.aist.imaging.api.domain.color.RGBColor;
-import science.aist.imaging.api.domain.color.YUVColor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.color.RGBColor;
+import science.aist.imaging.api.domain.color.YUVColor;
 
 /**
  * Unittest-class for {@link YUVTransformer}

@@ -9,14 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.operator;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 /**
  * <p>Test class for {@link AddFunction}</p>
@@ -28,7 +26,7 @@ public class AddFunctionTest {
     @Test
     public void testApply() {
         // given
-        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
+        ImageFactory<short[][][]> provider = ImageFactoryFactory.getImageFactory(short[][][].class);
         ImageWrapper<short[][][]> provide = provider.getImage(10, 10, ChannelType.BGR, 5);
         ImageWrapper<short[][][]> provide2 = provider.getImage(10, 10, ChannelType.BGR, 10);
 
@@ -50,7 +48,7 @@ public class AddFunctionTest {
     @Test
     public void testApply2() {
         // given
-        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
+        ImageFactory<short[][][]> provider = ImageFactoryFactory.getImageFactory(short[][][].class);
         ImageWrapper<short[][][]> provide = provider.getImage(10, 10, ChannelType.BGR, 5);
         ImageWrapper<short[][][]> provide2 = provider.getImage(10, 10, ChannelType.BGR, 10);
         ImageWrapper<short[][][]> mask = provider.getImage(10, 10, ChannelType.BINARY);
@@ -78,7 +76,7 @@ public class AddFunctionTest {
     @Test
     public void testApply3() {
         // given
-        ImageFactory<double[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class);
+        ImageFactory<double[][][]> provider = ImageFactoryFactory.getImageFactory(double[][][].class);
         ImageWrapper<double[][][]> provide = provider.getImage(10, 10, ChannelType.BGR, 5);
         ImageWrapper<double[][][]> provide2 = provider.getImage(10, 10, ChannelType.BGR, 10);
 

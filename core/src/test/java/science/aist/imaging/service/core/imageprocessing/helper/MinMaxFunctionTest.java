@@ -9,12 +9,11 @@
 
 package science.aist.imaging.service.core.imageprocessing.helper;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.jack.math.MinMax;
 
 import java.util.Arrays;
@@ -32,7 +31,7 @@ public class MinMaxFunctionTest {
         // given
         Random random = new Random(768457);
 
-        ImageWrapper<short[][][]> provide = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.BGR);
+        ImageWrapper<short[][][]> provide = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(10, 10, ChannelType.BGR);
         for (int x = 0; x < provide.getWidth(); x++) {
             for (int y = 0; y < provide.getHeight(); y++) {
                 for (int c = 0; c < provide.getChannels(); c++) {

@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.imageprocessing.interpolation;
 
-import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 import java.util.function.BiFunction;
 

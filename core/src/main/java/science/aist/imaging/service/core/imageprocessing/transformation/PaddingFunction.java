@@ -9,11 +9,11 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformation;
 
-import science.aist.imaging.api.domain.wrapper.ImageFactory;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import science.aist.imaging.api.domain.wrapper.ImageFactory;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 import java.util.function.Function;
 

@@ -9,11 +9,11 @@
 
 package science.aist.imaging.api.domain;
 
-import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 
 import java.util.List;
 

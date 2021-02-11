@@ -9,12 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.fitnessfunction;
 
-import science.aist.imaging.api.domain.twodimensional.JavaRectangle2D;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.service.core.imageprocessing.BaseTestUtil;
-import science.aist.imaging.api.fitnessfunction.AbstractFitnessFunction;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.twodimensional.JavaRectangle2D;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.fitnessfunction.AbstractFitnessFunction;
+import science.aist.imaging.service.core.imageprocessing.BaseTestUtil;
 
 /**
  * <p>Test class for {@link SSEFitnessFunction}</p>

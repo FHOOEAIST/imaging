@@ -10,9 +10,9 @@
 package science.aist.imaging.api.domain.twodimensional;
 
 
+import lombok.Getter;
 import science.aist.imaging.api.compare.JavaPointCoordinateComparator;
 import science.aist.imaging.api.domain.AbstractJavaLine;
-import lombok.Getter;
 import science.aist.jack.data.Pair;
 import science.aist.jack.math.MathUtils;
 

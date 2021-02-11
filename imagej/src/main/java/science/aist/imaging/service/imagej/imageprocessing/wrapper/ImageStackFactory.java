@@ -14,7 +14,7 @@ import ij.process.ColorProcessor;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 /**
  * <p>Implementation of a {@link science.aist.imaging.api.domain.wrapper.ImageFactory} for ImageJ's {@link ImageStack}</p>
@@ -25,7 +25,7 @@ import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFact
 public class ImageStackFactory implements ImageFactory<ImageStack> {
     /**
      * Do not instantiate this class directly. This constructor is only need, to work with {@link java.util.ServiceLoader}.
-     * Get yourself an instance using {@link TypeBasedImageFactoryFactory#getImageFactory(Class)} method.
+     * Get yourself an instance using {@link ImageFactoryFactory#getImageFactory(Class)} method.
      * Using {@code class = ImageStack.class} for this specific factory.
      */
     public ImageStackFactory() {

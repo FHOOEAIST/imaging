@@ -9,8 +9,8 @@
 
 package science.aist.imaging.api.domain.twodimensional;
 
-import science.aist.imaging.api.domain.AbstractJavaPointCloud;
 import lombok.NonNull;
+import science.aist.imaging.api.domain.AbstractJavaPointCloud;
 import science.aist.jack.general.util.CastUtils;
 import science.aist.jack.math.MathUtils;
 

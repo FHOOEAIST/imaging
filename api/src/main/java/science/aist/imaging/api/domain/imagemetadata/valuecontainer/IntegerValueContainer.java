@@ -9,8 +9,8 @@
 
 package science.aist.imaging.api.domain.imagemetadata.valuecontainer;
 
-import science.aist.imaging.api.domain.imagemetadata.ValueContainer;
 import lombok.ToString;
+import science.aist.imaging.api.domain.imagemetadata.ValueContainer;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

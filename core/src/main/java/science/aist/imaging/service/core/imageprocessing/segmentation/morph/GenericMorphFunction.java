@@ -9,17 +9,16 @@
 
 package science.aist.imaging.service.core.imageprocessing.segmentation.morph;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import science.aist.imaging.api.ImageFunction;
 import science.aist.imaging.api.domain.NeighborType;
 import science.aist.imaging.api.domain.color.Color;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.ImageFunction;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.jack.math.MathUtils;
 
 import java.util.Arrays;
@@ -55,7 +54,7 @@ public class GenericMorphFunction<T, P> implements ImageFunction<T, P> {
      */
     public GenericMorphFunction(@NonNull ImageFactory<P> tProvider, int neighborMask) {
         this.tProvider = tProvider;
-        ImageWrapper<short[][][]> image = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(neighborMask, neighborMask, ChannelType.BINARY);
+        ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(neighborMask, neighborMask, ChannelType.BINARY);
         image.applyFunction((i, x, y, c) -> i.setValue(x, y, c, 255));
         setNeighborMask(image);
     }

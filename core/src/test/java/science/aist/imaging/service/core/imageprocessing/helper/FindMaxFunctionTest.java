@@ -9,14 +9,13 @@
 
 package science.aist.imaging.service.core.imageprocessing.helper;
 
-import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 /**
  * <p>Tests {@link FindMaxFunction}</p>
@@ -34,7 +33,7 @@ public class FindMaxFunctionTest {
     public void testApply() {
         // given
         FindMaxFunction maxFinder = new FindMaxFunction();
-        ImageWrapper<short[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.GREYSCALE, new short[][][]{
+        ImageWrapper<short[][][]> imageWrapper = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.GREYSCALE, new short[][][]{
                 new short[][]{
                         new short[]{59},
                         new short[]{17},

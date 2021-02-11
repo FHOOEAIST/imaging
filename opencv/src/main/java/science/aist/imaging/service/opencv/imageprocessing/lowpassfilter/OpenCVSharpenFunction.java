@@ -11,8 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.lowpassfilter;
 
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import lombok.Setter;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
@@ -56,6 +55,6 @@ public class OpenCVSharpenFunction implements ImageFunction<Mat, Mat> {
 
         Mat res = new Mat();
         Core.addWeighted(image.getImage(), alpha, gauss.apply(image).getImage(), beta, gamma, res);
-        return TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(res);
+        return ImageFactoryFactory.getImageFactory(Mat.class).getImage(res);
     }
 }

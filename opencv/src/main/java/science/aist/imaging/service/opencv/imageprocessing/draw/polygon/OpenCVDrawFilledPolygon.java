@@ -9,6 +9,13 @@
 
 package science.aist.imaging.service.opencv.imageprocessing.draw.polygon;
 
+import lombok.Cleanup;
+import lombok.Setter;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
 import science.aist.imaging.api.domain.color.RGBColor;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPolygon2D;
@@ -18,13 +25,6 @@ import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVLineType
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVMatOfPointToListOfPointWrapperTransformer;
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVPoint2WrapperJavaPointTransformer;
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVScalarRGBColorTransformer;
-import lombok.Cleanup;
-import lombok.Setter;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfPoint;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
-import org.opencv.imgproc.Imgproc;
 import science.aist.jack.general.transformer.Transformer;
 
 import java.util.Collections;

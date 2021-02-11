@@ -9,11 +9,11 @@
 
 package science.aist.imaging.api.objectdetection;
 
-import science.aist.imaging.api.domain.color.ThreeChannelColor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import science.aist.imaging.api.domain.color.ThreeChannelColor;
 
 /**
  * <p>Abstract class for detecting object based on a given color range</p>

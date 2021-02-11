@@ -12,7 +12,7 @@ package science.aist.imaging.service.opencv.imageprocessing.conversion;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
@@ -29,6 +29,6 @@ public class OpenCVBGR2HSVFunction implements ImageFunction<Mat, Mat> {
         Mat hsvImage = new Mat();
         Imgproc.cvtColor(matImageWrapper.getImage(), hsvImage, Imgproc.COLOR_BGR2HSV);
 
-        return ((OpenCVFactory)TypeBasedImageFactoryFactory.getImageFactory(Mat.class)).getImage(hsvImage, ChannelType.HSV);
+        return ((OpenCVFactory) ImageFactoryFactory.getImageFactory(Mat.class)).getImage(hsvImage, ChannelType.HSV);
     }
 }

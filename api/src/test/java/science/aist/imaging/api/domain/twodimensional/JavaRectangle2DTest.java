@@ -9,9 +9,9 @@
 
 package science.aist.imaging.api.domain.twodimensional;
 
-import science.aist.imaging.api.domain.Side;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.Side;
 
 import java.util.List;
 import java.util.Optional;

@@ -9,12 +9,12 @@
 
 package science.aist.imaging.api.compare;
 
+import lombok.AllArgsConstructor;
+import lombok.NonNull;
 import science.aist.imaging.api.domain.AbstractJavaPoint;
 import science.aist.imaging.api.domain.twodimensional.JavaLine2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPolygon2D;
-import lombok.AllArgsConstructor;
-import lombok.NonNull;
 
 import java.io.Serializable;
 import java.util.Comparator;

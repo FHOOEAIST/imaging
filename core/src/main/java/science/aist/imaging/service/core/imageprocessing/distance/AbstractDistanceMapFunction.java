@@ -9,9 +9,9 @@
 
 package science.aist.imaging.service.core.imageprocessing.distance;
 
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 import java.util.function.Function;
 

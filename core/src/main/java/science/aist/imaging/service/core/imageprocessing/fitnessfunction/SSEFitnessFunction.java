@@ -9,9 +9,9 @@
 
 package science.aist.imaging.service.core.imageprocessing.fitnessfunction;
 
+import lombok.CustomLog;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.fitnessfunction.AbstractFitnessFunction;
-import lombok.CustomLog;
 
 
 /**

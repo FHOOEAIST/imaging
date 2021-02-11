@@ -9,21 +9,18 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformation;
 
-import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.imageprocessing.conversion.ColoredToGreyscaleFunction;
-import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
-import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
-import science.aist.imaging.service.core.imageprocessing.transformers.Image2ByteToImage8ByteTransformer;
-import science.aist.imaging.api.domain.wrapper.implementation.BufferedImageFactory;
-import science.aist.imaging.service.core.storage.BufferedImageInputStreamLoader;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.imageprocessing.conversion.ColoredToGreyscaleFunction;
+import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
+import science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer;
+import science.aist.imaging.service.core.imageprocessing.transformers.Image2ByteToImage8ByteTransformer;
+import science.aist.imaging.service.core.storage.BufferedImageInputStreamLoader;
 
 import java.awt.image.BufferedImage;
 
@@ -36,8 +33,8 @@ public class InvertFunctionTest {
 
     private final BufferedImageInputStreamLoader loader = new BufferedImageInputStreamLoader();
     private final Image2ByteToImage8ByteTransformer transformer8ByteTo2Byte = new Image2ByteToImage8ByteTransformer();
-    private final ColoredToGreyscaleFunction<short[][][], short[][][]> coloredToGreyscale = new ColoredToGreyscaleFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
-    private GenericImageWrapperTransformer<double[][][], BufferedImage> transformerBIto8Byte = new GenericImageWrapperTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(double[][][].class), TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class));
+    private final ColoredToGreyscaleFunction<short[][][], short[][][]> coloredToGreyscale = new ColoredToGreyscaleFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
+    private GenericImageWrapperTransformer<double[][][], BufferedImage> transformerBIto8Byte = new GenericImageWrapperTransformer<>(ImageFactoryFactory.getImageFactory(double[][][].class), ImageFactoryFactory.getImageFactory(BufferedImage.class));
 
     @BeforeTest
     void setUp() {
@@ -53,18 +50,18 @@ public class InvertFunctionTest {
     public void testInvertWithGreyscaleImage() {
         // given
         ImageWrapper<short[][][]> ji = loader
-                .andThen(bufferedImage -> TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
+                .andThen(bufferedImage -> ImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
                 .andThen(transformerBIto8Byte::transformTo)
                 .andThen(transformer8ByteTo2Byte::transformTo)
                 .andThen(coloredToGreyscale)
                 .apply(getClass().getResourceAsStream("/logo/original.JPG"));
         ImageWrapper<short[][][]> ref = loader
-                .andThen(bufferedImage -> TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
+                .andThen(bufferedImage -> ImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
                 .andThen(transformerBIto8Byte::transformTo)
                 .andThen(transformer8ByteTo2Byte::transformTo)
                 .andThen(coloredToGreyscale)
                 .apply(getClass().getResourceAsStream("/logo/invertedGreyScale.bmp"));
-        InvertFunction<short[][][], short[][][]> invert = new InvertFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+        InvertFunction<short[][][], short[][][]> invert = new InvertFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
 
         // when
         ImageWrapper<short[][][]> inv = invert.apply(ji);
@@ -77,16 +74,16 @@ public class InvertFunctionTest {
     public void testInvertWithColoredImage() {
         // given
         ImageWrapper<short[][][]> ji = loader
-                .andThen(bufferedImage -> TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
+                .andThen(bufferedImage -> ImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
                 .andThen(transformerBIto8Byte::transformTo)
                 .andThen(transformer8ByteTo2Byte::transformTo)
                 .apply(getClass().getResourceAsStream("/logo/original.JPG"));
         ImageWrapper<short[][][]> ref = loader
-                .andThen(bufferedImage -> TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
+                .andThen(bufferedImage -> ImageFactoryFactory.getImageFactory(BufferedImage.class).getImage(bufferedImage))
                 .andThen(transformerBIto8Byte::transformTo)
                 .andThen(transformer8ByteTo2Byte::transformTo)
                 .apply(getClass().getResourceAsStream("/logo/inverted.bmp"));
-        InvertFunction<short[][][], short[][][]> invert = new InvertFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+        InvertFunction<short[][][], short[][][]> invert = new InvertFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
 
         // when
         ImageWrapper<short[][][]> inv = invert.apply(ji);

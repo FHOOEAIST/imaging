@@ -9,9 +9,9 @@
 
 package science.aist.imaging.service.core.imageprocessing.draw.circle;
 
+import lombok.Setter;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.service.core.imageprocessing.draw.AbstractDrawer;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Collection;

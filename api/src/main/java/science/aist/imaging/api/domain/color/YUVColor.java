@@ -9,8 +9,8 @@
 
 package science.aist.imaging.api.domain.color;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
 import lombok.Getter;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
 
 /**
  * <p>Class representing a YUV-color.</p>

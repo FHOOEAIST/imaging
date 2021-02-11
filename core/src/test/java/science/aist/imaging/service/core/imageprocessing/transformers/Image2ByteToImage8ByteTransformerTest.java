@@ -9,15 +9,13 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformers;
 
-import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.Image8ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 import java.util.Random;
 
@@ -40,7 +38,7 @@ public class Image2ByteToImage8ByteTransformerTest {
         // given
         ChannelType channelType = ChannelType.RGB;
         short[][][] inputImage = getSample2ByteImageData(height, width, channelType.getNumberOfChannels());
-        ImageWrapper<short[][][]> i = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(height, width, channelType, inputImage);
+        ImageWrapper<short[][][]> i = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(height, width, channelType, inputImage);
 
         Image2ByteToImage8ByteTransformer transformer = new Image2ByteToImage8ByteTransformer();
 
@@ -64,7 +62,7 @@ public class Image2ByteToImage8ByteTransformerTest {
         // given
         ChannelType channelType = ChannelType.GREYSCALE;
         short[][][] inputImage = getSample2ByteImageData(height, width, channelType.getNumberOfChannels());
-        ImageWrapper<short[][][]> i = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(height, width, channelType, inputImage);
+        ImageWrapper<short[][][]> i = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(height, width, channelType, inputImage);
 
         Image2ByteToImage8ByteTransformer transformer = new Image2ByteToImage8ByteTransformer();
 
@@ -89,7 +87,7 @@ public class Image2ByteToImage8ByteTransformerTest {
         // given
         ChannelType channelType = ChannelType.RGB;
         double[][][] inputImage = getSample8ByteImageData(height, width, channelType.getNumberOfChannels());
-        ImageWrapper<double[][][]> i = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width, channelType, inputImage);
+        ImageWrapper<double[][][]> i = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width, channelType, inputImage);
 
         Image2ByteToImage8ByteTransformer transformer = new Image2ByteToImage8ByteTransformer();
 
@@ -113,7 +111,7 @@ public class Image2ByteToImage8ByteTransformerTest {
         // given
         ChannelType channelType = ChannelType.GREYSCALE;
         double[][][] inputImage = getSample8ByteImageData(height, width, channelType.getNumberOfChannels());
-        ImageWrapper<double[][][]> i = TypeBasedImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width, channelType, inputImage);
+        ImageWrapper<double[][][]> i = ImageFactoryFactory.getImageFactory(double[][][].class).getImage(height, width, channelType, inputImage);
 
         Image2ByteToImage8ByteTransformer transformer = new Image2ByteToImage8ByteTransformer();
 

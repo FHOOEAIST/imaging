@@ -12,7 +12,7 @@ package science.aist.imaging.service.microsoftcognitiveservices;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 import java.awt.image.BufferedImage;
 
@@ -25,11 +25,11 @@ import java.awt.image.BufferedImage;
 public class SpecialSpringConfiguration {
     @Bean
     public ImageFactory<BufferedImage> bufferedImageFactory() {
-        return TypeBasedImageFactoryFactory.getImageFactory(BufferedImage.class);
+        return ImageFactoryFactory.getImageFactory(BufferedImage.class);
     }
 
     @Bean
     public ImageFactory<short[][][]> imageFactory() {
-        return TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
+        return ImageFactoryFactory.getImageFactory(short[][][].class);
     }
 }

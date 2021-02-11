@@ -9,10 +9,10 @@
 
 package science.aist.imaging.service.core.pointprocessing;
 
+import lombok.Setter;
 import science.aist.imaging.api.domain.twodimensional.JavaLine2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPolygon2D;
-import lombok.Setter;
 import science.aist.seshat.Logger;
 
 import java.util.Collection;

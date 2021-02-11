@@ -13,7 +13,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.color.RGBColor;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 /**
  * <p>Test class for {@link ColorConverter}</p>

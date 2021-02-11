@@ -9,15 +9,14 @@
 
 package science.aist.imaging.service.core.imageprocessing.conversion;
 
-import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleAverageConverter;
 
 /**
  * <p>Tests {@link ColorToGreyScaleConverter}</p>
@@ -33,9 +32,9 @@ public class ColoredToGreyscaleFunctionTest {
     @Test
     void testApply() {
         // given
-        ColoredToGreyscaleFunction<short[][][], short[][][]> function = new ColoredToGreyscaleFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+        ColoredToGreyscaleFunction<short[][][], short[][][]> function = new ColoredToGreyscaleFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
         function.setColorToGreyScale(new GreyscaleAverageConverter());
-        ImageWrapper<short[][][]> input = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.RGB, new short[][][]{
+        ImageWrapper<short[][][]> input = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.RGB, new short[][][]{
                 new short[][]{
                         new short[]{255, 0, 0},
                         new short[]{0, 138, 0},

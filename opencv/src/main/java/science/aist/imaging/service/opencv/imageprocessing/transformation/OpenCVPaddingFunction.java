@@ -12,10 +12,9 @@ package science.aist.imaging.service.opencv.imageprocessing.transformation;
 import science.aist.imaging.api.domain.color.RGBColor;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVBorderMode;
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVScalarRGBColorTransformer;
-import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Setter;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
@@ -76,6 +75,6 @@ public class OpenCVPaddingFunction implements ImageFunction<Mat, Mat> {
     public ImageWrapper<Mat> apply(ImageWrapper<Mat> image) {
         Mat result = new Mat();
         Core.copyMakeBorder(image.getImage(), result, paddingTop, paddingBottom, paddingLeft, paddingRight, borderMode.getBorderType(), colorTransformer.transformTo(color));
-        return TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(result);
+        return ImageFactoryFactory.getImageFactory(Mat.class).getImage(result);
     }
 }

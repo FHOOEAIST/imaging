@@ -12,10 +12,9 @@ package science.aist.imaging.service.opencv.imageprocessing.objectdetection;
 import science.aist.imaging.api.domain.color.RGBColor;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.RectangleWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.api.objectdetection.AbstractColorbasedObjectDetector;
 import science.aist.imaging.service.opencv.imageprocessing.contour.OpenCVBiggestContourFinder;
-import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import lombok.Setter;
 import org.opencv.core.*;
 
@@ -46,6 +45,6 @@ public class OpenCVRGBColorbasedObjectDetector extends AbstractColorbasedObjectD
         // segment given color range
         Core.inRange(image.getImage(), lowerb, upperb, dst);
 
-        return contourFinder.apply(TypeBasedImageFactoryFactory.getImageFactory(Mat.class).getImage(dst));
+        return contourFinder.apply(ImageFactoryFactory.getImageFactory(Mat.class).getImage(dst));
     }
 }

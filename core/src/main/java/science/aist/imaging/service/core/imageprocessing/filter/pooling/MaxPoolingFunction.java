@@ -9,9 +9,9 @@
 
 package science.aist.imaging.service.core.imageprocessing.filter.pooling;
 
+import lombok.NonNull;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.service.core.imageprocessing.filter.AbstractPoolingFunction;
-import lombok.NonNull;
 
 import java.util.List;
 

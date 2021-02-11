@@ -11,7 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.storage;
 
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.metadata.Directory;
@@ -110,7 +110,7 @@ public class OpenCVLoader implements Function<InputStream, ImageWrapper<Mat>> {
             }
         }
 
-        return ((OpenCVFactory)TypeBasedImageFactoryFactory.getImageFactory(Mat.class)).getImage(m, channelType);
+        return ((OpenCVFactory) ImageFactoryFactory.getImageFactory(Mat.class)).getImage(m, channelType);
     }
 
 }

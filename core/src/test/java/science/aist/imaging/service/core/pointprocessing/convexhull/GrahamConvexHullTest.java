@@ -9,9 +9,9 @@
 
 package science.aist.imaging.service.core.pointprocessing.convexhull;
 
-import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -9,12 +9,11 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformation;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 /**
  * <p>Test class for {@link ValueTransformationFunction}</p>
@@ -27,8 +26,8 @@ public class ValueTransformationFunctionTest {
     @Test
     public void testApply() {
         // given
-        ValueTransformationFunction<short[][][], short[][][]> valueTransformationFunction = new ValueTransformationFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
-        ImageWrapper<short[][][]> imageWrapper = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.GREYSCALE, new short[][][]{
+        ValueTransformationFunction<short[][][], short[][][]> valueTransformationFunction = new ValueTransformationFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
+        ImageWrapper<short[][][]> imageWrapper = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(1, 3, ChannelType.GREYSCALE, new short[][][]{
                 new short[][]{
                         new short[]{1},
                         new short[]{2},

@@ -9,15 +9,15 @@
 
 package science.aist.imaging.service.core.imageprocessing.conversion;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageFactory;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.ImageFunction;
-import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleLuminosityConverter;
-import science.aist.imaging.api.typecheck.TypeChecker;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageFactory;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.typecheck.TypeChecker;
+import science.aist.imaging.service.core.imageprocessing.conversion.greyscale.GreyscaleLuminosityConverter;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;

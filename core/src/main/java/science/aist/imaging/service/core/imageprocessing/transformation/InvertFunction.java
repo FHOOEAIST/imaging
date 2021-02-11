@@ -9,11 +9,11 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformation;
 
-import science.aist.imaging.api.domain.wrapper.ImageFactory;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.ImageFunction;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import science.aist.imaging.api.ImageFunction;
+import science.aist.imaging.api.domain.wrapper.ImageFactory;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 /**
  * <p>Inverts a given image.</p>

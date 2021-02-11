@@ -9,11 +9,11 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformers;
 
-import science.aist.imaging.api.domain.wrapper.ImageFactory;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
+import science.aist.imaging.api.domain.wrapper.ImageFactory;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.jack.general.transformer.Transformer;
 
 import java.util.stream.IntStream;

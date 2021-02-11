@@ -9,11 +9,11 @@
 
 package science.aist.imaging.api.domain.wrapper.implementation;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

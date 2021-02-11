@@ -9,8 +9,8 @@
 
 package science.aist.imaging.api.domain.threedimensional;
 
-import science.aist.imaging.api.domain.Triangle;
 import lombok.Getter;
+import science.aist.imaging.api.domain.Triangle;
 
 import java.util.Objects;
 import java.util.Optional;

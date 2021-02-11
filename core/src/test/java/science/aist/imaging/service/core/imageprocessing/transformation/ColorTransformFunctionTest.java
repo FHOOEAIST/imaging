@@ -9,14 +9,13 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformation;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.color.Color;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 import java.util.function.Function;
 
@@ -30,7 +29,7 @@ public class ColorTransformFunctionTest {
     @Test
     public void testApply() {
         // given
-        ImageFactory<short[][][]> provider = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class);
+        ImageFactory<short[][][]> provider = ImageFactoryFactory.getImageFactory(short[][][].class);
         Function<Color, Color> colorFunction = color -> {
             if ((int) color.getChannel(0) == 0) {
                 return new Color(1);

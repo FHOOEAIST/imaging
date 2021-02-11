@@ -9,18 +9,18 @@
 
 package science.aist.imaging.service.opencv.imageprocessing.draw.polygon;
 
+import lombok.Setter;
+import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
 import science.aist.imaging.api.domain.color.RGBColor;
 import science.aist.imaging.api.domain.twodimensional.JavaLine2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.twodimensional.JavaPolygon2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVLineType;
 import science.aist.imaging.service.opencv.imageprocessing.draw.circle.OpenCVDrawCircle;
 import science.aist.imaging.service.opencv.imageprocessing.draw.line.OpenCVDrawLine;
-import science.aist.imaging.service.opencv.imageprocessing.domain.OpenCVLineType;
-import lombok.Setter;
-import org.opencv.core.Mat;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
 
 import java.util.List;
 import java.util.function.BiConsumer;

@@ -9,10 +9,10 @@
 
 package science.aist.imaging.api.domain.wrapper.implementation;
 
-import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
-import science.aist.imaging.api.domain.wrapper.ChannelType;
 import lombok.CustomLog;
 import lombok.Getter;
+import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
 
 import java.util.Objects;
 

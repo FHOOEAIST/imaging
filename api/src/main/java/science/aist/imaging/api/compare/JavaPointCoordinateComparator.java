@@ -10,9 +10,9 @@
 package science.aist.imaging.api.compare;
 
 
-import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import lombok.Getter;
 import lombok.Setter;
+import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 
 import java.io.Serializable;
 import java.util.Comparator;

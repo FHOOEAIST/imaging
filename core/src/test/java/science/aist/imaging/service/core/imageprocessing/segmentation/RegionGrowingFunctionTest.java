@@ -9,16 +9,16 @@
 
 package science.aist.imaging.service.core.imageprocessing.segmentation;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import science.aist.imaging.api.compare.GenericImageCompareFunction;
 import science.aist.imaging.api.domain.NeighborType;
 import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.compare.GenericImageCompareFunction;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.core.imageprocessing.transformation.ThresholdFunction;
 import science.aist.imaging.service.core.storage.Image2ByteInputStreamLoader;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+
 import java.util.Collections;
 
 /**
@@ -31,8 +31,8 @@ public class RegionGrowingFunctionTest {
 
     private final Image2ByteInputStreamLoader loader = new Image2ByteInputStreamLoader();
     private final GenericImageCompareFunction imageCompare = new GenericImageCompareFunction();
-    private final RegionGrowingFunction<short[][][], short[][][]> regionGrowing = new RegionGrowingFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
-    private final ThresholdFunction<short[][][], short[][][]> threshold = new ThresholdFunction<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class));
+    private final RegionGrowingFunction<short[][][], short[][][]> regionGrowing = new RegionGrowingFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
+    private final ThresholdFunction<short[][][], short[][][]> threshold = new ThresholdFunction<>(ImageFactoryFactory.getImageFactory(short[][][].class));
 
     @Test
     public void testApplyN8() {

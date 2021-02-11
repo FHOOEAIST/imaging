@@ -9,13 +9,12 @@
 
 package science.aist.imaging.service.core.imageprocessing.transformers;
 
-import science.aist.imaging.api.domain.wrapper.ChannelType;
-import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
-import science.aist.imaging.api.typecheck.TypeException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
+import science.aist.imaging.api.domain.wrapper.ImageWrapper;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
+import science.aist.imaging.api.typecheck.TypeException;
 
 import java.util.Arrays;
 
@@ -29,7 +28,7 @@ public class RGB2BGRTransformerTest {
     @Test
     void testFromSuccess() {
         // given
-        ImageWrapper<short[][][]> bgr = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.BGR,
+        ImageWrapper<short[][][]> bgr = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.BGR,
                 new short[][][]{
                         new short[][]{
                                 new short[]{1, 2, 3},
@@ -47,7 +46,7 @@ public class RGB2BGRTransformerTest {
         );
 
         // when
-        ImageWrapper<short[][][]> rgb = new RGB2BGRTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(short[][][].class)).transformTo(bgr);
+        ImageWrapper<short[][][]> rgb = new RGB2BGRTransformer<>(ImageFactoryFactory.getImageFactory(short[][][].class), ImageFactoryFactory.getImageFactory(short[][][].class)).transformTo(bgr);
 
         // then
         Assert.assertNotNull(rgb);
@@ -75,7 +74,7 @@ public class RGB2BGRTransformerTest {
     @Test
     void testToSuccess() {
         // given
-        ImageWrapper<short[][][]> rgb = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.RGB,
+        ImageWrapper<short[][][]> rgb = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.RGB,
                 new short[][][]{
                         new short[][]{
                                 new short[]{1, 2, 3},
@@ -93,7 +92,7 @@ public class RGB2BGRTransformerTest {
         );
 
         // when
-        ImageWrapper<short[][][]> bgr = new RGB2BGRTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(short[][][].class)).transformFrom(rgb);
+        ImageWrapper<short[][][]> bgr = new RGB2BGRTransformer<>(ImageFactoryFactory.getImageFactory(short[][][].class), ImageFactoryFactory.getImageFactory(short[][][].class)).transformFrom(rgb);
 
         // then
         Assert.assertNotNull(bgr);
@@ -121,10 +120,10 @@ public class RGB2BGRTransformerTest {
     @Test(expectedExceptions = TypeException.class)
     void testFromFail() {
         // given
-        ImageWrapper<short[][][]> rgb = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.RGB);
+        ImageWrapper<short[][][]> rgb = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.RGB);
 
         // when
-        ImageWrapper<short[][][]> bgr = new RGB2BGRTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(short[][][].class)).transformTo(rgb);
+        ImageWrapper<short[][][]> bgr = new RGB2BGRTransformer<>(ImageFactoryFactory.getImageFactory(short[][][].class), ImageFactoryFactory.getImageFactory(short[][][].class)).transformTo(rgb);
 
         // then
         // Exception
@@ -133,10 +132,10 @@ public class RGB2BGRTransformerTest {
     @Test(expectedExceptions = TypeException.class)
     void testToFail() {
         // given
-        ImageWrapper<short[][][]> bgr = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.BGR);
+        ImageWrapper<short[][][]> bgr = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(3, 2, ChannelType.BGR);
 
         // when
-        ImageWrapper<short[][][]> rgb = new RGB2BGRTransformer<>(TypeBasedImageFactoryFactory.getImageFactory(short[][][].class), TypeBasedImageFactoryFactory.getImageFactory(short[][][].class)).transformFrom(bgr);
+        ImageWrapper<short[][][]> rgb = new RGB2BGRTransformer<>(ImageFactoryFactory.getImageFactory(short[][][].class), ImageFactoryFactory.getImageFactory(short[][][].class)).transformFrom(bgr);
 
         // then
         // Exception

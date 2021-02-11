@@ -11,8 +11,7 @@ package science.aist.imaging.service.opencv.imageprocessing.transformations;
 
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.Image2ByteFactory;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 import science.aist.imaging.service.opencv.imageprocessing.OpenCVTest;
 import science.aist.imaging.service.opencv.imageprocessing.transformers.OpenCVImageWrapperImage2ByteTransformer;
 import org.opencv.core.Mat;
@@ -58,7 +57,7 @@ public class OpenCVImageWrapperImage2ByteTransformerTest extends OpenCVTest {
         final int height = 500;
         final int width = 500;
         short[][][] inputImage = getSample2ByteImageData(height, width, channelType.getNumberOfChannels());
-        ImageWrapper<short[][][]> i = TypeBasedImageFactoryFactory.getImageFactory(short[][][].class).getImage(height, width, channelType, inputImage);
+        ImageWrapper<short[][][]> i = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(height, width, channelType, inputImage);
 
         OpenCVImageWrapperImage2ByteTransformer transformer = new OpenCVImageWrapperImage2ByteTransformer();
 

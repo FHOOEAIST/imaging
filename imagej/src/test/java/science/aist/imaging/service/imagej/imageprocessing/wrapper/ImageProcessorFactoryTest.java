@@ -15,7 +15,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
 import science.aist.imaging.api.domain.wrapper.ImageWrapper;
-import science.aist.imaging.api.domain.wrapper.implementation.TypeBasedImageFactoryFactory;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 import java.util.Random;
 
@@ -30,7 +30,7 @@ public class ImageProcessorFactoryTest {
     @Test
     public void testGetImage() {
         // given
-        ImageFactory<ImageProcessor> imageProcessorFactory = TypeBasedImageFactoryFactory.getImageFactory(ImageProcessor.class);
+        ImageFactory<ImageProcessor> imageProcessorFactory = ImageFactoryFactory.getImageFactory(ImageProcessor.class);
         int width = 10;
         int height = 15;
         ImageProcessor img = new ColorProcessor(width, height);
