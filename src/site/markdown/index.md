@@ -21,6 +21,7 @@ The functionality is separated into two main modules with sub modules, described
  * **nd4j**: Connector module to [ND4J](https://github.com/deeplearning4j/nd4j)
  * **microsoftcognitiveservices**: This module wraps the functionality of Microsoft´s Cognitive Services and is currently used for face detection.
  * **opencv**: This module is the core computer vision implementation and uses the [AistCV (OpenCV Java Wrapper)](https://github.com/FHOOEAIST/aistcv) [See here for a more detailed description...](service/opencv_module.md)
+ * **openimaj**: Connector module to [OpenIMAJ](http://openimaj.org/)
  * **tesseract**: This module covers OCR methods based on the [javacpp](https://github.com/bytedeco/javacpp-presets) wrapper of the [tesseract framework](https://github.com/tesseract-ocr/tesseract).
  * **pdfbox**: This module provides some .pdf file functionality based on org.apache.pdfbox
   
@@ -56,6 +57,11 @@ In addition to the base `ImageWrapper` there is also a `SubImageWrapper`class, t
 
 * `ImageWrapper<INDArray>` (`IndArrayFactory`): Wrapper implementation to ND4J's [INDArray](https://deeplearning4j.org/api/latest/org/nd4j/linalg/api/ndarray/INDArray.html).
 
+#### OpenIMAJ Module
+
+* `ImageWrapper<MBFImage>` (`MBFImageFactory`): Wrapper implementation to OpenIMAJ's [MBFImage](http://openimaj.org/apidocs/org/openimaj/image/MBFImage.html).
+* `ImageWrapper<FImage>` (`FImageFactory`): Wrapper implementation to OpenIMAJ's [FImage](http://openimaj.org/apidocs/org/openimaj/image/FImage.html).
+
 ### Image function
 
 The API module contains the ```ImageFunction``` interface, which is considered as basis for image processing methods. Using this interface allows us to create image processing chains, which are easy to read and also more efficient (Java garbage collector is able to close resources faster), see example below. Current implementations still have to be adapted as far as possible, but this is a bit of future thinking. 
@@ -90,6 +96,7 @@ The following color ranges are used inside the imaging project:
   * rgb/bgr: (0-255) (0-255) (0-255)
   * hsv: (0.0 - 360.0) (0.0 - 1.0) (0.0 - 1.0)
   * yuv: (0.0 - 1.0) (-1.0 - 1.0) (-1.0 - 1.0)
+  * luv: (0.0 - 100.0), (-134.0 - 220.0), (-140.0 - 122.0)
 
 ## Architecture of geometric domain classes
 

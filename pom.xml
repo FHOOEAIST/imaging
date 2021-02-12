@@ -331,6 +331,7 @@
         <module>pdfbox</module>
         <module>imagej</module>
         <module>nd4j</module>
+        <module>openimaj</module>
     </modules>
 
     <profiles>

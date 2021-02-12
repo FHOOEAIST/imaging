@@ -8,36 +8,36 @@
 [![javadoc](https://javadoc.io/badge2/science.aist.imaging/imaging/javadoc.svg)](https://javadoc.io/doc/science.aist.imaging/imaging)
 [![Maven Central](https://img.shields.io/maven-central/v/science.aist.imaging/imaging.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:"science.aist.imaging")
 
-The imaging framework provides different functionality in the context of image processing and computer vision. For more
-details please visit our [maven site](https://fhooeaist.github.io/imaging/index.html).
+The imaging framework provides different functionality in the context of image processing and computer vision. For this there are many image processing related implementations in the project but also connection classes to other frameworks (e.g. OpenCV) to extend its functionality. 
+Get a detailed overview on our [maven site](https://fhooeaist.github.io/imaging/index.html).
 
 ## Getting Started
 
 The project is structured into multiple submodules. API builds the base module which contains the domain classes as well
-as the interfaces. The core module build the base implementation with functionality all implemented in Java. In addition
-to these two modules there are modules for opencv, pdfbox, tesseract and microsoft-cognitive-services. These modules are
+as the interfaces. The core module builds the base implementation with pure java functionality. In addition
+to these two modules there are modules for connecting to other frameworks for imagej, nd4j, opencv, openimaj, pdfbox, tesseract and microsoft-cognitive-services. These modules are
 wrappers for functionality that is provided in either of these libraries.
 
-To use the code of either of one of these modules, you simply need to include one of them as a dependency:
+To use the Imaging project you simply need to add the required dependencies like:
 
 ```xml
 <dependency>
     <groupId>science.aist.imaging</groupId>
-    <artifactId>api</artifactId> <!-- alternatives core, opencv, pdfbox, tesseract, microsoft-cognitive-services -->
+    <artifactId>api</artifactId> <!-- alternatives core, nd4j, openimaj, imagej, opencv, pdfbox, tesseract, microsoft-cognitive-services -->
     <version>${imaging.version}</version> <!-- e.g. 1.0.0 -->
 </dependency>
 ```
 
 ### Example
 
-A simple example for using the API module creates an image using the `ImageFactoryFactory` and draws a circle at a given 
-position. For this the `DrawCircle` class is used that draws a circle at the position of the given `JavaPoint2D`.
+A simple example for using the API module (1) creates an image using the `ImageFactoryFactory` and (2) draws a circle at a given 
+position.
 
 ```java
-// Create a new image
+// (1) Create a new image
 ImageWrapper<short[][][]> image = ImageFactoryFactory.getImageFactory(short[][][].class).getImage(100, 100, ChannelType.Greyscale);
 
-// Draw on the image
+// (2) Draw on the image
 DrawCircle<short[][][]> draw = new DrawCircle<>();
 draw.setColor(new double[]{1});
 draw.accept(image, new JavaPoint2D(5, 5));
