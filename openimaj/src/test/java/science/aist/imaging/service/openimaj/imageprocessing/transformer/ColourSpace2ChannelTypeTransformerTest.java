@@ -9,7 +9,10 @@
 
 package science.aist.imaging.service.openimaj.imageprocessing.transformer;
 
+import org.openimaj.image.colour.ColourSpace;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.wrapper.ChannelType;
 
 import static org.testng.Assert.*;
 
@@ -24,20 +27,48 @@ public class ColourSpace2ChannelTypeTransformerTest {
     @Test
     public void testTransformTo() {
         // given
+        ColourSpace2ChannelTypeTransformer transformer = new ColourSpace2ChannelTypeTransformer();
 
         // when
+        ChannelType channelType = transformer.transformTo(ColourSpace.RGB);
 
         // then
+        Assert.assertEquals(channelType, ChannelType.RGB);
+    }
+
+    @Test
+    public void testTransformTo2() {
+        // given
+        ColourSpace2ChannelTypeTransformer transformer = new ColourSpace2ChannelTypeTransformer();
+
+        // when
+        ChannelType channelType = transformer.transformTo(ColourSpace.HSY);
+
+        // then
+        Assert.assertEquals(channelType, ChannelType.UNKNOWN_3_CHANNEL);
     }
 
     @Test
     public void testTransformFrom() {
         // given
+        ColourSpace2ChannelTypeTransformer transformer = new ColourSpace2ChannelTypeTransformer();
 
         // when
+        ColourSpace colourSpace = transformer.transformFrom(ChannelType.RGB);
 
         // then
+        Assert.assertEquals(colourSpace, ColourSpace.RGB);
     }
 
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testTransformFrom2() {
+        // given
+        ColourSpace2ChannelTypeTransformer transformer = new ColourSpace2ChannelTypeTransformer();
+
+        // when
+        ColourSpace colourSpace = transformer.transformFrom(ChannelType.UNKNOWN_3_CHANNEL);
+
+        // then - exception
+    }
 
 }
