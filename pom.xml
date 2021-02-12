@@ -330,6 +330,7 @@
         <module>microsoftcognitiveservices</module>
         <module>pdfbox</module>
         <module>imagej</module>
+        <module>nd4j</module>
     </modules>
 
     <profiles>
