@@ -17,7 +17,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 /**
- * <p>Implementation of a {@link science.aist.imaging.api.domain.wrapper.ImageWrapper} for Deeplearning4j's {@link INDArray}</p>
+ * <p>Implementation of a {@link science.aist.imaging.api.domain.wrapper.ImageFactory} for Deeplearning4j's {@link INDArray}</p>
  *
  * @author Christoph Praschl
  * @since 1.1
