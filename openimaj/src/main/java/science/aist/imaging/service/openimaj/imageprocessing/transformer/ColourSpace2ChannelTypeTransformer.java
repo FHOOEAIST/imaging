@@ -14,10 +14,10 @@ import science.aist.imaging.api.domain.wrapper.ChannelType;
 import science.aist.jack.general.transformer.Transformer;
 
 /**
- * <p>Created by Christoph Praschl on 12.02.2021</p>
  * <p>Transformer implementation for transforming between Imaging's {@link ChannelType} to OpenIMAJ's {@link ColourSpace}</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
+ * @since 1.1
  */
 public class ColourSpace2ChannelTypeTransformer implements Transformer<ChannelType, ColourSpace> {
     @Override
