@@ -18,6 +18,7 @@ The functionality is separated into two main modules with sub modules, described
  * **api**: Is the base module of the imaging project containing **domain objects** for images, geometric figures (e.g. points, lines, rectangles, ...), color representations and more. Also contains some further functionality as interfaces, transformers and utility classes (e.g. for type checking of images). 
  * **core**: Core consists of basic implementations for image and geometric processing. [See here for a more detailed description...](service/service_core.md )
  * **imagej**: Connector module to [ImageJ](https://imagej.net/)
+ * **nd4j**: Connector module to [ND4J](https://github.com/deeplearning4j/nd4j)
  * **microsoftcognitiveservices**: This module wraps the functionality of Microsoft´s Cognitive Services and is currently used for face detection.
  * **opencv**: This module is the core computer vision implementation and uses the [AistCV (OpenCV Java Wrapper)](https://github.com/FHOOEAIST/aistcv) [See here for a more detailed description...](service/opencv_module.md)
  * **tesseract**: This module covers OCR methods based on the [javacpp](https://github.com/bytedeco/javacpp-presets) wrapper of the [tesseract framework](https://github.com/tesseract-ocr/tesseract).
@@ -51,6 +52,9 @@ In addition to the base `ImageWrapper` there is also a `SubImageWrapper`class, t
 * `ImageWrapper<ImageProcessor>` (`ImageProcessorFactory`): Wrapper implementation to ImageJ's [ImageProcessor](https://imagej.nih.gov/ij/developer/api/ij/process/ImageProcessor.html), that supports images with 1 to 3 channels.
 * `ImageWrapper<ImageStack>` (`ImageStackFactory`):: Wrapper implementation to ImageJ's [ImageStack](https://imagej.nih.gov/ij/developer/api/ij/ImageStack.html), that are stacked [ImageProcessor](https://imagej.nih.gov/ij/developer/api/ij/process/ImageProcessor.html)s of same size.
 
+#### ND4j Module
+
+* `ImageWrapper<INDArray>` (`IndArrayFactory`): Wrapper implementation to ND4J's [INDArray](https://deeplearning4j.org/api/latest/org/nd4j/linalg/api/ndarray/INDArray.html).
 
 ### Image function
 
