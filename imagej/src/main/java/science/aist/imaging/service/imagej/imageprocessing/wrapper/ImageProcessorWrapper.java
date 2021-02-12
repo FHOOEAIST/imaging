@@ -9,6 +9,7 @@
 
 package science.aist.imaging.service.imagej.imageprocessing.wrapper;
 
+import ij.process.ColorProcessor;
 import ij.process.ImageProcessor;
 import lombok.CustomLog;
 import science.aist.imaging.api.domain.color.Color;
@@ -54,16 +55,24 @@ public class ImageProcessorWrapper extends AbstractImageWrapper<ImageProcessor> 
     @Override
     public double getValue(int x, int y, int channel) {
         int pixel = image.getPixel(x, y);
-        RGBColor convert = converter.convert(pixel);
-        return convert.getChannel(channel);
+        if(image instanceof ColorProcessor) {
+            RGBColor convert = converter.convert(pixel);
+            return convert.getChannel(channel);
+        } else {
+            return pixel;
+        }
     }
 
     @Override
     public void setValue(int x, int y, int channel, double val) {
-        int pixel = image.getPixel(x, y);
-        RGBColor convert = converter.convert(pixel);
-        double[] channels = convert.getChannels();
-        channels[channel] = val;
-        image.putPixel(x, y, converter.convert(new Color(channels)));
+        if(image instanceof ColorProcessor) {
+            int pixel = image.getPixel(x, y);
+            RGBColor convert = converter.convert(pixel);
+            double[] channels = convert.getChannels();
+            channels[channel] = val;
+            image.putPixel(x, y, converter.convert(new Color(channels)));
+        } else {
+            image.putPixel(x, y, (int) val);
+        }
     }
 }
