@@ -25,9 +25,9 @@ public class ColorConverter {
      * @return {@link RGBColor} representation of the color
      */
     public RGBColor convert(int color) {
-        int r = (color & 16711680) >> 16;
-        int g = (color & '\uff00') >> 8;
-        int b = color & 255;
+        int r = (color&0xff0000)>>16;
+        int g = (color&0xff00)>>8;
+        int b = color&0xff;
 
         return new RGBColor(r, g, b);
     }
