@@ -13,8 +13,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.color.RGBColor;
 
-import static org.testng.Assert.assertEquals;
-
 /**
  * <p>Test class for {@link ColorConverter}</p>
  *
@@ -33,9 +31,9 @@ public class ColorConverterTest {
 
         // then
         Assert.assertNotNull(convert);
-        assertEquals(convert.getRed(), 0.0);
-        assertEquals(convert.getGreen(), 0.0);
-        assertEquals(convert.getBlue(), 1.0);
+        Assert.assertEquals(convert.getRed(), 0.0);
+        Assert.assertEquals(convert.getGreen(), 0.0);
+        Assert.assertEquals(convert.getBlue(), 1.0);
     }
 
     @Test
@@ -48,6 +46,6 @@ public class ColorConverterTest {
         int convert = colorConverter.convert(color);
 
         // then
-        assertEquals(convert, 6566525);
+        Assert.assertEquals(convert, 6566525);
     }
 }

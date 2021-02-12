@@ -24,7 +24,7 @@
         <dependency>
             <groupId>net.imagej</groupId>
             <artifactId>ij</artifactId>
-            <version>1.53g</version>
+            <version>${imagej.version}</version>
         </dependency>
         <dependency>
             <groupId>science.aist.imaging</groupId>

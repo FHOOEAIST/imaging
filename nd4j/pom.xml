@@ -11,10 +11,6 @@
 
     <artifactId>nd4j</artifactId>
 
-    <properties>
-        <nd4j.version>1.0.0-beta7</nd4j.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>science.aist.imaging</groupId>

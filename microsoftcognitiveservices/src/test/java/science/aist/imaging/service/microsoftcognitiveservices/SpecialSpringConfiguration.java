@@ -20,6 +20,7 @@ import java.awt.image.BufferedImage;
  * <p>Helper class for creating special java beans</p>
  *
  * @author Andreas Pointner
+ * @since 1.1
  */
 @Configuration
 public class SpecialSpringConfiguration {
