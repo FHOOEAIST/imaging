@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"science.aist.imaging.service.d4j.imageprocessing.wrapper","c":"INDArrayFactoryTest","l":"INDArrayFactoryTest()","url":"%3Cinit%3E()"},{"p":"science.aist.imaging.service.d4j.imageprocessing.wrapper","c":"INDArrayFactoryTest","l":"testGetImage()"}]

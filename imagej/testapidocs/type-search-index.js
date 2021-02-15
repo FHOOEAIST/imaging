@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.service.imagej.imageprocessing.converter","l":"ColorConverterTest"},{"p":"science.aist.imaging.service.imagej.imageprocessing.wrapper","l":"ImageProcessorFactoryTest"},{"p":"science.aist.imaging.service.imagej.imageprocessing.wrapper","l":"ImageStackFactoryTest"}]

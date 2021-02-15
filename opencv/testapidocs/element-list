@@ -1,3 +1,4 @@
+science.aist.imaging.api.domain.wrapper.implementation
 science.aist.imaging.service.opencv.imageprocessing
 science.aist.imaging.service.opencv.imageprocessing.averaging
 science.aist.imaging.service.opencv.imageprocessing.compare

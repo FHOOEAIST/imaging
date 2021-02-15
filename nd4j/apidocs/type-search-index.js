@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.service.d4j.imageprocessing.wrapper","l":"INDArrayFactory"},{"p":"science.aist.imaging.service.d4j.imageprocessing.wrapper","l":"INDArrayWrapper"}]
