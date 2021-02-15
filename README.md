@@ -30,7 +30,7 @@ To use the Imaging project you simply need to add the required dependencies like
 
 ### Examples
 
-A simple example for using the API module (1) creates an image using the `ImageFactoryFactory` and (2) draws a circle at a given 
+A simple example using the Core module (1) creates an image using the `ImageFactoryFactory` and (2) draws a circle at a given 
 position.
 
 ```java
