@@ -46,18 +46,18 @@ draw.accept(image, new JavaPoint2D(5, 5));
 A more advanced example is shown in the following code snippet, that shows the module interoperability of the Imaging project based on the `GenericImageFunction`. Note: `GenericImageFunction` casts its input image, and the result of the wrapped function if necessary, which affects its resource requirements.
 
 ```java
-// 1) Load OpenCV DLLs
+// (1) Load OpenCV DLLs
 AistCVLoader.loadShared();
 
-// 2) Create a random input image for the test
+// (2) Create a random input image for the test
 Random rand = new Random(768457);
 ImageWrapper<double[][][]> input = ImageFactoryFactory.getImageFactory(double[][][].class).getRandomImage(10, 10, ChannelType.RGB, rand, 0, 255, true);
 
-// 3) Prepare the function to be applied (Note: it is implemented for OpenCV only!)
+// (3) Prepare the function to be applied (Note: it is implemented for OpenCV only!)
 OpenCVThresholdFunction thresholdFunction = new OpenCVThresholdFunction();
-
-// 4) Apply the function (Note: on a non-OpenCV image)
 GenericImageFunction<double[][][], double[][][], Mat, Mat> function = new GenericImageFunction<>(thresholdFunction, Mat.class, double[][][].class);
+
+// (4) Apply the function (Note: on a non-OpenCV image)
 ImageWrapper<double[][][]> thresholdResult = function.apply(input);
 ```
 
