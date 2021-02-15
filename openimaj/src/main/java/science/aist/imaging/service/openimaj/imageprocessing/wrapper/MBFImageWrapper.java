@@ -66,4 +66,9 @@ public class MBFImageWrapper extends AbstractImageWrapper<MBFImage> {
         pixel[channel] = (float) (val / maxVal[channel] - minVal[channel]);
         image.setPixel(x,y, pixel);
     }
+
+    @Override
+    public Class<MBFImage> getSupportedType() {
+        return MBFImage.class;
+    }
 }

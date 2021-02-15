@@ -49,4 +49,9 @@ public class ImageStackWrapper extends AbstractImageWrapper<ImageStack> {
     public void setValue(int x, int y, int channel, double val) {
         image.setVoxel(x, y, channel, val);
     }
+
+    @Override
+    public Class<ImageStack> getSupportedType() {
+        return ImageStack.class;
+    }
 }

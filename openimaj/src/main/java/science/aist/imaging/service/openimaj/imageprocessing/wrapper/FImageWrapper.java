@@ -67,4 +67,9 @@ public class FImageWrapper extends AbstractImageWrapper<FImage> {
         float cval = (float)(val / maxVal - minVal);
         image.setPixel(x, y, cval);
     }
+
+    @Override
+    public Class<FImage> getSupportedType() {
+        return FImage.class;
+    }
 }

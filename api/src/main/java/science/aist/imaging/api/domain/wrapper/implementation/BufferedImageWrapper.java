@@ -240,4 +240,9 @@ public class BufferedImageWrapper implements ImageWrapper<BufferedImage> {
 
         image.setRGB(x, y, newColor.getRGB());
     }
+
+    @Override
+    public Class<BufferedImage> getSupportedType() {
+        return BufferedImage.class;
+    }
 }
