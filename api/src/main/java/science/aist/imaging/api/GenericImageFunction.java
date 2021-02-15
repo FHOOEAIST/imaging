@@ -19,6 +19,8 @@ import java.util.function.Function;
 /**
  * <p>Generic image function that enables the interoperability between different {@link ImageWrapper} implementations</p>
  *
+ * <p>Note: The {@link GenericImageFunction} converts the input as well as the output images if necessary, and for this effects the performance because of the required copy operation.</p>
+
  * @author Christoph Praschl
  * @since 1.1
  * @param <I> Input type of this generic image function
