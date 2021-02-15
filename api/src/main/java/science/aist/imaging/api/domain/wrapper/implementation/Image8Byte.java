@@ -55,6 +55,11 @@ public class Image8Byte extends AbstractImageWrapper<double[][][]> {
     }
 
     @Override
+    public Class<double[][][]> getSupportedType() {
+        return double[][][].class;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

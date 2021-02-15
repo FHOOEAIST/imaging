@@ -273,4 +273,9 @@ public interface ImageWrapper<I> extends AutoCloseable, Serializable {
         return provide;
     }
 
+    /**
+     * @return the supported image type.
+     */
+    Class<I> getSupportedType();
+
 }

@@ -55,6 +55,11 @@ public class Image2Byte extends AbstractImageWrapper<short[][][]> {
     }
 
     @Override
+    public Class<short[][][]> getSupportedType() {
+        return short[][][].class;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

@@ -75,4 +75,9 @@ public class ImageProcessorWrapper extends AbstractImageWrapper<ImageProcessor> 
             image.putPixel(x, y, (int) val);
         }
     }
+
+    @Override
+    public Class<ImageProcessor> getSupportedType() {
+        return ImageProcessor.class;
+    }
 }

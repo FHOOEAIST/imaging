@@ -107,4 +107,9 @@ public class OpenCVImageWrapper extends AbstractImageWrapper<Mat> {
     public void setValues(int x, int y, double[] values) {
         image.put(y, x, values);
     }
+
+    @Override
+    public Class<Mat> getSupportedType() {
+        return Mat.class;
+    }
 }

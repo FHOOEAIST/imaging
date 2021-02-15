@@ -101,4 +101,9 @@ public class SubImageWrapper<I> implements ImageWrapper<I> {
     public void applyFunction(PixelFunction function, int startX, int startY, int endX, int endY, int strideX, int strideY, boolean applyParallel) {
         reference.applyFunction(function, startX + this.startX, startY + this.startY, endX + this.startX, endY + this.startY, strideX, strideY, applyParallel);
     }
+
+    @Override
+    public Class<I> getSupportedType() {
+        return reference.getSupportedType();
+    }
 }

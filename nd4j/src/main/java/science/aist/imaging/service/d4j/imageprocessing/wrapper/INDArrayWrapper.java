@@ -55,4 +55,9 @@ public class INDArrayWrapper extends AbstractImageWrapper<INDArray> {
     public void setValue(int x, int y, int channel, double val) {
             image.putScalar(new int[]{y, x, channel}, val);
     }
+
+    @Override
+    public Class<INDArray> getSupportedType() {
+        return INDArray.class;
+    }
 }
