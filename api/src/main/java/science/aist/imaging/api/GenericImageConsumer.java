@@ -45,9 +45,10 @@ public class GenericImageConsumer<I, I2, T> implements BiConsumer<ImageWrapper<I
         if(iImageWrapper.getSupportedType().equals(consumerFactory.getSupportedType())){
             consumer.accept(CastUtils.cast(iImageWrapper), t);
         } else {
-            ImageWrapper<I2> copy = iImageWrapper.createCopy(consumerFactory);
-            consumer.accept(copy, t);
-            copy.copyTo(iImageWrapper);
+            try (ImageWrapper<I2> copy = iImageWrapper.createCopy(consumerFactory)) {
+                consumer.accept(copy, t);
+                copy.copyTo(iImageWrapper);
+            }
         }
     }
 }
