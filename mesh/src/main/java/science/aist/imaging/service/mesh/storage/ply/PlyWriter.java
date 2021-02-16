@@ -14,7 +14,6 @@ import science.aist.imaging.api.domain.threedimensional.JavaModel3D;
 import science.aist.imaging.api.domain.threedimensional.JavaPoint3D;
 import science.aist.imaging.api.domain.threedimensional.JavaPolygon3D;
 import science.aist.imaging.service.mesh.storage.MeshWriter;
-import science.aist.imaging.service.mesh.storage.off.OffReader;
 import science.aist.seshat.Logger;
 
 import java.io.IOException;
@@ -26,12 +25,13 @@ import java.util.stream.IntStream;
 
 /**
  * <p>MeshWriter implementation for PLY files</p>
+ * <p>Based on PLY definition by <a href="http://paulbourke.net/dataformats/ply/">Paul Bourke</a></p>
  *
  * @author Christoph Praschl
  * @since 1.2
  */
 public class PlyWriter implements MeshWriter {
-    private static final Logger logger = Logger.getInstance(OffReader.class);
+    private static final Logger logger = Logger.getInstance(PlyWriter.class);
 
     /**
      * Delta definition to define if a point is equal to another one

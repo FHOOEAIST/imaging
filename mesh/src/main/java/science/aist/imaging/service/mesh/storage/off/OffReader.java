@@ -23,6 +23,7 @@ import java.util.Optional;
 
 /**
  * <p>MeshReader implementation for OFF files</p>
+ * <p>Based on OFF definition by <a href="https://segeval.cs.princeton.edu/public/off_format.html">Princeton</a></p>
  *
  * @author Christoph Praschl
  * @since 1.2

@@ -23,6 +23,7 @@ import java.util.Optional;
 
 /**
  * <p>MeshReader implementation for PLY files</p>
+ * <p>Based on PLY definition by <a href="http://paulbourke.net/dataformats/ply/">Paul Bourke</a></p>
  *
  * @author Christoph Praschl
  * @since 1.2
@@ -34,7 +35,6 @@ public class PlyReader implements MeshReader {
     @Override
     public Optional<JavaModel3D> read(BufferedReader reader) {
         try {
-
             // process ply file header
             String line;
             while ((line = reader.readLine()) != null) {

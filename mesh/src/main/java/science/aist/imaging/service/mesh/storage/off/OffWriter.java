@@ -25,12 +25,13 @@ import java.util.stream.IntStream;
 
 /**
  * <p>MeshWriter implementation for OFF files</p>
+ * <p>Based on OFF definition by <a href="https://segeval.cs.princeton.edu/public/off_format.html">Princeton</a></p>
  *
  * @author Christoph Praschl
  * @since 1.2
  */
 public class OffWriter implements MeshWriter {
-    private static final Logger logger = Logger.getInstance(OffReader.class);
+    private static final Logger logger = Logger.getInstance(OffWriter.class);
 
     /**
      * Delta definition to define if a point is equal to another one
