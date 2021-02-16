@@ -18,8 +18,9 @@ The functionality is separated into two main modules with sub modules, described
  * **api**: Is the base module of the imaging project containing **domain objects** for images, geometric figures (e.g. points, lines, rectangles, ...), color representations and more. Also contains some further functionality as interfaces, transformers and utility classes (e.g. for type checking of images). 
  * **core**: Core consists of basic implementations for image and geometric processing. [See here for a more detailed description...](service/service_core.md )
  * **imagej**: Connector module to [ImageJ](https://imagej.net/)
- * **nd4j**: Connector module to [ND4J](https://github.com/deeplearning4j/nd4j)
+ * **mesh**: Module containing different mesh processing related things like storing to mesh related file types
  * **microsoftcognitiveservices**: This module wraps the functionality of Microsoft´s Cognitive Services and is currently used for face detection.
+ * **nd4j**: Connector module to [ND4J](https://github.com/deeplearning4j/nd4j)
  * **opencv**: This module is the core computer vision implementation and uses the [AistCV (OpenCV Java Wrapper)](https://github.com/FHOOEAIST/aistcv) [See here for a more detailed description...](service/opencv_module.md)
  * **openimaj**: Connector module to [OpenIMAJ](http://openimaj.org/)
  * **tesseract**: This module covers OCR methods based on the [javacpp](https://github.com/bytedeco/javacpp-presets) wrapper of the [tesseract framework](https://github.com/tesseract-ocr/tesseract).
@@ -41,12 +42,14 @@ We currently have wrapper implementations for the following images, all of them 
 * `ImageWrapper<Double[][][]>` (`Image8ByteFactory`): Image type using 8-bytes per pixel. Concern the high storage requirements - only use it if really necessary! Use e.g. the factory's image provider `Image8ByteFactory` to create one.
 * `ImageWrapper<BufferedImage>` (`BufferedImageFactory`): Implementation for connecting Java's `BufferedImage` to our framework. Use e.g. the factory's image provider `BufferedImageFactory` to create one.
 
+In addition to the base `ImageWrapper` there is also a `SubImageWrapper`class, that represents a ROI of a referenced image.
+
+
 **Note:** Usually use the ```Image2ByteFactory``` to get a 2 byte precision image (```ImageWrapper<short[][][]>```), the 8 byte precision image (```ImageWrapper<double[][][]>```) should only be used in special cases, when the floating point precision is required, because of the increased storage requirements.
 
 #### OpenCV Module
-* `ImageWrapper<Mat>` (`OpenCVFactory`): Represents the interface from our imaging framework to the OpenCV framework (based on the [AistCV](https://github.com/FHOOEAIST/aistcv) wrapper). You can also use the factory's image provider `OpenCVFactory` to create one.
 
-In addition to the base `ImageWrapper` there is also a `SubImageWrapper`class, that represents a ROI of a referenced image.
+* `ImageWrapper<Mat>` (`OpenCVFactory`): Represents the interface from our imaging framework to the OpenCV framework (based on the [AistCV](https://github.com/FHOOEAIST/aistcv) wrapper). You can also use the factory's image provider `OpenCVFactory` to create one.
 
 #### ImageJ Module
 
