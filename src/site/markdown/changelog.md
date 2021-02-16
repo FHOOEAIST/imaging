@@ -6,10 +6,10 @@ The changelog should give you a quick overview of what change between the differ
 
 ### New Features
 
-- [5](https://github.com/FHOOEAIST/imaging/issues/5) - Added different the mesh module with storage implementations for JavaModel3D class (OBJ, OFF, PLY, STL) as well as a Constrained Delaunay implementation 
+- [5](https://github.com/FHOOEAIST/imaging/issues/5) - Added the mesh module with multiple storage implementations for JavaModel3D class (OBJ, OFF, PLY, STL) as well as a Constrained Delaunay implementation 
 
 ### Dependencies
-- [13](https://github.com/FHOOEAIST/imaging/issues/5) - Added a dependency to [jDelaunay](https://github.com/orbisgis/jdelaunay) for constrained delaunay triangulation
+- [5](https://github.com/FHOOEAIST/imaging/issues/5) - Added a dependency to [jDelaunay](https://github.com/orbisgis/jdelaunay) for constrained delaunay triangulation
 
 ## Version 1.1.0
 

@@ -10,9 +10,15 @@
 package science.aist.imaging.service.mesh.storage.off;
 
 import science.aist.imaging.api.domain.threedimensional.JavaModel3D;
+import science.aist.imaging.api.domain.threedimensional.JavaPoint3D;
+import science.aist.imaging.api.domain.threedimensional.JavaPolygon3D;
 import science.aist.imaging.service.mesh.storage.MeshReader;
+import science.aist.seshat.Logger;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -22,8 +28,90 @@ import java.util.Optional;
  * @since 1.2
  */
 public class OffReader implements MeshReader {
+    private static final Logger logger = Logger.getInstance(OffReader.class);
+
     @Override
     public Optional<JavaModel3D> read(BufferedReader reader) {
-        return Optional.empty();
+        try {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String trimmed = line.trim();
+                if (!trimmed.startsWith("#") && trimmed.toLowerCase().startsWith("off")) {
+                    // find the start of the off file defined by the OFF string
+                    break;
+                }
+            }
+            while ((line = reader.readLine()) != null) {
+                String trimmed = line.trim();
+                if (!trimmed.startsWith("#") && !trimmed.isEmpty()) {
+                    // ignore comment and blank lines
+                    break;
+                }
+            }
+
+            if (line == null) {
+                throw new IllegalStateException("Off file is empty");
+            }
+
+            String[] numberOfElements = line.trim().replaceAll(" +", " ").split(" ");
+            int numberOfVertices = Integer.parseInt(numberOfElements[0]);
+            int numberOfFaces = Integer.parseInt(numberOfElements[1]);
+
+            List<JavaPoint3D> points = new ArrayList<>();
+            List<JavaPolygon3D> polygons = new ArrayList<>();
+
+            int currentLine = 0;
+            boolean readVertices = true;
+            while ((line = reader.readLine()) != null) {
+                String trimmed = line.trim().replaceAll(" +", " ");
+
+                // ignore comment
+                if (trimmed.startsWith("#")) {
+                    continue;
+                }
+
+                String[] splits = trimmed.split(" ");
+                int len = splits.length;
+
+                if (readVertices) {
+
+                    if (len > 2) {
+                        double x = Double.parseDouble(splits[0]);
+                        double y = Double.parseDouble(splits[1]);
+                        double z = 0;
+                        if (len > 3) {
+                            z = Double.parseDouble(splits[2]);
+                        }
+                        points.add(new JavaPoint3D(x, y, z));
+                    } else {
+                        throw new IllegalStateException("Found invalid vertex definition: " + line);
+                    }
+
+                    if (currentLine == numberOfVertices - 1) {
+                        readVertices = false;
+                    }
+                } else {
+                    int numOfVertices = Integer.parseInt(splits[0]);
+                    List<JavaPoint3D> polygonPoints = new ArrayList<>();
+                    for (int i = 0; i < numberOfVertices; i++) {
+                        polygonPoints.add(points.get(Integer.parseInt(splits[i + 1])));
+                    }
+                    polygons.add(new JavaPolygon3D(polygonPoints));
+                }
+
+                currentLine++;
+            }
+
+            if(polygons.size() != numberOfFaces){
+                logger.debug("Something went wrong parsing the file: Number of read polygons does not match off header");
+                return Optional.empty();
+            }
+
+            return Optional.of(new JavaModel3D(polygons));
+        } catch (IOException e) {
+            logger.debug("Problem when reading obj file: " + e.getMessage());
+            return Optional.empty();
+        }
     }
 }
