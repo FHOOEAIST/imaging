@@ -6,6 +6,15 @@ The changelog should give you a quick overview of what change between the differ
 
 ### New Features
 
+- [5](https://github.com/FHOOEAIST/imaging/issues/5) - Added different the mesh module with storage implementations for JavaModel3D class (OBJ, OFF, PLY, STL) as well as a Constrained Delaunay implementation 
+
+### Dependencies
+- [13](https://github.com/FHOOEAIST/imaging/issues/5) - Added a dependency to [jDelaunay](https://github.com/orbisgis/jdelaunay) for constrained delaunay triangulation
+
+## Version 1.1.0
+
+### New Features
+
 - [6](https://github.com/FHOOEAIST/imaging/issues/6) - Added support for ImageJ based images.
 - [7](https://github.com/FHOOEAIST/imaging/issues/7) - Added support for OpenIMAJ based images and added new method `ChannelType.isValidValue()`
 - [11](https://github.com/FHOOEAIST/imaging/issues/11) - New `ImageFactoryFactory`, that allows to create an image factory for a given type.
