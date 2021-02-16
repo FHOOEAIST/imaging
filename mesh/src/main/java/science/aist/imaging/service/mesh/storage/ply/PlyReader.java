@@ -57,7 +57,7 @@ public class PlyReader implements MeshReader {
                 throw new IllegalStateException("PLY file is empty");
             }
 
-            String[] formatDefinition = line.trim().replaceAll(" +", " ").split(" ");
+            String[] formatDefinition = line.replace("\t", " ").trim().replaceAll(" +", " ").split(" ");
 
             if (!"format".equalsIgnoreCase(formatDefinition[0]) &&
                     !"ascii".equalsIgnoreCase(formatDefinition[1])) {
@@ -72,7 +72,7 @@ public class PlyReader implements MeshReader {
 
 
             while ((line = reader.readLine()) != null) {
-                String trimmed = line.trim().replaceAll(" +", " ").toLowerCase();
+                String trimmed = line.trim().replace("\t", " ").replaceAll(" +", " ").toLowerCase();
                 if (trimmed.startsWith(COMMENT)) {
                     continue;
                 } else if ("end_header".equalsIgnoreCase(trimmed)) {
@@ -104,7 +104,7 @@ public class PlyReader implements MeshReader {
             List<JavaPoint3D> points = new ArrayList<>();
             List<JavaPolygon3D> polygons = new ArrayList<>();
             while ((line = reader.readLine()) != null) {
-                String trimmed = line.trim().replaceAll(" +", " ").toLowerCase();
+                String trimmed = line.trim().replace("\t", " ").replaceAll(" +", " ").toLowerCase();
                 if (trimmed.startsWith(COMMENT)) {
                     continue;
                 }

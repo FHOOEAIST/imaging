@@ -79,7 +79,7 @@ public class ObjWriter implements MeshWriter {
             for (List<Integer> indices : polygonIndices) {
                 writer.append("f ");
                 for (Integer index : indices) {
-                    writer.append(Integer.toString(index - 1))
+                    writer.append(Integer.toString(index + 1))
                             .append(" ");
                 }
                 writer.append(lineSeperator);

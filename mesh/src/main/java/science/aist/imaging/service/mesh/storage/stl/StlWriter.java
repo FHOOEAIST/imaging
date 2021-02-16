@@ -48,13 +48,21 @@ public class StlWriter implements MeshWriter {
             writer.append("solid ")
                   .append(lineSeperator);
 
+            String doubleSpace = "  ";
             for (JavaPolygon3D poly : mesh.getMesh()) {
-                writer.append("  facet normal 0.0 0.0 0.0")
+                if(poly.getSize() > 3){
+                    logger.debug("Writing non-triangle polygon. Note this is not supported by classic stl.");
+                }
+                writer.append(doubleSpace)
+                        .append("facet normal 0.0 0.0 0.0")
                         .append(lineSeperator)
-                        .append("  outer loop ")
+                        .append(doubleSpace)
+                        .append("outer loop ")
                         .append(lineSeperator);
                 for (JavaPoint3D point : poly.getPoints()) {
-                    writer.append("    vertex")
+                    writer.append(doubleSpace)
+                            .append(doubleSpace)
+                            .append("vertex")
                             .append(" ")
                             .append(formatter.format(point.getX()))
                             .append(" ")
@@ -63,9 +71,11 @@ public class StlWriter implements MeshWriter {
                             .append(formatter.format(point.getZ()))
                             .append(lineSeperator);
                 }
-                writer.append("  endloop")
+                writer.append(doubleSpace)
+                        .append("endloop")
                         .append(lineSeperator)
-                        .append("  endfacet")
+                        .append(doubleSpace)
+                        .append("endfacet")
                         .append(lineSeperator);
             }
             writer.append("endsolid ");
