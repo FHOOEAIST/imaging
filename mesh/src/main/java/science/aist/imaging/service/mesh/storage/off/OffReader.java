@@ -55,7 +55,7 @@ public class OffReader implements MeshReader {
                 throw new IllegalStateException("Off file is empty");
             }
 
-            String[] numberOfElements = line.trim().replaceAll(" +", " ").split(" ");
+            String[] numberOfElements = line.trim().replace("\t", " ").replaceAll(" +", " ").split(" ");
             int numberOfVertices = Integer.parseInt(numberOfElements[0]);
             int numberOfFaces = Integer.parseInt(numberOfElements[1]);
 
@@ -65,7 +65,7 @@ public class OffReader implements MeshReader {
             int currentLine = 0;
             boolean readVertices = true;
             while ((line = reader.readLine()) != null) {
-                String trimmed = line.trim().replaceAll(" +", " ");
+                String trimmed = line.trim().replace("\t", " ").replaceAll(" +", " ");
 
                 // ignore comment
                 if (trimmed.startsWith("#")) {

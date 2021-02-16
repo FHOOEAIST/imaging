@@ -86,7 +86,8 @@ public class PlyWriter implements MeshWriter {
                     .append(lineSeperator)
                     .append("property list uchar int vertex_index")
                     .append(lineSeperator)
-                    .append("end_header");
+                    .append("end_header")
+                    .append(lineSeperator);
 
             // write ply body
             for (JavaPoint3D point : points) {
@@ -99,7 +100,8 @@ public class PlyWriter implements MeshWriter {
             }
 
             for (List<Integer> indices : polygonIndices) {
-                writer.append(Integer.toString(indices.size()));
+                writer.append(Integer.toString(indices.size()))
+                .append(" ");
                 for (Integer index : indices) {
                     writer.append(Integer.toString(index))
                             .append(" ");

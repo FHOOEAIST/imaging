@@ -88,7 +88,8 @@ public class OffWriter implements MeshWriter {
             }
 
             for (List<Integer> indices : polygonIndices) {
-                writer.append(Integer.toString(indices.size()));
+                writer.append(Integer.toString(indices.size()))
+                        .append(" ");
                 for (Integer index : indices) {
                     writer.append(Integer.toString(index))
                             .append(" ");
