@@ -76,12 +76,11 @@ public class OffReader implements MeshReader {
                 int len = splits.length;
 
                 if (readVertices) {
-
-                    if (len > 2) {
+                    if (len > 1) {
                         double x = Double.parseDouble(splits[0]);
                         double y = Double.parseDouble(splits[1]);
                         double z = 0;
-                        if (len > 3) {
+                        if (len > 2) {
                             z = Double.parseDouble(splits[2]);
                         }
                         points.add(new JavaPoint3D(x, y, z));
@@ -95,7 +94,7 @@ public class OffReader implements MeshReader {
                 } else {
                     int numOfVertices = Integer.parseInt(splits[0]);
                     List<JavaPoint3D> polygonPoints = new ArrayList<>();
-                    for (int i = 0; i < numberOfVertices; i++) {
+                    for (int i = 0; i < numOfVertices; i++) {
                         polygonPoints.add(points.get(Integer.parseInt(splits[i + 1])));
                     }
                     polygons.add(new JavaPolygon3D(polygonPoints));

@@ -9,9 +9,13 @@
 
 package science.aist.imaging.service.mesh.storage.off;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.threedimensional.JavaModel3D;
+import science.aist.imaging.service.mesh.storage.BaseMeshStorageTest;
 
-import static org.testng.Assert.*;
+import java.io.InputStream;
+import java.util.Optional;
 
 /**
  * <p>Test class for {@link OffReader}</p>
@@ -19,15 +23,22 @@ import static org.testng.Assert.*;
  * @author Christoph Praschl
  * @since 1.2
  */
-public class OffReaderTest {
+public class OffReaderTest extends BaseMeshStorageTest {
 
     @Test
     public void testRead() {
         // given
+        InputStream inputStream = OffReaderTest.class.getResourceAsStream("/offtest.off");
+        OffReader reader = new OffReader();
 
         // when
+        Optional<JavaModel3D> read = reader.read(inputStream);
 
         // then
+        Assert.assertTrue(read.isPresent());
+        Assert.assertEquals(read.get().getPoints().stream().distinct().count(), 8L);
+        Assert.assertEquals(read.get().getMesh().size(), 12);
+        checkCubePoints(read.get());
     }
 
 }

@@ -11,8 +11,6 @@ package science.aist.imaging.service.mesh.triangulation.delaunay.impl;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 /**
  * <p>Test class for {@link ConstrainedDelaunayTriangulation2D}</p>
  *
@@ -24,6 +22,7 @@ public class ConstrainedDelaunayTriangulation2DTest {
     @Test
     public void testTriangulate() {
         // given
+        // TODO
 
         // when
 
