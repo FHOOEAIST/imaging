@@ -23,6 +23,7 @@ import java.util.Optional;
 
 /**
  * <p>MeshReader implementation for OBJ files</p>
+ * <p>Based on OBJ definition by <a href="http://paulbourke.net/dataformats/obj/">Pual Bourke</a></p>
  *
  * @author Christoph Praschl
  * @since 1.2

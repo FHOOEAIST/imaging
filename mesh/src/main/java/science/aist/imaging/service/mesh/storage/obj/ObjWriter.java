@@ -25,12 +25,13 @@ import java.util.stream.IntStream;
 
 /**
  * <p>MeshWriter implementation for OBJ files</p>
+ * <p>Based on OBJ definition by <a href="http://paulbourke.net/dataformats/obj/">Pual Bourke</a></p>
  *
  * @author Christoph Praschl
  * @since 1.2
  */
 public class ObjWriter implements MeshWriter {
-    private static final Logger logger = Logger.getInstance(MeshWriter.class);
+    private static final Logger logger = Logger.getInstance(ObjWriter.class);
 
     /**
      * Delta definition to define if a point is equal to another one
