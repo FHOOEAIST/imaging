@@ -335,6 +335,7 @@
         <module>imagej</module>
         <module>nd4j</module>
         <module>openimaj</module>
+        <module>mesh</module>
     </modules>
 
     <profiles>
