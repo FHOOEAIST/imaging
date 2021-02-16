@@ -18,7 +18,10 @@ import science.aist.seshat.Logger;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * <p>Base implementation of a mesh reader test</p>
@@ -99,6 +102,12 @@ public class BaseMeshStorageTest {
                         new JavaPoint3D(1.0, 1.0, 1.0),
                         new JavaPoint3D(0.0, 1.0, 1.0)));
         return new JavaModel3D(polys);
+    }
+
+    protected void checkCubePoints(JavaModel3D model){
+        Set<JavaPoint3D> cubePoints = new HashSet<>(getCube().getPoints());
+        Set<JavaPoint3D> modelPoints = new HashSet<>(model.getPoints());
+        Assert.assertEquals(modelPoints, cubePoints);
     }
 
 }

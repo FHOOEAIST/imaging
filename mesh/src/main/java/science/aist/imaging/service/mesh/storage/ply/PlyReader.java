@@ -39,16 +39,8 @@ public class PlyReader implements MeshReader {
             String line;
             while ((line = reader.readLine()) != null) {
                 String trimmed = line.trim();
-                if (!trimmed.startsWith(COMMENT) && trimmed.toLowerCase().startsWith("ply")) {
+                if (!trimmed.startsWith(COMMENT) && !trimmed.toLowerCase().startsWith("ply")) {
                     // find the start of the off file defined by the OFF string
-                    break;
-                }
-            }
-
-            while ((line = reader.readLine()) != null) {
-                String trimmed = line.trim();
-                if (!trimmed.startsWith(COMMENT)) {
-                    // ignore all comments
                     break;
                 }
             }
@@ -79,7 +71,7 @@ public class PlyReader implements MeshReader {
                     break;
                 }
 
-                if (trimmed.startsWith("element  ")) {
+                if (trimmed.startsWith("element ")) {
                     String[] elementDefinition = trimmed.split(" ");
                     if ("vertex".equalsIgnoreCase(elementDefinition[1])) {
                         numOfVertices = Integer.parseInt(elementDefinition[2]);
@@ -138,7 +130,7 @@ public class PlyReader implements MeshReader {
             }
 
             if (numOfFaces != polygons.size()) {
-                logger.debug("Something went wrong parsing the file: Number of read polygons does not match ply header");
+                logger.debug("Something went wrong parsing the file: Number of read polygons does not match ply header. Expected " + numOfFaces + " but found " + polygons.size());
                 return Optional.empty();
             }
 

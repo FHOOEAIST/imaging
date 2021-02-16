@@ -9,9 +9,13 @@
 
 package science.aist.imaging.service.mesh.storage.stl;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.threedimensional.JavaModel3D;
+import science.aist.imaging.service.mesh.storage.BaseMeshStorageTest;
 
-import static org.testng.Assert.*;
+import java.io.InputStream;
+import java.util.Optional;
 
 /**
  * <p>Test class for {@link StlReader}</p>
@@ -19,15 +23,22 @@ import static org.testng.Assert.*;
  * @author Christoph Praschl
  * @since 1.2
  */
-public class StlReaderTest {
+public class StlReaderTest extends BaseMeshStorageTest {
 
     @Test
     public void testRead() {
         // given
+        InputStream inputStream = StlReaderTest.class.getResourceAsStream("/stltest.stl");
+        StlReader reader = new StlReader();
 
         // when
+        Optional<JavaModel3D> read = reader.read(inputStream);
 
         // then
+        Assert.assertTrue(read.isPresent());
+        Assert.assertEquals(read.get().getPoints().stream().distinct().count(), 8L);
+        Assert.assertEquals(read.get().getMesh().size(), 12);
+        checkCubePoints(read.get());
     }
 
 }

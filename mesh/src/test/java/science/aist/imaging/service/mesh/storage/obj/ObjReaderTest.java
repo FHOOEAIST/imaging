@@ -9,9 +9,13 @@
 
 package science.aist.imaging.service.mesh.storage.obj;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.imaging.api.domain.threedimensional.JavaModel3D;
+import science.aist.imaging.service.mesh.storage.BaseMeshStorageTest;
 
-import static org.testng.Assert.*;
+import java.io.InputStream;
+import java.util.Optional;
 
 /**
  * <p>Test class for {@link ObjReader}</p>
@@ -19,15 +23,22 @@ import static org.testng.Assert.*;
  * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
  * @since 1.2
  */
-public class ObjReaderTest {
+public class ObjReaderTest extends BaseMeshStorageTest {
 
     @Test
     public void testRead() {
         // given
+        InputStream inputStream = ObjReaderTest.class.getResourceAsStream("/objtest.obj");
+        ObjReader reader = new ObjReader();
 
         // when
+        Optional<JavaModel3D> read = reader.read(inputStream);
 
         // then
+        Assert.assertTrue(read.isPresent());
+        Assert.assertEquals(read.get().getPoints().stream().distinct().count(), 8L);
+        Assert.assertEquals(read.get().getMesh().size(), 12);
+        checkCubePoints(read.get());
     }
 
 }
