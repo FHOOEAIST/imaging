@@ -52,7 +52,7 @@
         <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
         <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
         <smurn.version>0.2.0</smurn.version>
-        <orbisgis.version>0.5.3</orbisgis.version>
+        <jdelaunay.version>0.5.3</jdelaunay.version>
 
         <maven-scm-publish-plugin.version>3.0.0</maven-scm-publish-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>

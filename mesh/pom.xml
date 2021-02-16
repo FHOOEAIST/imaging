@@ -11,5 +11,16 @@
 
     <artifactId>mesh</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>science.aist.imaging</groupId>
+            <artifactId>api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.orbisgis</groupId>
+            <artifactId>jdelaunay</artifactId>
+            <version>${jdelaunay.version}</version>
+        </dependency>
+    </dependencies>
 </project>
