@@ -66,7 +66,7 @@ public class PlyReader implements MeshReader {
 
             while ((line = reader.readLine()) != null) {
                 String trimmed = line.trim().replace("\t", " ").replaceAll(" +", " ").toLowerCase();
-                if (trimmed.startsWith(COMMENT)) {
+                if (trimmed.startsWith(COMMENT) || trimmed.isEmpty()) {
                     continue;
                 } else if ("end_header".equalsIgnoreCase(trimmed)) {
                     break;

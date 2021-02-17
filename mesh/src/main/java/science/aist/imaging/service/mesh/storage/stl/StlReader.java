@@ -43,6 +43,10 @@ public class StlReader implements MeshReader {
             List<JavaPoint3D> currentPoints = new ArrayList<>();
             while ((line = reader.readLine()) != null) {
                 String trimmed = line.trim().replace("\t", " ").replaceAll(" +", " ").toLowerCase();
+                if(trimmed.isEmpty()){
+                    continue;
+                }
+
                 if (!inFaceDefinition) {
                     if (trimmed.startsWith("solid ")) {
                         // find the start of the stl file defined by the Stl string
