@@ -14,9 +14,6 @@ import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.threedimensional.JavaLine3D;
 import science.aist.imaging.api.domain.threedimensional.JavaPoint3D;
 import science.aist.imaging.api.domain.threedimensional.JavaPolygon3D;
-import science.aist.imaging.api.domain.twodimensional.JavaLine2D;
-import science.aist.imaging.api.domain.twodimensional.JavaPoint2D;
-import science.aist.imaging.api.domain.twodimensional.JavaPolygon2D;
 
 import java.util.Arrays;
 import java.util.Collections;
