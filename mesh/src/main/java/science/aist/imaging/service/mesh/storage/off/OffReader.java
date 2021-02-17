@@ -69,7 +69,7 @@ public class OffReader implements MeshReader {
                 String trimmed = line.trim().replace("\t", " ").replaceAll(" +", " ");
 
                 // ignore comment
-                if (trimmed.startsWith("#")) {
+                if (trimmed.startsWith("#") || trimmed.isEmpty()) {
                     continue;
                 }
 

@@ -40,7 +40,9 @@ public class ObjReader implements MeshReader {
             String line;
             while ((line = reader.readLine()) != null) {
                 line = line.trim().replace("\t", " ").replaceAll(" +", " ");
-                if(line.isEmpty()) continue;
+                if(line.isEmpty()){
+                    continue;
+                }
 
                 String[] splits = line.split(" ");
                 int len = splits.length;
