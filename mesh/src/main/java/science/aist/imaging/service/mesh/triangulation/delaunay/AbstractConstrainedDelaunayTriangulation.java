@@ -86,11 +86,14 @@ public abstract class AbstractConstrainedDelaunayTriangulation<P extends Abstrac
             ConstrainedMesh mesh = new ConstrainedMesh();
             mesh.setVerbose(verboseMode);
 
-            ArrayList<DEdge> convertedConstraints = constraints.stream().map(lineConversionFunction).collect(Collectors.toCollection(ArrayList::new));
-            mesh.setConstraintEdges(convertedConstraints);
+            for (L constraint : constraints) {
+                mesh.addConstraintEdge(lineConversionFunction.apply(constraint));
+            }
 
-            List<DPoint> convertedPoints = points.stream().map(pointConversionFunction).collect(Collectors.toList());
-            mesh.setPoints(convertedPoints);
+            for (P point : points) {
+                mesh.addPoint(pointConversionFunction.apply(point));
+            }
+
 
             if (forceMode) {
                 mesh.forceConstraintIntegrity();

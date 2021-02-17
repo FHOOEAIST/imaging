@@ -24,6 +24,7 @@ import java.util.Optional;
 /**
  * <p>MeshReader implementation for PLY files</p>
  * <p>Based on PLY definition by <a href="http://paulbourke.net/dataformats/ply/">Paul Bourke</a></p>
+ * <p>Note: The reader currently only supports text based PLY mesh files, not binaries!</p>
  *
  * @author Christoph Praschl
  * @since 1.2

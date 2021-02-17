@@ -24,6 +24,7 @@ import java.util.Optional;
 /**
  * <p>MeshReader implementation for Stl files</p>
  * Based on STL file definition by <a href="http://paulbourke.net/dataformats/stl/">Paul Bourke</a>
+ * <p>Note: The reader currently only supports text based STL mesh files, not binaries!</p>
  *
  * @author Christoph Praschl
  * @since 1.2
@@ -44,12 +45,12 @@ public class StlReader implements MeshReader {
                 String trimmed = line.trim().replace("\t", " ").replaceAll(" +", " ").toLowerCase();
                 if (!inFaceDefinition) {
                     if (trimmed.startsWith("solid ")) {
-                        // find the start of the stl file defined by the OFF string
+                        // find the start of the stl file defined by the Stl string
                         continue;
                     } else if (trimmed.startsWith("facet ")) {
                         inFaceDefinition = true;
                     } else if (trimmed.startsWith("endsolid ")) {
-                        // find the end of the stl file defined by the OFF string
+                        // find the end of the stl file defined by the Stl string
                         break;
                     }
                 } else {

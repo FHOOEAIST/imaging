@@ -24,6 +24,7 @@ import java.util.Optional;
 /**
  * <p>MeshReader implementation for OFF files</p>
  * <p>Based on OFF definition by <a href="https://segeval.cs.princeton.edu/public/off_format.html">Princeton</a></p>
+ * <p>Note: The reader currently only supports text based OFF mesh files, not binaries!</p>
  *
  * @author Christoph Praschl
  * @since 1.2
