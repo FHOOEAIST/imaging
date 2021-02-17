@@ -74,7 +74,7 @@ public abstract class AbstractConstrainedDelaunayTriangulation<P extends Abstrac
     }
 
     /**
-     * Triangulates the given points using the given constraings
+     * Triangulates the given points using the given constraints
      *
      * @param points to be triangulated
      * @param constraints constraints to be considered
@@ -85,13 +85,21 @@ public abstract class AbstractConstrainedDelaunayTriangulation<P extends Abstrac
             ConstrainedMesh mesh = new ConstrainedMesh();
             mesh.setVerbose(verboseMode);
 
-            for (L constraint : constraints) {
-                mesh.addConstraintEdge(lineConversionFunction.apply(constraint));
-            }
+            constraints.stream().map(lineConversionFunction).forEach(d -> {
+                try {
+                    mesh.addConstraintEdge(d);
+                } catch (DelaunayError delaunayError) {
+                    logger.debug("Error when adding constraint: " + delaunayError.getMessage());
+                }
+            });
 
-            for (P point : points) {
-                mesh.addPoint(pointConversionFunction.apply(point));
-            }
+            points.stream().map(pointConversionFunction).forEach(d -> {
+                try {
+                    mesh.addPoint(d);
+                } catch (DelaunayError delaunayError) {
+                    logger.debug("Error when adding point: " + delaunayError.getMessage());
+                }
+            });
 
             if (forceMode) {
                 mesh.forceConstraintIntegrity();
