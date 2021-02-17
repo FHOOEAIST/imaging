@@ -20,7 +20,6 @@ import science.aist.imaging.api.domain.AbstractJavaPolygon;
 import science.aist.imaging.service.mesh.triangulation.Triangulation;
 import science.aist.seshat.Logger;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
@@ -93,7 +92,6 @@ public abstract class AbstractConstrainedDelaunayTriangulation<P extends Abstrac
             for (P point : points) {
                 mesh.addPoint(pointConversionFunction.apply(point));
             }
-
 
             if (forceMode) {
                 mesh.forceConstraintIntegrity();
