@@ -40,7 +40,7 @@ public class PlyReader implements MeshReader {
             String line;
             while ((line = reader.readLine()) != null) {
                 String trimmed = line.trim();
-                if (!trimmed.startsWith(COMMENT) && !trimmed.toLowerCase().startsWith("ply")) {
+                if (!trimmed.startsWith(COMMENT) && !trimmed.isEmpty() && !trimmed.toLowerCase().startsWith("ply")) {
                     // find the start of the off file defined by the OFF string
                     break;
                 }
