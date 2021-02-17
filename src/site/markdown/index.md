@@ -18,7 +18,7 @@ The functionality is separated into two main modules with sub modules, described
  * **api**: Is the base module of the imaging project containing **domain objects** for images, geometric figures (e.g. points, lines, rectangles, ...), color representations and more. Also contains some further functionality as interfaces, transformers and utility classes (e.g. for type checking of images). 
  * **core**: Core consists of basic implementations for image and geometric processing. [See here for a more detailed description...](service/service_core.md )
  * **imagej**: Connector module to [ImageJ](https://imagej.net/)
- * **mesh**: Module containing different mesh processing related things like storing to mesh related file types
+ * **mesh**: Module containing different mesh processing related things like storing to mesh related file types (.obj, .off, .ply, .stl) or triangulating points
  * **microsoftcognitiveservices**: This module wraps the functionality of Microsoft´s Cognitive Services and is currently used for face detection.
  * **nd4j**: Connector module to [ND4J](https://github.com/deeplearning4j/nd4j)
  * **opencv**: This module is the core computer vision implementation and uses the [AistCV (OpenCV Java Wrapper)](https://github.com/FHOOEAIST/aistcv) [See here for a more detailed description...](service/opencv_module.md)
