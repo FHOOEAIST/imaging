@@ -39,13 +39,13 @@ public class PlyTest extends BaseMeshStorageTest {
 
         // when 1
         boolean write = writer.write(cube, path.toFile());
-        Assert.assertTrue(write);
 
         // when 2
         Optional<JavaModel3D> read = reader.read(path.toFile());
-        Assert.assertTrue(read.isPresent());
 
         // then
+        Assert.assertTrue(write);
+        Assert.assertTrue(read.isPresent());
         Assert.assertEquals(cube.getMesh(), read.get().getMesh());
         Files.deleteIfExists(path);
     }

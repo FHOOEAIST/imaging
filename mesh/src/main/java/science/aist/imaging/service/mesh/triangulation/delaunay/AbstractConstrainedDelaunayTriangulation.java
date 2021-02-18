@@ -53,7 +53,7 @@ public abstract class AbstractConstrainedDelaunayTriangulation<P extends Abstrac
     private final boolean verboseMode;
 
     /**
-     * <p></p>Force the integrity of the constraints used to compute the delaunay triangulation:</p>
+     * <p>Force the integrity of the constraints used to compute the delaunay triangulation:</p>
      * <ul>
      * <li>duplicates are removed</li>
      * <li>intersection points are added to the mesh points</li>
