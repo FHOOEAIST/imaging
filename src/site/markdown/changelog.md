@@ -2,7 +2,7 @@
 
 The changelog should give you a quick overview of what change between the different Seshat versions.
 
-## Version 1.1.0
+## Version 1.2.0
 
 ### New Features
 
