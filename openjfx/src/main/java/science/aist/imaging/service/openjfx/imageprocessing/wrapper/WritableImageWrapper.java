@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2021 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.imaging.service.openjfx.imageprocessing.wrapper;
 
 import javafx.scene.image.PixelReader;
@@ -8,10 +17,10 @@ import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
 import science.aist.imaging.api.domain.wrapper.ChannelType;
 
 /**
- * <p>Created by Christoph Praschl on 16.06.2021</p>
- * <p>ImageWrapper implementation for JavaFX's WritableImage class</p>
+ * <p>ImageWrapper implementation for JavaFX's {@link WritableImage}</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
+ * @since 1.2
  */
 public class WritableImageWrapper extends AbstractImageWrapper<WritableImage> {
     public WritableImageWrapper(WritableImage image, ChannelType channelType) {
