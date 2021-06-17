@@ -31,9 +31,9 @@ import java.util.function.Function;
  */
 public interface ImageFunction<IN, OUT> extends Function<ImageWrapper<IN>, ImageWrapper<OUT>> {
     /**
-     * We do not have everywhere a ImageFunction, sometimes it is just form the type function.
-     * In those cases we need a construct, which allows us to close the image wrapper, after another function.
-     * Also closes the input function if apply throws an exception.
+     * We do not have everywhere a ImageFunction, sometimes it is just form the type function. In those cases we need a
+     * construct, which allows us to close the image wrapper, after another function. Also closes the input function if
+     * apply throws an exception.
      *
      * @param function the function to be executed
      * @param <T>      the input type which needs to extend Java Image Wrapper
@@ -52,10 +52,12 @@ public interface ImageFunction<IN, OUT> extends Function<ImageWrapper<IN>, Image
     }
 
     /**
-     * This function returns a function, that execute a given consumer after the apply function for the original function was called
+     * This function returns a function, that execute a given consumer after the apply function for the original
+     * function was called
      *
      * @param consumer the consumer to be executed after the accept function
-     * @return a new function, that call the apply function of this function, then executes the consumer and the returns the result of the original function
+     * @return a new function, that call the apply function of this function, then executes the consumer and the returns
+     * the result of the original function
      */
     default ImageFunction<IN, OUT> andThenConsumeInput(Consumer<ImageWrapper<IN>> consumer) {
         return (ImageWrapper<IN> in) -> {
@@ -72,5 +74,18 @@ public interface ImageFunction<IN, OUT> extends Function<ImageWrapper<IN>, Image
      */
     default ImageFunction<IN, OUT> andThenCloseInput() {
         return andThenConsumeInput(ImageWrapper::close);
+    }
+
+    /**
+     * Chains multiple ImageFunctions. The first input function is applied and its result is passed to the after
+     * ImageFunction, which will then calculate the final result. The interim image will be automatically closed.
+     *
+     * @param after the function to apply after this function is applied
+     * @param <X>   the resulting type of the applied image functions
+     * @return a composed function that first applies this function and then applies the {@code after} function
+     * @since 1.2
+     */
+    default <X> ImageFunction<IN, X> andThen(ImageFunction<OUT, X> after) {
+        return (ImageWrapper<IN> in) -> after.andThenCloseInput().apply(apply(in));
     }
 }
