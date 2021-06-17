@@ -1,10 +1,6 @@
 /*
- * Copyright (c) 2021 the original author or authors.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ * Copyright (c) Johannes Diemke and contributors. All rights reserved.
+ * Licensed under the MIT license. See LICENSE_MIT_JDIEMKE file in the project root for details.
  */
 
 package science.aist.imaging.api.domain.twodimensional;
