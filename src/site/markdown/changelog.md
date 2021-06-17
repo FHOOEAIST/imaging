@@ -5,11 +5,12 @@ The changelog should give you a quick overview of what change between the differ
 ## Version 1.2.0
 
 ### New Features
-
-- [5](https://github.com/FHOOEAIST/imaging/issues/5) - Added the mesh module with multiple storage implementations for JavaModel3D class (OBJ, OFF, PLY, STL) as well as a Constrained Delaunay implementation
+- [25](https://github.com/FHOOEAIST/imaging/issues/25) - Added JavaFX support
+- [5](https://github.com/FHOOEAIST/imaging/issues/5) - Added the mesh module with multiple storage implementations for JavaModel3D class (OBJ, OFF, PLY, STL) as well as a Constrained Delaunay implementation 
 - [27](https://github.com/FHOOEAIST/imaging/issues/27) - Added `andThen`-method to ImageFunction, to allow chaining of multiple functions.
 
 ### Dependencies
+- [25](https://github.com/FHOOEAIST/imaging/issues/25) - Added a dependency to [OpenJavaFX](https://mvnrepository.com/artifact/org.openjfx/javafx-media/11)
 - [5](https://github.com/FHOOEAIST/imaging/issues/5) - Added a dependency to [jDelaunay](https://github.com/orbisgis/jdelaunay) for constrained delaunay triangulation
 
 ## Version 1.1.0
