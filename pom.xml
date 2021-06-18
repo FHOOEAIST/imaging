@@ -14,7 +14,7 @@
     <groupId>science.aist.imaging</groupId>
     <artifactId>imaging</artifactId>
     <packaging>pom</packaging>
-    <version>1.2.0</version>
+    <version>1.2.0-SNAPSHOT</version>
 
     <!-- variables -->
     <properties>
@@ -74,7 +74,7 @@
         <connection>scm:git:git@github.com:FHOOEAIST/imaging.git</connection>
         <url>https://github.com/FHOOEAIST/imaging</url>
         <developerConnection>scm:git:git@github.com:FHOOEAIST/imaging.git</developerConnection>
-        <tag>imaging-1.2.0</tag>
+        <tag>HEAD</tag>
     </scm>
     <distributionManagement>
         <repository>
