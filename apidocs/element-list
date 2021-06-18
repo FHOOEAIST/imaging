@@ -57,6 +57,14 @@ science.aist.imaging.service.core.storage
 science.aist.imaging.service.d4j.imageprocessing.wrapper
 science.aist.imaging.service.imagej.imageprocessing.converter
 science.aist.imaging.service.imagej.imageprocessing.wrapper
+science.aist.imaging.service.mesh.storage
+science.aist.imaging.service.mesh.storage.obj
+science.aist.imaging.service.mesh.storage.off
+science.aist.imaging.service.mesh.storage.ply
+science.aist.imaging.service.mesh.storage.stl
+science.aist.imaging.service.mesh.triangulation
+science.aist.imaging.service.mesh.triangulation.delaunay
+science.aist.imaging.service.mesh.triangulation.delaunay.impl
 science.aist.imaging.service.microsoftcognitiveservices
 science.aist.imaging.service.microsoftcognitiveservices.transformers
 science.aist.imaging.service.opencv.imageprocessing.averaging
@@ -89,6 +97,7 @@ science.aist.imaging.service.opencv.imageprocessing.transformers
 science.aist.imaging.service.opencv.imageprocessing.wrapper
 science.aist.imaging.service.openimaj.imageprocessing.transformer
 science.aist.imaging.service.openimaj.imageprocessing.wrapper
+science.aist.imaging.service.openjfx.imageprocessing.wrapper
 science.aist.imaging.service.pdfbox
 science.aist.imaging.service.tesseract.domain
 science.aist.imaging.service.tesseract.imageprocessing.opticalcharacterrecognition.tesseract
