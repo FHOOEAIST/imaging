@@ -25,7 +25,7 @@ import static org.bytedeco.opencv.global.opencv_core.CV_8UC3;
  * <p>Test class for {@link JavaCVFactory}</p>
  *
  * @author Christoph Praschl
- * @since 1.1
+ * @since 2.0
  */
 public class JavaCVFactoryTest {
 

@@ -10,7 +10,6 @@
 package science.aist.imaging.javacv.imageprocessing.wrapper;
 
 
-import org.bytedeco.javacpp.indexer.DoubleIndexer;
 import org.bytedeco.javacpp.indexer.UByteRawIndexer;
 import org.bytedeco.opencv.opencv_core.Mat;
 import science.aist.imaging.api.domain.wrapper.AbstractImageWrapper;
@@ -20,7 +19,7 @@ import science.aist.imaging.api.domain.wrapper.ChannelType;
  * <p>Implementation of the ImageWrapper Interface for <a href="https://github.com/bytedeco/javacv">JavaCV</a></p>
  *
  * @author Christoph Praschl
- * @since 1.0
+ * @since 2.0
  */
 public class JavaCVImageWrapper extends AbstractImageWrapper<Mat> {
     JavaCVImageWrapper(Mat image, ChannelType type) {

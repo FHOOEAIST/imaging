@@ -22,10 +22,10 @@ import java.util.Random;
 import static org.opencv.core.CvType.CV_8UC3;
 
 /**
- * <p>Created by Christoph Praschl on 30.09.2021</p>
- * <p>TODO insert documentation for this class</p>
+ * <p>Test class for {@link OpenCVFactory}</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
+ * @since 2.0
  */
 public class OpenCVFactoryTest {
     @Test
@@ -74,6 +74,5 @@ public class OpenCVFactoryTest {
                 }
             }
         }
-        System.out.println("}");
     }
 }

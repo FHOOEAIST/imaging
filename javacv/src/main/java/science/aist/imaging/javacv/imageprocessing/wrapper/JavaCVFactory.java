@@ -21,7 +21,7 @@ import static org.bytedeco.opencv.global.opencv_core.*;
  * <p>Implements the {@link ImageFactory} interface for {@link Mat}</p>
  *
  * @author Christoph Praschl
- * @since 1.0
+ * @since 2.0
  */
 public class JavaCVFactory implements ImageFactory<Mat> {
     /**
