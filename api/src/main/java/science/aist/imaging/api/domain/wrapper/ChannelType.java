@@ -112,4 +112,41 @@ public enum ChannelType {
         }
         return getMaxVal()[channel];
     }
+
+    /**
+     * Scales the given pixel value to a new range defined
+     * @param value current value to be scaled
+     * @param channel channel position of the value
+     * @param oldMin min value of the old range associated with the current value
+     * @param oldMax max value of the old range associated with the current value
+     * @return pixel value within the current ChannelType definition
+     */
+    public double scaleToChannel(double value, int channel, double oldMin, double oldMax) {
+        return scaleToChannel(value, oldMin, oldMax, getMinVal(channel), getMaxVal(channel));
+    }
+
+    /**
+     * Scales the given pixel value of this Channeltype to a new range defined
+     * @param value current value to be scaled
+     * @param channel channel position of the value
+     * @param newMin min value of the target range associated with the resulting value
+     * @param newMax max value of the target range associated with the resulting value
+     * @return pixel value within the current ChannelType definition
+     */
+    public double scaleFromChannel(double value, int channel, double newMin, double newMax) {
+        return scaleToChannel(value, getMinVal(channel), getMaxVal(channel), newMin, newMax);
+    }
+
+    /**
+     * Scales the given pixel value to a new range defined
+     * @param value current value to be scaled
+     * @param oldMin min value of the old range associated with the current value
+     * @param oldMax max value of the old range associated with the current value
+     * @param newMin min value of the new range associated with the resulting value
+     * @param newMax max value of the new range associated with the resulting value
+     * @return pixel value within the given target range
+     */
+    public static double scaleToChannel(double value, double oldMin, double oldMax, double newMin, double newMax) {
+        return (((value - oldMin) * (newMax - newMin)) / (oldMax - oldMin)) + newMin;
+    }
 }

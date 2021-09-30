@@ -22,22 +22,9 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
  */
 public class MBFImageWrapper extends AbstractImageWrapper<MBFImage> {
 
-    /**
-     * maxValue of the channel type; required to convert value between 0.0 and 1.0 for OpenIMAJ
-     */
-    private final double[] maxVal;
-
-    /**
-     * minValue of the channel type; required to convert value between 0.0 and 1.0 for OpenIMAJ
-     */
-    private final double[] minVal;
-
-
     protected MBFImageWrapper(MBFImage image, ChannelType channelType) {
         super(image);
         this.channelType = channelType;
-        this.minVal = channelType.getMinVal();
-        this.maxVal = channelType.getMaxVal();
     }
 
     @Override
@@ -57,13 +44,14 @@ public class MBFImageWrapper extends AbstractImageWrapper<MBFImage> {
 
     @Override
     public double getValue(int x, int y, int channel) {
-        return image.getPixel(x,y)[channel] * maxVal[channel] + minVal[channel];
+        double value = image.getPixel(x,y)[channel];
+        return channelType.scaleToChannel(value, channel,0, 1);
     }
 
     @Override
     public void setValue(int x, int y, int channel, double val) {
         Float[] pixel = image.getPixel(x, y);
-        pixel[channel] = (float) (val / maxVal[channel] - minVal[channel]);
+        pixel[channel] = (float) channelType.scaleFromChannel(val, channel,0, 1);
         image.setPixel(x,y, pixel);
     }
 

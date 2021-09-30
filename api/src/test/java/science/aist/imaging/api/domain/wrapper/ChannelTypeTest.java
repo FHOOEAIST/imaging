@@ -107,5 +107,40 @@ public class ChannelTypeTest {
         // then - exception
     }
 
+    @Test
+    public void testScaleToChannel(){
+        // given
+        ChannelType origin = ChannelType.RGB;
+
+        // when
+        double v = origin.scaleToChannel(1, 0, 0, 1);
+
+        // then
+        Assert.assertEquals(v, 255.0);
+    }
+
+    @Test
+    public void testScaleToChannel2(){
+        // given
+
+        // when
+        double v = ChannelType.scaleToChannel(255.0, 0.0, 255.0, 0.0, 1.0);
+
+        // then
+        Assert.assertEquals(v, 1.0);
+    }
+
+    @Test
+    public void testScaleFromChannel(){
+        // given
+        ChannelType origin = ChannelType.RGB;
+
+        // when
+        double v = origin.scaleFromChannel(255, 0, 0, 1);
+
+        // then
+        Assert.assertEquals(v, 1.0);
+    }
+
 
 }
