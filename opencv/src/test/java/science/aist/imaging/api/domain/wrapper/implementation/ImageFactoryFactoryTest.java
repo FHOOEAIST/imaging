@@ -13,7 +13,7 @@ import org.opencv.core.Mat;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
-import science.aist.imaging.service.opencv.imageprocessing.wrapper.OpenCVFactory;
+import science.aist.imaging.opencv.imageprocessing.wrapper.OpenCVFactory;
 
 import java.awt.image.BufferedImage;
 

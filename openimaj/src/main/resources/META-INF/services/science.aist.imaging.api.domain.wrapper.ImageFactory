@@ -1,2 +1,2 @@
-science.aist.imaging.service.openimaj.imageprocessing.wrapper.MBFImageFactory
-science.aist.imaging.service.openimaj.imageprocessing.wrapper.FImageFactory
+science.aist.imaging.openimaj.imageprocessing.wrapper.MBFImageFactory
+science.aist.imaging.openimaj.imageprocessing.wrapper.FImageFactory

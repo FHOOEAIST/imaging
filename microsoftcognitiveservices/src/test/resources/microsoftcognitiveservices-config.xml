@@ -15,19 +15,19 @@
          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder location="classpath:microsoftcognitiveservices.properties"/>
     <context:annotation-config />
-    <bean class="science.aist.imaging.service.microsoftcognitiveservices.SpecialSpringConfiguration"/>
+    <bean class="science.aist.imaging.microsoftcognitiveservices.SpecialSpringConfiguration"/>
 
-    <bean id="genericImageWrapperTransformer" class="science.aist.imaging.service.core.imageprocessing.transformers.GenericImageWrapperTransformer">
+    <bean id="genericImageWrapperTransformer" class="science.aist.imaging.core.imageprocessing.transformers.GenericImageWrapperTransformer">
         <constructor-arg index="0" ref="imageFactory"/>
         <constructor-arg index="1" ref="bufferedImageFactory"/>
     </bean>
 
     <bean id="byteArrayImage2ByteTransformer"
-          class="science.aist.imaging.service.microsoftcognitiveservices.transformers.ByteArrayImage2ByteTransformer">
+          class="science.aist.imaging.microsoftcognitiveservices.transformers.ByteArrayImage2ByteTransformer">
         <constructor-arg name="transformer" ref="genericImageWrapperTransformer"/>
     </bean>
     <bean id="faceDetection"
-          class="science.aist.imaging.service.microsoftcognitiveservices.MicrosoftCognitiveServiceFaceDetection">
+          class="science.aist.imaging.microsoftcognitiveservices.MicrosoftCognitiveServiceFaceDetection">
         <property name="byteArrayImage2ByteTransformer" ref="byteArrayImage2ByteTransformer"/>
     </bean>
 </beans>
