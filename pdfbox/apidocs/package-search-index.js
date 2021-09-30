@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"science.aist.imaging.service.pdfbox"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"science.aist.imaging.pdfbox"}]

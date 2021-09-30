@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"science.aist.imaging.service.d4j.imageprocessing.wrapper"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"science.aist.imaging.nd4j.imageprocessing.wrapper"}]

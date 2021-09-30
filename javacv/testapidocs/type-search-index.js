@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.javacv.imageprocessing.wrapper","l":"JavaCVFactoryTest"}]

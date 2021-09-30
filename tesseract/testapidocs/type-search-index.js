@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.service.tesseract.imageprocessing.opticalcharacterrecognition.tesseract","l":"TesseractOCRTest"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.tesseract.imageprocessing.opticalcharacterrecognition.tesseract","l":"TesseractOCRTest"}]

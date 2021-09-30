@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.service.d4j.imageprocessing.wrapper","l":"INDArrayFactoryTest"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.nd4j.imageprocessing.wrapper","l":"INDArrayFactoryTest"}]

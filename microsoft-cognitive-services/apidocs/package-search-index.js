@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"science.aist.imaging.service.microsoftcognitiveservices"},{"l":"science.aist.imaging.service.microsoftcognitiveservices.transformers"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"science.aist.imaging.microsoftcognitiveservices"},{"l":"science.aist.imaging.microsoftcognitiveservices.transformers"}]

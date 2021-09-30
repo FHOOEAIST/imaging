@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.service.openjfx.imageprocessing.wrapper","l":"WriteableImageFactoryTest"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.openjfx.imageprocessing.wrapper","l":"WriteableImageFactoryTest"}]

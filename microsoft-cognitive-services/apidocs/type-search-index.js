@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.service.microsoftcognitiveservices.transformers","l":"ByteArrayImage2ByteTransformer"},{"p":"science.aist.imaging.service.microsoftcognitiveservices","l":"MicrosoftCognitiveServiceFaceDetection"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.microsoftcognitiveservices.transformers","l":"ByteArrayImage2ByteTransformer"},{"p":"science.aist.imaging.microsoftcognitiveservices","l":"MicrosoftCognitiveServiceFaceDetection"}]

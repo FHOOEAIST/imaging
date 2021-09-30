@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"science.aist.imaging.javacv.imageprocessing.wrapper","c":"JavaCVFactoryTest","l":"JavaCVFactoryTest()","url":"%3Cinit%3E()"},{"p":"science.aist.imaging.javacv.imageprocessing.wrapper","c":"JavaCVFactoryTest","l":"testGetImage()"}]

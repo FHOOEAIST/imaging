@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.service.microsoftcognitiveservices","l":"FaceTest"},{"p":"science.aist.imaging.service.microsoftcognitiveservices","l":"SpecialSpringConfiguration"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"science.aist.imaging.microsoftcognitiveservices","l":"FaceTest"},{"p":"science.aist.imaging.microsoftcognitiveservices","l":"SpecialSpringConfiguration"}]

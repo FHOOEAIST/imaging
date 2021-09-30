@@ -1,8 +1,8 @@
-science.aist.imaging.service.mesh.storage
-science.aist.imaging.service.mesh.storage.obj
-science.aist.imaging.service.mesh.storage.off
-science.aist.imaging.service.mesh.storage.ply
-science.aist.imaging.service.mesh.storage.stl
-science.aist.imaging.service.mesh.triangulation
-science.aist.imaging.service.mesh.triangulation.delaunay
-science.aist.imaging.service.mesh.triangulation.delaunay.impl
+science.aist.imaging.mesh.storage
+science.aist.imaging.mesh.storage.obj
+science.aist.imaging.mesh.storage.off
+science.aist.imaging.mesh.storage.ply
+science.aist.imaging.mesh.storage.stl
+science.aist.imaging.mesh.triangulation
+science.aist.imaging.mesh.triangulation.delaunay
+science.aist.imaging.mesh.triangulation.delaunay.impl
