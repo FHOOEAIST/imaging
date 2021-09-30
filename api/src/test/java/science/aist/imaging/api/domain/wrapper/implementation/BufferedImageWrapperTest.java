@@ -19,6 +19,7 @@ import science.aist.imaging.api.domain.wrapper.ImageWrapper;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * <p>Test class for {@link BufferedImageWrapper}</p>
@@ -85,5 +86,24 @@ public class BufferedImageWrapperTest {
         bufferedImage.setValue(50, 50, 5, value);
 
         // then -- exception
+    }
+
+    @Test
+    public void testCreateCopy() {
+        // given
+        Random r = new Random(42);
+        ImageWrapper<BufferedImage> bufferedImage = ImageFactoryFactory.getImageFactory(BufferedImage.class).getRandomImage(100, 100, ChannelType.GREYSCALE, r, 0, 255, false);
+
+        // when
+        ImageWrapper<short[][][]> copy = bufferedImage.createCopy(short[][][].class);
+
+        // then
+        for (int x = 0; x < copy.getWidth(); x++) {
+            for (int y = 0; y < copy.getHeight(); y++) {
+                int value = (int) bufferedImage.getValue(x, y, 0);
+                int value2 = (int) copy.getValue(x, y, 0);
+                Assert.assertEquals(value, value2);
+            }
+        }
     }
 }
