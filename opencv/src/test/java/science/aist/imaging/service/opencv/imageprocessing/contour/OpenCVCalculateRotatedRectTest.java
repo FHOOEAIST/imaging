@@ -43,8 +43,8 @@ public class OpenCVCalculateRotatedRectTest extends OpenCVTest {
         // then
         Assert.assertEquals(rotatedRectangle.getCenterPoint().getX(), 1.7, 0.001);
         Assert.assertEquals(rotatedRectangle.getCenterPoint().getY(), 2.6, 0.001);
-        Assert.assertEquals(rotatedRectangle.getWidth(), 2.236, 0.001);
-        Assert.assertEquals(rotatedRectangle.getHeight(), 1.788, 0.001);
-        Assert.assertEquals(Math.toDegrees(rotatedRectangle.getRotation()), -63.434, 0.001);
+        Assert.assertEquals(rotatedRectangle.getWidth(), 1.788, 0.001);
+        Assert.assertEquals(rotatedRectangle.getHeight(), 2.236, 0.001);
+        Assert.assertEquals(Math.toDegrees(rotatedRectangle.getRotation()), 26.56505, 0.001);
     }
 }
