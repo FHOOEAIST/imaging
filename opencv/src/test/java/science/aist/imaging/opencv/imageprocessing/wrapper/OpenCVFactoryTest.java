@@ -7,10 +7,10 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-package science.aist.imaging.nd4j.imageprocessing.wrapper;
+package science.aist.imaging.opencv.imageprocessing.wrapper;
 
-import org.nd4j.linalg.api.ndarray.INDArray;
-import org.nd4j.linalg.factory.Nd4j;
+import aist.science.aistcv.AistCVLoader;
+import org.opencv.core.Mat;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
@@ -19,30 +19,35 @@ import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactor
 
 import java.util.Random;
 
-/**
- * <p>Test class for {@link INDArrayFactory}</p>
- *
- * @author Christoph Praschl
- * @since 1.1
- */
-public class INDArrayFactoryTest {
+import static org.opencv.core.CvType.CV_8UC3;
 
+/**
+ * <p>Created by Christoph Praschl on 30.09.2021</p>
+ * <p>TODO insert documentation for this class</p>
+ *
+ * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ */
+public class OpenCVFactoryTest {
     @Test
     public void testGetImage() {
+        AistCVLoader.loadShared();
         // given
-        ImageFactory<INDArray> imageProcessorFactory = ImageFactoryFactory.getImageFactory(INDArray.class);
+        ImageFactory<Mat> imageProcessorFactory = ImageFactoryFactory.getImageFactory(Mat.class);
         int width = 10;
         int height = 15;
-        INDArray img = Nd4j.zeros(height, width, 3);
+        Mat img = new Mat(height, width, CV_8UC3);
         Random rand = new Random(768457);
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
+                double[] values = new double[3];
                 for (int c = 0; c < 3; c++) {
-                    img.putScalar(new int[]{y, x, c}, rand.nextInt(255));
+                    values[c] = rand.nextInt(255);
                 }
+                img.put(y,x, values);
             }
         }
+
 
         int[][][] reference = new int[][][]{
                 new int[][]{new int[]{164,214,202},new int[]{223,210,103},new int[]{52,93,166},new int[]{87,146,68},new int[]{71,194,136},new int[]{99,237,243},new int[]{36,194,185},new int[]{240,158,142},new int[]{73,49,130},new int[]{210,239,245},new int[]{79,198,108},new int[]{93,251,49},new int[]{108,220,78},new int[]{60,157,50},new int[]{45,134,44}},
@@ -57,9 +62,8 @@ public class INDArrayFactoryTest {
                 new int[][]{new int[]{180,189,67},new int[]{103,98,27},new int[]{9,145,5},new int[]{131,230,43},new int[]{246,193,64},new int[]{39,131,220},new int[]{54,59,88},new int[]{235,8,152},new int[]{106,248,20},new int[]{95,61,24},new int[]{241,17,150},new int[]{69,178,192},new int[]{180,106,115},new int[]{191,152,156},new int[]{94,88,218}},
         };
 
-
         // when
-        ImageWrapper<INDArray> image = imageProcessorFactory.getImage(img);
+        ImageWrapper<Mat> image = imageProcessorFactory.getImage(img);
 
         // then
         for (int x = 0; x < width; x++) {
@@ -70,5 +74,6 @@ public class INDArrayFactoryTest {
                 }
             }
         }
+        System.out.println("}");
     }
 }

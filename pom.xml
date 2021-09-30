@@ -25,6 +25,7 @@
         <imagej.version>1.53g</imagej.version>
         <nd4j.version>1.0.0-beta7</nd4j.version>
         <openimaj.version>1.3.10</openimaj.version>
+        <javacv.version>1.5.6</javacv.version>
         <surefire.plugin.version>2.18.1</surefire.plugin.version>
         <h2database.version>1.4.194</h2database.version>
         <postgresql.version>42.0.0</postgresql.version>
@@ -337,6 +338,7 @@
         <module>openimaj</module>
         <module>mesh</module>
         <module>openjfx</module>
+        <module>javacv</module>
     </modules>
 
     <profiles>
