@@ -12,9 +12,9 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="tesseractImageTransformer"
-          class="science.aist.imaging.service.tesseract.imageprocessing.transformers.ByteArrayJavaImageTransformer"/>
+          class="science.aist.imaging.tesseract.imageprocessing.transformers.ByteArrayJavaImageTransformer"/>
     <bean id="tesseractOCR"
-          class="science.aist.imaging.service.tesseract.imageprocessing.opticalcharacterrecognition.tesseract.TesseractOCR"
+          class="science.aist.imaging.tesseract.imageprocessing.opticalcharacterrecognition.tesseract.TesseractOCR"
           destroy-method="close">
         <constructor-arg index="0" value="."/>
         <property name="imageTransformer" ref="tesseractImageTransformer"/>
