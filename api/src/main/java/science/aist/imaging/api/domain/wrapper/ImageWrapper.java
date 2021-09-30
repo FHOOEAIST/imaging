@@ -10,6 +10,7 @@
 package science.aist.imaging.api.domain.wrapper;
 
 import science.aist.imaging.api.domain.color.Color;
+import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactory;
 
 import java.io.Serializable;
 import java.util.stream.IntStream;
@@ -271,6 +272,17 @@ public interface ImageWrapper<I> extends AutoCloseable, Serializable {
         ImageWrapper<X> provide = provider.getImage(getHeight(), getWidth(), getChannelType());
         this.copyTo(provide);
         return provide;
+    }
+
+    /**
+     * Creates a copy with the given type
+     *
+     * @param targetClass type of the copy
+     * @param <X>      type of wrapped image
+     * @return copy of this
+     */
+    default <X> ImageWrapper<X> createCopy(Class<X> targetClass) {
+        return createCopy(ImageFactoryFactory.getImageFactory(targetClass));
     }
 
     /**
