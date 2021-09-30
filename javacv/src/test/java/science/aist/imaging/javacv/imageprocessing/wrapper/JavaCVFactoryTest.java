@@ -7,10 +7,10 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-package science.aist.imaging.nd4j.imageprocessing.wrapper;
+package science.aist.imaging.javacv.imageprocessing.wrapper;
 
-import org.nd4j.linalg.api.ndarray.INDArray;
-import org.nd4j.linalg.factory.Nd4j;
+import org.bytedeco.javacpp.indexer.UByteRawIndexer;
+import org.bytedeco.opencv.opencv_core.Mat;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import science.aist.imaging.api.domain.wrapper.ImageFactory;
@@ -19,30 +19,35 @@ import science.aist.imaging.api.domain.wrapper.implementation.ImageFactoryFactor
 
 import java.util.Random;
 
+import static org.bytedeco.opencv.global.opencv_core.CV_8UC3;
+
 /**
- * <p>Test class for {@link INDArrayFactory}</p>
+ * <p>Test class for {@link JavaCVFactory}</p>
  *
  * @author Christoph Praschl
  * @since 1.1
  */
-public class INDArrayFactoryTest {
+public class JavaCVFactoryTest {
 
     @Test
     public void testGetImage() {
         // given
-        ImageFactory<INDArray> imageProcessorFactory = ImageFactoryFactory.getImageFactory(INDArray.class);
+        ImageFactory<Mat> imageProcessorFactory = ImageFactoryFactory.getImageFactory(Mat.class);
         int width = 10;
         int height = 15;
-        INDArray img = Nd4j.zeros(height, width, 3);
+        Mat img = new Mat(height, width, CV_8UC3);
         Random rand = new Random(768457);
 
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                for (int c = 0; c < 3; c++) {
-                    img.putScalar(new int[]{y, x, c}, rand.nextInt(255));
+        try (UByteRawIndexer indexer = img.createIndexer()) {
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    for (int c = 0; c < 3; c++) {
+                        indexer.put(y, x, c, rand.nextInt(255));
+                    }
                 }
             }
         }
+
 
         int[][][] reference = new int[][][]{
                 new int[][]{new int[]{164,214,202},new int[]{223,210,103},new int[]{52,93,166},new int[]{87,146,68},new int[]{71,194,136},new int[]{99,237,243},new int[]{36,194,185},new int[]{240,158,142},new int[]{73,49,130},new int[]{210,239,245},new int[]{79,198,108},new int[]{93,251,49},new int[]{108,220,78},new int[]{60,157,50},new int[]{45,134,44}},
@@ -59,7 +64,7 @@ public class INDArrayFactoryTest {
 
 
         // when
-        ImageWrapper<INDArray> image = imageProcessorFactory.getImage(img);
+        ImageWrapper<Mat> image = imageProcessorFactory.getImage(img);
 
         // then
         for (int x = 0; x < width; x++) {
