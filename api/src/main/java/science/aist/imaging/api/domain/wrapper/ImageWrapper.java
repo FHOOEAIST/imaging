@@ -280,6 +280,7 @@ public interface ImageWrapper<I> extends AutoCloseable, Serializable {
      * @param targetClass type of the copy
      * @param <X>      type of wrapped image
      * @return copy of this
+     * @since 2.0
      */
     default <X> ImageWrapper<X> createCopy(Class<X> targetClass) {
         return createCopy(ImageFactoryFactory.getImageFactory(targetClass));

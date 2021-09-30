@@ -2,6 +2,14 @@
 
 The changelog should give you a quick overview of what change between the different Seshat versions.
 
+## Version 2.0.0
+
+- [24](https://github.com/FHOOEAIST/imaging/issues/24) - Refactored package names
+- [30](https://github.com/FHOOEAIST/imaging/issues/30) - Added JavaCV support
+- [31](https://github.com/FHOOEAIST/imaging/issues/31) - Added ChannelType.Scale() functionality
+- [34](https://github.com/FHOOEAIST/imaging/issues/34) - Comfort overload for ImageWrapper.createCopy()
+- [35](https://github.com/FHOOEAIST/imaging/issues/35) - Updated OpenCV version based on AistCV 4.5.3
+
 ## Version 1.2.0
 
 ### New Features

@@ -18,6 +18,7 @@ The functionality is separated into two main modules with sub modules, described
  * **api**: Is the base module of the imaging project containing **domain objects** for images, geometric figures (e.g. points, lines, rectangles, ...), color representations and more. Also contains some further functionality as interfaces, transformers and utility classes (e.g. for type checking of images). 
  * **core**: Core consists of basic implementations for image and geometric processing. [See here for a more detailed description...](service/service_core.md )
  * **imagej**: Connector module to [ImageJ](https://imagej.net/)
+ * **javacv**: Connector module to [JavaCV](https://github.com/bytedeco/javacv) 
  * **mesh**: Module containing different mesh processing related things like storing to mesh related file types (.obj, .off, .ply, .stl) or triangulating points
  * **microsoftcognitiveservices**: This module wraps the functionality of Microsoft´s Cognitive Services and is currently used for face detection.
  * **nd4j**: Connector module to [ND4J](https://github.com/deeplearning4j/nd4j)
@@ -50,6 +51,11 @@ In addition to the base `ImageWrapper` there is also a `SubImageWrapper`class, t
 #### OpenCV Module
 
 * `ImageWrapper<Mat>` (`OpenCVFactory`): Represents the interface from our imaging framework to the OpenCV framework (based on the [AistCV](https://github.com/FHOOEAIST/aistcv) wrapper). You can also use the factory's image provider `OpenCVFactory` to create one.
+
+
+#### JavaCV Module
+
+* `ImageWrapper<Mat>` (`JavaCVFactory`): Represents the interface from our imaging framework to the JavaCV framework.
 
 #### ImageJ Module
 

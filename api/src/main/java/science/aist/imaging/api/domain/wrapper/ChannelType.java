@@ -120,6 +120,7 @@ public enum ChannelType {
      * @param oldMin min value of the old range associated with the current value
      * @param oldMax max value of the old range associated with the current value
      * @return pixel value within the current ChannelType definition
+     * @since 2.0
      */
     public double scaleToChannel(double value, int channel, double oldMin, double oldMax) {
         return scaleToChannel(value, oldMin, oldMax, getMinVal(channel), getMaxVal(channel));
@@ -132,6 +133,7 @@ public enum ChannelType {
      * @param newMin min value of the target range associated with the resulting value
      * @param newMax max value of the target range associated with the resulting value
      * @return pixel value within the current ChannelType definition
+     * @since 2.0
      */
     public double scaleFromChannel(double value, int channel, double newMin, double newMax) {
         return scaleToChannel(value, getMinVal(channel), getMaxVal(channel), newMin, newMax);
@@ -145,6 +147,7 @@ public enum ChannelType {
      * @param newMin min value of the new range associated with the resulting value
      * @param newMax max value of the new range associated with the resulting value
      * @return pixel value within the given target range
+     * @since 2.0
      */
     public static double scaleToChannel(double value, double oldMin, double oldMax, double newMin, double newMax) {
         return (((value - oldMin) * (newMax - newMin)) / (oldMax - oldMin)) + newMin;
