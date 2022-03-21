@@ -92,3 +92,11 @@ If you are going to use this project as part of a research paper, we would ask y
 it.
 
 [![DOI](https://zenodo.org/badge/335652633.svg)](https://zenodo.org/badge/latestdoi/335652633)
+
+Additionally, this work was used in the following publications:
+ 
+ - [Pointner, A., Praschl, C., Krauss, O., Schuler, A., Helm, E., & Zwettler, G. (2021). Line Clustering and Contour Extraction in the Context of 2D Building Plans.](https://doi.org/10.24132/csrn.2021.3101.2)
+ - [Praschl, C., Krauss, O., & Zwettler, G. A. (2020). Enabling outdoor MR capabilities for head mounted displays: a case study. International Journal of Simulation and Process Modelling, 15(6), 512-523.](https://doi.org/10.1504/ijspm.2020.112463)
+ - [Praschl, C., Pointner, A., Baumgartner, D., & Zwettler, G. A. (2021). Imaging framework: An interoperable and extendable connector for image-related Java frameworks. SoftwareX, 16, 100863.](https://doi.org/10.1016/j.softx.2021.100863)
+ - [Baumgartner, D., Zucali, T., & Zwettler, G. A. (2020). Hybrid approach for orientation-estimation of rotating humans in video frames acquired by stationary monocular camera.](https://doi.org/10.24132/csrn.2020.3001.5)
+ - [Zwettler, G. A., Praschl, C., Baumgartner, D., Zucali, T., Turk, D., Hanreich, M., & Schuler, A. (2021). Three-step Alignment Approach for Fitting a Normalized Mask of a Person Rotating in A-Pose or T-Pose Essential for 3D Reconstruction based on 2D Images and CGI Derived Reference Target Pose. In VISIGRAPP (5: VISAPP) (pp. 281-292).](https://doi.org/10.5220/0010194102810292)
