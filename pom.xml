@@ -30,7 +30,7 @@
         <h2database.version>1.4.194</h2database.version>
         <postgresql.version>42.0.0</postgresql.version>
         <javax-servlet.version>3.1.0</javax-servlet.version>
-        <spring.version>4.3.7.RELEASE</spring.version>
+        <spring.version>5.3.20</spring.version>
         <spring.web.version>4.3.7.RELEASE</spring.web.version>
         <spring.message.version>4.2.4.RELEASE</spring.message.version>
         <spring-data-jpa.version>1.11.1.RELEASE</spring-data-jpa.version>
