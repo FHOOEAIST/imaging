@@ -45,7 +45,7 @@
         <metadata-extractor.version>2.13.0</metadata-extractor.version>
         <javax-xml-jaxb.version>2.1</javax-xml-jaxb.version>
         <lombok.version>1.18.10</lombok.version>
-        <javax.version>2.3.0</javax.version>
+        <javax.version>2.3.1</javax.version>
         <activation.version>1.1.1</activation.version>
         <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
         <wagon-webdav-jackrabbit.version>3.3.4</wagon-webdav-jackrabbit.version>
