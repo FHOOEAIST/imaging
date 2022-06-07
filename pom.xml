@@ -68,7 +68,7 @@
         <jacoco.plugin.version>0.8.4</jacoco.plugin.version>
         <sonar.java.libraries>${project.build.directory}/dependency</sonar.java.libraries>
         <PointCloudCrust.version>0.1</PointCloudCrust.version>
-        <doxia-module-markdown.version>1.9</doxia-module-markdown.version>
+        <doxia-module-markdown.version>1.11.1</doxia-module-markdown.version>
     </properties>
 
     <scm>
