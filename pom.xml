@@ -65,7 +65,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- sonar variables -->
-        <jacoco.plugin.version>0.8.4</jacoco.plugin.version>
+        <jacoco.plugin.version>0.8.8</jacoco.plugin.version>
         <sonar.java.libraries>${project.build.directory}/dependency</sonar.java.libraries>
         <PointCloudCrust.version>0.1</PointCloudCrust.version>
         <doxia-module-markdown.version>1.9</doxia-module-markdown.version>
