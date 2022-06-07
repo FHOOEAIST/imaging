@@ -44,7 +44,7 @@
         <apache-pdfbox.version>2.0.14</apache-pdfbox.version>
         <metadata-extractor.version>2.13.0</metadata-extractor.version>
         <javax-xml-jaxb.version>2.1</javax-xml-jaxb.version>
-        <lombok.version>1.18.10</lombok.version>
+        <lombok.version>1.18.24</lombok.version>
         <javax.version>2.3.0</javax.version>
         <activation.version>1.1.1</activation.version>
         <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
