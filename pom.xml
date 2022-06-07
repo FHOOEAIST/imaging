@@ -38,7 +38,7 @@
         <hibernate-jpa.version>1.0.0.Final</hibernate-jpa.version>
         <hamcrest.version>1.3</hamcrest.version>
         <testng.version>6.11</testng.version>
-        <mockito.version>3.11.1</mockito.version>
+        <mockito.version>3.12.4</mockito.version>
         <opencv.version>4.5.3</opencv.version>
         <jackson.version>2.7.9</jackson.version>
         <apache-pdfbox.version>2.0.14</apache-pdfbox.version>
