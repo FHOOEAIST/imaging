@@ -56,7 +56,7 @@
         <jdelaunay.version>0.5.3</jdelaunay.version>
 
         <maven-scm-publish-plugin.version>3.0.0</maven-scm-publish-plugin.version>
-        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
 
         <!-- set language level of maven compiler to 1.8 (lambdas) default is 1.5 -->
