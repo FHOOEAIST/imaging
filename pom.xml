@@ -42,7 +42,7 @@
         <opencv.version>4.5.3</opencv.version>
         <jackson.version>2.7.9</jackson.version>
         <apache-pdfbox.version>2.0.14</apache-pdfbox.version>
-        <metadata-extractor.version>2.13.0</metadata-extractor.version>
+        <metadata-extractor.version>2.18.0</metadata-extractor.version>
         <javax-xml-jaxb.version>2.1</javax-xml-jaxb.version>
         <lombok.version>1.18.10</lombok.version>
         <javax.version>2.3.0</javax.version>
